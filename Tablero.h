@@ -1,8 +1,6 @@
 #ifndef TABLERO_H
 #define TABLERO_H
 
-/*Holi*/
-
 #include "Casillero.h"
 
 class Tablero{
