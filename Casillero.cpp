@@ -2,6 +2,8 @@
 
 #include "constantes.h"
 
+//hola xd
+
 Casillero::Casillero(){
 
 	valor = CERO;
