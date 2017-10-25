@@ -14,7 +14,7 @@ class Partida{
 
 		Dificultad* dificultad;
 
-		Lista<Jugador*> ListaDeJugadores;
+		Lista<Jugador*>* listaDeJugadores;
 
 	public:
 
