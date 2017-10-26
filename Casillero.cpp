@@ -2,8 +2,6 @@
 
 #include "constantes.h"
 
-//probando el push
-
 Casillero::Casillero(){
 
 	valor = CERO;
