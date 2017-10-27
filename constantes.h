@@ -12,6 +12,11 @@ const char DESCUBRIR='d';
 const char MARCAR='m';
 const char SALIR='s';
 
+//Niveles de Dificultad
+const char FACIL='f';
+const char MEDIO='m';
+const char DIFICIL='d';
+
 //Estados de los Casilleros
 const int OCULTO=3;
 const int DESCUBIERTO=2;

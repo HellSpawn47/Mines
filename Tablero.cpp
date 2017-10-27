@@ -1,4 +1,5 @@
 #include "Tablero.h"
+#include "constantes.h"
 #include <iostream>
 
 Tablero::Tablero(uint filas, uint columnas){
@@ -22,6 +23,30 @@ void Tablero::inicializar(uint cantidadDeBombas){
 uint Tablero::obtenerValorCasillero(uint fila, uint columna){
 
 	return tablero[fila][columna].getValor();
+
+}
+
+uint Tablero::obtenerEstadoCasillero(uint fila, uint columna){
+
+	return tablero[fila][columna].getEstado();
+
+}
+
+void Tablero::cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado){
+
+	tablero[fila][columna].setEstado(nuevoEstado);
+
+}
+
+void Tablero::marcarCasillero(uint fila, uint columna){
+
+	this->cambiarEstadoCasillero(fila, columna, MARCADO);
+
+}
+
+void Tablero::descubirCasillero(uint fila, uint columna){
+
+	this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
 
 }
 
