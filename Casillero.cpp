@@ -2,8 +2,6 @@
 
 #include "constantes.h"
 
-//hola xd probando
-
 Casillero::Casillero(){
 
 	valor = CERO;
