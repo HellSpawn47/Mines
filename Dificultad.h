@@ -1,6 +1,7 @@
 #ifndef DIFICULTAD_H
 #define DIFICULTAD_H
 
+
 #include "typedefs.h"
 
 class Dificultad{
