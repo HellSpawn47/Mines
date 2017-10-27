@@ -1,17 +1,19 @@
 #ifndef DIFICULTAD_H
 #define DIFICULTAD_H
 
+#include "typedefs.h"
+
 class Dificultad{
 
 	private:
 
-		int cantidadDeBombas;
+		uint cantidadDeBombas;
 
 	public:
 
 		Dificultad(char dificultad);
 
-		int obtenerCantidadDeBombas();
+		uint obtenerCantidadDeBombas();
 
 };
 

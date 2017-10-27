@@ -1,14 +1,15 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
-#include <string>
 
+#include <string>
+#include "typedefs.h"
 class Jugador {
 
 	private:
 
 		std::string nombre;
 
-		unsigned int puntaje;
+		uint puntaje;
 
 		bool sigueJugando;
 
@@ -22,7 +23,7 @@ class Jugador {
 
 		std::string getNombre();
 
-		unsigned int getPuntaje();
+		uint getPuntaje();
 
 		void modificarPuntaje(short int puntos);
 

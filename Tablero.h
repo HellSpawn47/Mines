@@ -2,26 +2,31 @@
 #define TABLERO_H
 
 #include "Casillero.h"
+#include "typedefs.h"
 
 class Tablero{
 
 	private:
 
 		Casillero ** tablero;
+		uint filas;
+		uint columnas;
 
 	public:
 
-		Tablero(int filas, int columnas);
+		Tablero(uint filas,uint columnas);
 
-		int obtenerValorCasillero(int fila, int columna);
+		void inicializar(uint cantidadDeBombas);
 
-		int obtenerEstadoCasillero(int fila, int columna);
+		uint obtenerValorCasillero(uint fila,uint columna);
 
-		void cambiarEstadoCasillero(int fila, int columna);
+		uint obtenerEstadoCasillero(uint fila, uint columna);
 
-		void marcarCasillero(int fila, int columna);
+		void cambiarEstadoCasillero(uint fila, uint columna);
 
-		void descubirCasillero(int fila, int columna);
+		void marcarCasillero(uint fila, uint columna);
+
+		void descubirCasillero(uint fila, uint columna);
 
 		void imprimir();
 
@@ -31,7 +36,6 @@ class Tablero{
 
 		void rellenarConNumeros();
 
-		void
 };
 
 #endif

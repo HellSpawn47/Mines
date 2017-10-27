@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Jugador.h"
 #include "Lista.h"
+#include "Tablero.h"
 using namespace std;
 
 int main(){
 
-	Lista<Jugador*> ListaDeJugadores;
+	/*Lista<Jugador*> ListaDeJugadores;
 	string nombre;
 	Jugador* nuevoJugador;
 	int i = 0;
@@ -23,7 +24,10 @@ int main(){
 	while(ListaDeJugadores.avanzarCursor()){
 		Jugador* jugadorActual = ListaDeJugadores.obtenerCursor();
 		cout << jugadorActual->getNombre() << endl;
-	}
+	}*/
+
+	Tablero tablero(100,100);
+	tablero.imprimir();
 
 	return 0;
 }

@@ -1,13 +1,14 @@
 #include "Dificultad.h"
 
-Dificultad::Dificultad}(int cantidadBombas){
+Dificultad::Dificultad(char dificultad){
 
-	cantidadDeBombas = cantidadBombas;
+	/*Calcular en base a la dificultad f/m/d la cantidad de bombas y asignarla */
+	//cantidadDeBombas = cantidadBombas;
 
 }
 
-int Dificultad::obtenerCantidadDeBombas(){
+uint Dificultad::obtenerCantidadDeBombas(){
 
-	return this->cantidadDeBombas;
-
+//return this->cantidadDeBombas;
+	return 0;
 }

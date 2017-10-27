@@ -21,25 +21,25 @@ void Casillero::marcar(){
 
 }
 
-int Casillero::getValor(){
+uint Casillero::getValor(){
 
 	return valor;
 
 }
 
-int Casillero::getEstado(){
+uint Casillero::getEstado(){
 
 	return estado;
 
 }
 
-void Casillero::setValor(int nuevoValor){
+void Casillero::setValor(uint nuevoValor){
 
 	valor = nuevoValor;
 
 }
 
-void Casillero::setEstado(int nuevoEstado){
+void Casillero::setEstado(uint nuevoEstado){
 
 	estado = nuevoEstado;
 

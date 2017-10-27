@@ -1,12 +1,14 @@
 #ifndef CASILLERO_H
 #define CASILLERO_H
 
+#include "typedefs.h"
+
 class Casillero{
 
 	private:
 
-		int valor;
-		int estado;
+		uint valor;
+		uint estado;
 
 	public:
 
@@ -36,28 +38,28 @@ class Casillero{
 		 * post: Retorna el valor del atributo 'valor'.
 		 *
 		 */
-		int getValor();
+		uint getValor();
 
 		/*
 		 * pre:
 		 * post: Retorna el valor del atributo 'estado'.
 		 *
 		 */
-		int getEstado();
+		uint getEstado();
 
 		/*
 		 * pre: nuevoValor debe ser un numero entero positivo.
 		 * post: Cambia el atributo 'valor' por 'nuevoValor'.
 		 *
 		 */
-		void setValor(int nuevoValor);
+		void setValor(uint nuevoValor);
 
 		/*
 		 * pre: nuevoEstado debe ser un numero entero positivo.
 		 * post: Cambia el atributo 'estado' por 'nuevoEstado'.
 		 *
 		 */
-		void setEstado(int nuevoEstado);
+		void setEstado(uint nuevoEstado);
 
 		/*
 		 * pre:
