@@ -4,8 +4,8 @@
 
 -Integrantes:
     Gonzalo Migueles
-    Nicolas
-    Javier  
+    Nicolas Fandos
+    Javier  Ferreyra
     Nicolas Bertillod
     
 */
