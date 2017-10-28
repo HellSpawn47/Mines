@@ -34,6 +34,8 @@ class Tablero{
 
 		void imprimir();
 
+		~Tablero();
+
 	private:
 
 		void ponerBombasAleatoriamente();

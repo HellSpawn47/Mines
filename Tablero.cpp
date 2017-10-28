@@ -124,3 +124,10 @@ bool Tablero::esPosicionValida(uint fila, uint columna){
 	return (fila >= 0 && columna >= 0 && fila < this->cantidadFilas && columna < this->cantidadColumnas);
 
 }
+
+Tablero::~Tablero() {
+	for (int i=1; i<this->cantidadFilas; i++){
+		delete[] Tablero[i];
+	}
+	delete[] Tablero;
+}
