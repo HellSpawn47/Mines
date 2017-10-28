@@ -4,8 +4,8 @@
 
 Tablero::Tablero(uint filas, uint columnas){
 
-	this->filas = filas;
-	this->columnas = columnas;
+	this->cantidadFilas = filas;
+	this->cantidadColumnas = columnas;
 
 	tablero = new Casillero* [filas];
 
@@ -16,6 +16,7 @@ Tablero::Tablero(uint filas, uint columnas){
 }
 
 void Tablero::inicializar(uint cantidadDeBombas){
+
 
 
 }
@@ -50,10 +51,22 @@ void Tablero::descubirCasillero(uint fila, uint columna){
 
 }
 
+uint Tablero::obtenerCantidadFilas(){
+
+	return this->cantidadFilas;
+
+}
+
+uint Tablero::obtenerCantidadColumnas(){
+
+	return this->cantidadColumnas;
+
+}
+
 void Tablero::imprimir(){
 
-	for(uint i = 0; i < this->filas; i++){
-		for(uint j = 0; j < this->columnas; j++){
+	for(uint i = 0; i < this->cantidadFilas; i++){
+		for(uint j = 0; j < this->cantidadColumnas; j++){
 
 			std::cout << this->obtenerValorCasillero(i, j);
 

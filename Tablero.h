@@ -9,8 +9,8 @@ class Tablero{
 	private:
 
 		Casillero ** tablero;
-		uint filas;
-		uint columnas;
+		uint cantidadFilas;
+		uint cantidadColumnas;
 
 	public:
 
@@ -27,6 +27,10 @@ class Tablero{
 		void marcarCasillero(uint fila, uint columna);
 
 		void descubirCasillero(uint fila, uint columna);
+
+		uint obtenerCantidadFilas();
+
+		uint obtenerCantidadColumnas();
 
 		void imprimir();
 

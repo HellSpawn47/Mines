@@ -1,7 +1,6 @@
 #ifndef DIFICULTAD_H
 #define DIFICULTAD_H
 
-
 #include "typedefs.h"
 
 class Dificultad{
@@ -12,7 +11,7 @@ class Dificultad{
 
 	public:
 
-		Dificultad(char dificultad);
+		Dificultad(uint filas, uint columnas, char dificultad);
 
 		uint obtenerCantidadDeBombas();
 

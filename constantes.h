@@ -2,9 +2,7 @@
 #define CONSTANTS_H
 
 //Cantidades y Constantes
-const int DIMENSION=10;
 const int BOMBA='B';
-const int CANTIDAD_BOMBAS=15;
 const int CERO=0;
 
 //Acciones a tomar en la Partida
@@ -14,7 +12,7 @@ const char SALIR='s';
 
 //Niveles de Dificultad
 const char FACIL='f';
-const char MEDIO='m';
+const char MEDIA='m';
 const char DIFICIL='d';
 
 //Estados de los Casilleros
