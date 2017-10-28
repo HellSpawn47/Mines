@@ -77,3 +77,50 @@ void Tablero::imprimir(){
 
 
 }
+
+void Tablero::ponerBombasAleatoriamente(){
+	/*	setearSemillaRandom();
+		int coordenadaX, coordenadaY;
+		for(int cantBombas = 0; cantBombas < CANTIDAD_BOMBAS; cantBombas++){
+
+			do{
+
+				coordenadaX = numeroAleatorioEntreRango(0, DIMENSION-1);
+				coordenadaY = numeroAleatorioEntreRango(0, DIMENSION-1);
+
+			}while(tablero[coordenadaX][coordenadaY].getValor() == BOMBA);
+
+			tablero[coordenadaX][coordenadaY].setValor(BOMBA);
+		}*/
+	//Eso esta mal,falta hacerlo de forma copada
+}
+
+void Tablero::rellenarConNumeros(){
+	for(int fila = 0; fila < this->cantidadFilas; fila++){
+		for(int columna = 0; columna < this->cantidadColumnas; columna++){
+
+			if(this->obtenerValorCasillero(fila, columna) == BOMBA){
+				rellenarSubMatrizAledaniaBomba(fila, columna);
+			}
+
+		}
+	}
+}
+
+void Tablero::rellenarSubMatrizAledaniaBomba(int fila,int columna){
+	for(int i = fila-1; i <= fila+1; i++){
+		for(int j = columna-1; j <= columna+1; j++){
+
+			if(this->esPosicionValida(i,j) && this->obtenerValorCasillero(fila, columna) != BOMBA){
+				tablero[i][j].incrementarValor();
+			}
+
+		}
+	}
+}
+
+bool Tablero::esPosicionValida(uint fila, uint columna){
+
+	return (fila >= 0 && columna >= 0 && fila < this->cantidadFilas && columna < this->cantidadColumnas);
+
+}
