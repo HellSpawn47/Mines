@@ -6,8 +6,8 @@ Partida::Partida(){
 	/*Pedir dificultad, cantidad de jugadores, filas y columnas*/
 	InteraccionConJugador interactuar;
 
-	filas = interactuar.pedirCantidadFilas();
-	columnas = interactuar.pedirCantidadColumnas();
+	filas = interactuar.pedirCantidad("filas");
+	columnas = interactuar.pedirCantidad("columnas");
 	char nivelDificultad = interactuar.pedirDificultad();
 
 	tablero = new Tablero(filas, columnas);
