@@ -40,6 +40,10 @@ class Tablero{
 
 		void rellenarConNumeros();
 
+		void rellenarSubMatrizAledaniaBomba(int fila,int columna);
+
+		bool esPosicionValida(uint fila, uint columna);
+
 };
 
 #endif

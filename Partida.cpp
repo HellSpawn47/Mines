@@ -2,18 +2,18 @@
 #include "InteraccionConJugador.h"
 
 Partida::Partida(){
-	uint filas = 0, columnas = 0;
+	/*uint filas = 0, columnas = 0;
 	/*Pedir dificultad, cantidad de jugadores, filas y columnas*/
-	InteraccionConJugador interactuar;
+/*	InteraccionConJugador interactuar;
 
-	filas = interactuar.pedirCantidadFilas();
-	columnas = interactuar.pedirCantidadColumnas();
-	dificultad = interactuar.pedirDificultad();
+	filas = interactuar.pedirCantidad("filas");
+	columnas = interactuar.pedirCantidad("columnas");
+	char nivelDificultad = interactuar.pedirDificultad();
 
 	tablero = new Tablero(filas, columnas);
-	dificultad = new Dificultad(dificultad);
+	dificultad = new Dificultad(nivelDificultad);
 	listaDeJugadores = new Lista<Jugador*>;
-
+*/
 
 }
 

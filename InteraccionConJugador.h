@@ -4,23 +4,18 @@
 #include "typedefs.h"
 #include "Jugador.h"
 
+
 class InteraccionConJugador{
 
 	public:
 
-		uint pedirCantidadFilas();
-
-		uint pedirCantidadColumnas();
-
-		uint pedirCantidadBombas();
+		uint pedirCantidad(std::string unaCosa);
 
 		char pedirDificultad();
 
-		uint pedirCantidadJugadores();
+		std::string pedirNombreJugador(uint numero);
 
-		Jugador* pedirNombreJugador();
-
-		char pedirJugada();
+		std::string pedirJugada();
 };
 
 #endif
