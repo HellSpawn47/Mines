@@ -19,6 +19,7 @@ class Partida{
 	public:
 
 		Partida();
+		~Partida();
 
 };
 
