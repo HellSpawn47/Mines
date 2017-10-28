@@ -20,5 +20,4 @@ const int OCULTO=3;
 const int DESCUBIERTO=2;
 const int MARCADO=1;
 
-
 #endif
