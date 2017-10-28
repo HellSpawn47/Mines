@@ -8,10 +8,10 @@ Partida::Partida(){
 
 	filas = interactuar.pedirCantidadFilas();
 	columnas = interactuar.pedirCantidadColumnas();
-	dificultad = interactuar.pedirDificultad();
+	char nivelDificultad = interactuar.pedirDificultad();
 
 	tablero = new Tablero(filas, columnas);
-	dificultad = new Dificultad(dificultad);
+	dificultad = new Dificultad(nivelDificultad);
 	listaDeJugadores = new Lista<Jugador*>;
 
 

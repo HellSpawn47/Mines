@@ -8,19 +8,13 @@ class InteraccionConJugador{
 
 	public:
 
-		uint pedirCantidadFilas();
-
-		uint pedirCantidadColumnas();
-
-		uint pedirCantidadBombas();
+		uint InteraccionConJugador::pedirCantidad(std::string unaCosa);
 
 		char pedirDificultad();
 
-		uint pedirCantidadJugadores();
+		std::string pedirNombreJugador(uint numero);
 
-		Jugador* pedirNombreJugador();
-
-		char pedirJugada();
+		std::string pedirJugada();
 };
 
 #endif
