@@ -4,6 +4,7 @@
 #include "typedefs.h"
 #include "Jugador.h"
 
+
 class InteraccionConJugador{
 
 	public:
