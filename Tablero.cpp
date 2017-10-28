@@ -126,7 +126,7 @@ bool Tablero::esPosicionValida(uint fila, uint columna){
 }
 
 Tablero::~Tablero() {
-	for (int i=1; i<this->cantidadFilas; i++){
+	for (int i=0; i<this->cantidadFilas; i++){
 		delete[] Tablero[i];
 	}
 	delete[] Tablero;
