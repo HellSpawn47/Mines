@@ -9,7 +9,7 @@ class InteraccionConJugador{
 
 	public:
 
-		uint InteraccionConJugador::pedirCantidad(std::string unaCosa);
+		uint pedirCantidad(std::string unaCosa);
 
 		char pedirDificultad();
 

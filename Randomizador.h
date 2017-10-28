@@ -13,7 +13,6 @@ class Randomizador {
 		 */
 		int obtenerNumeroAleatorioEntreRango(int minimo, int maximo);
 
-	private:
 		/*
 		 * pre:
 		 * post: Prepara la semilla para obtenerNumeroAleatorioEntreRango() a partir de la hora.

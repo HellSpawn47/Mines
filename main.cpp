@@ -2,6 +2,7 @@
 #include "Jugador.h"
 #include "Lista.h"
 #include "Tablero.h"
+#include "Randomizador.h"
 using namespace std;
 
 int main(){
@@ -26,8 +27,15 @@ int main(){
 		cout << jugadorActual->getNombre() << endl;
 	}*/
 
-	Tablero tablero(100,100);
-	tablero.imprimir();
+	/*Tablero tablero(100,100);
+	tablero.imprimir();*/
+	Randomizador randomizador;
+	randomizador.setearSemillaRandom();
+	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
+	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
+	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
+	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
+
 
 	return 0;
 }
