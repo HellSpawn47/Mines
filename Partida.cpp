@@ -18,7 +18,8 @@ Partida::Partida(){
 }
 
 Partida::~Partida() {
-	delete Tablero;
+/*	delete Tablero;
 	delete dificultad;
 	delete listaDeJugadores;
+*/
 }
