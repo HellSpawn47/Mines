@@ -45,7 +45,7 @@ class Casillero{
 		void setValor(uint nuevoValor);
 
 		/*
-		 * Pre: nuevoEstado debe ser un numero entero positivo.
+		 * Pre : NuevoEstado debe ser un numero entero positivo.
 		 * Post: Cambia el atributo 'estado' por 'nuevoEstado'.
 		 */
 		void setEstado(uint nuevoEstado);
