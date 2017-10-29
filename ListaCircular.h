@@ -4,10 +4,10 @@
 #include "Nodo.h"
 
 /*
- * Una Lista es una colecci�n din�mica de elementos dispuestos en una secuencia.
+ * Una Lista es una coleccion dinamica de elementos dispuestos en una secuencia.
  *
  * Define operaciones para agregar, remover, acceder y cambiar elementos
- * en cualquier posici�n.
+ * en cualquier posicion.
  *
  * Tiene un cursor que permite recorrer todos los elementos secuencialmente.
  *
@@ -25,100 +25,99 @@ template<class T> class Lista {
     public:
 
         /*
-         * post: Lista vac�a.
+         * Post: Lista vacia.
          */
         Lista();
 
         /*
-         * post: Lista que tiene los mismos elementos que otraLista.
+         * Post: Lista que tiene los mismos elementos que otraLista.
          *       La instancia resulta en una copia de otraLista.
          */
         Lista(Lista<T>& otraLista);
 
         /*
-         * post: indica si la Lista tiene alg�n elemento.
+         * Post: Indica si la Lista tiene algun elemento.
          */
         bool estaVacia();
 
         /*
-         * post: devuelve la cantidad de elementos que tiene la Lista.
+         * Post: Devuelve la cantidad de elementos que tiene la Lista.
          */
         unsigned int contarElementos();
 
         /*
-         * post: agrega el elemento al final de la Lista, en la posici�n:
+         * Post: Agrega el elemento al final de la Lista, en la posicion:
          *       contarElementos() + 1.
          */
         void agregar(T elemento);
 
         /*
-         * pre : posici�n pertenece al intervalo: [1, contarElementos() + 1]
-         * post: agrega el elemento en la posici�n indicada.
-         *
+         * Pre : Posicion pertenece al intervalo: [1, contarElementos() + 1]
+         * Post: Agrega el elemento en la posicion indicada.
          */
         void agregar(T elemento, unsigned int posicion);
 
         /*
-         * post: agrega todos los elementos de otraLista
-         *       a partir de la posici�n contarElementos() + 1.
+         * Post: Agrega todos los elementos de otraLista
+         *       a partir de la posicion contarElementos() + 1.
          */
         void agregar(Lista<T> &otraLista);
 
         /*
-         * pre : posici�n pertenece al intervalo: [1, contarElementos()]
-         * post: devuelve el elemento en la posici�n indicada.
+         * Pre : Posicion pertenece al intervalo: [1, contarElementos()]
+         * Post: Devuelve el elemento en la posici�n indicada.
          */
         T obtener(unsigned int posicion);
 
         /*
-         * pre : posicio� pertenece al intervalo: [1, contarElementos()]
-         * post: cambia el elemento en la posici�n indicada por el
+         * Pre : Posicion pertenece al intervalo: [1, contarElementos()]
+         * Post: cambia el elemento en la posicion indicada por el
          *       elemento dado.
          */
         void asignar(T elemento, unsigned int posicion);
 
         /*
-         * pre : posici�n pertenece al intervalo: [1, contarElementos()]
-         * post: remueve de la Lista el elemento en la posici�n indicada.
+         * Pre : Posicion pertenece al intervalo: [1, contarElementos()]
+         * Post: Remueve de la Lista el elemento en la posicion indicada.
          */
         void remover(unsigned int posicion);
 
         /*
-         * post: deja el cursor de la Lista preparado para hacer un nuevo
+         * Post: Deja el cursor de la Lista preparado para hacer un nuevo
          *       recorrido sobre sus elementos.
          */
         void iniciarCursor();
 
         /*
-         * pre : se ha iniciado un recorrido (invocando el m�todo
+         * Pre : Se ha iniciado un recorrido (invocando el metodo
          *       iniciarCursor()) y desde entonces no se han agregado o
          *       removido elementos de la Lista.
-         * post: mueve el cursor y lo posiciona en el siguiente elemento
+         * Post: Mueve el cursor y lo posiciona en el siguiente elemento
          *       del recorrido.
-         *       El valor de retorno indica si el cursor qued� posicionado
-         *       sobre un elemento o no (en caso de que la Lista est� vac�a o
-         *       no existan m�s elementos por recorrer.)
+         *       El valor de retorno indica si el cursor quedo posicionado
+         *       sobre un elemento o no (en caso de que la Lista esta vacia o
+         *       no existan mas elementos por recorrer.)
          */
         bool avanzarCursor();
 
         /*
-         * pre : el cursor est� posicionado sobre un elemento de la Lista,
-         *       (fue invocado el m�todo avanzarCursor() y devolvi� true)
-         * post: devuelve el elemento en la posici�n del cursor.
+         * Pre : El cursor esta posicionado sobre un elemento de la Lista,
+         *       (fue invocado el metodo avanzarCursor() y devolvio true)
+         * Post: Devuelve el elemento en la posicion del cursor.
          *
          */
         T obtenerCursor();
 
         /*
-         * post: libera los recursos asociados a la Lista.
+         * Post: Libera los recursos asociados a la Lista.
          */
         ~Lista();
 
     private:
 
         /*
-         * pre : posici�n pertenece al intervalo: [1, contarElementos()]
-         * post: devuelve el nodo en la posici�n indicada.
+         * Pre : Posicion pertenece al intervalo: [1, contarElementos()]
+         * Post: Devuelve el nodo en la posicion indicada.
          */
         Nodo<T>* obtenerNodo(unsigned int posicion); // NOTA: primitiva PRIVADA
 };

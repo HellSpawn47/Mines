@@ -17,17 +17,20 @@ class Jugada{
 	public:
 
 		/*
-		 *
+		 * Pre : Recibe la fila que el usuario haya ingresado para realizar una accion.
+		 * Post: Se actualiza la fila por la fila recibida.
 		 */
 		void modificarFila(uint nuevaFila);
 
 		/*
-		 *
+		 * Pre : Recibe la columna que el usuario haya ingresado para realizar una accion.
+		 * Post: Se actualiza la columna por columna recibida.
 		 */
 		void modificarColumna(uint nuevaColumna);
 
 		/*
-		 *
+		 * Pre : Recibe el caracter de accion que el usuario haya ingresado (DESCUBRIR, MARCAR o SALIR).
+		 * Post: Se actualiza la accion por el caracter de accion recibido.
 		 */
 		void modificarAccion(char nuevaAccion);
 

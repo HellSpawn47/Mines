@@ -8,8 +8,10 @@
 using namespace std;
 
 int main(){
+
+	//Se definio el tipo de dato unsigned int como uint
+
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
-	//se definio el tipo de dato unsigned int como uint
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");
 	char dificultad = interactuar->pedirDificultad();
