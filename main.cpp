@@ -9,6 +9,7 @@ using namespace std;
 
 int main(){
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
+	//se definio el tipo de dato unsigned int como uint
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");
 	char dificultad = interactuar->pedirDificultad();
@@ -20,6 +21,7 @@ int main(){
 	uint cantJugadores = interactuar->pedirCantidad("jugadores");
 	partida->agregarJugadores(cantJugadores);
 
+	//inicio de cada jugada
 	do{
 
 		partida->avanzarTurno();
@@ -29,9 +31,11 @@ int main(){
 		partida->actualizarPuntaje(puntaje);
 		partida->imprimirTablero();
 
+
 		cout << "puntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 
-	}while(1);
+	}while( partida->cantidadJugadoresActivos() > 0);
+
 
 	delete interactuar;
 	delete jugada;

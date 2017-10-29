@@ -80,6 +80,18 @@ void Partida::imprimirTablero(){
 
 }
 
+uint Partida::cantidadJugadoresActivos() {
+	Jugador* jugadorActual;
+	uint jugadoresActivos = 0;
+	for (uint i=0; i<listaDeJugadores->contarElementos();i++){
+		jugadorActual = listaDeJugadores->obtener(i);
+		if (jugadorActual->getSigueJugando()){
+			jugadoresActivos++;
+		}
+	}
+	return jugadoresActivos;
+}
+
 Partida::~Partida() {
 	delete tablero;
 	delete dificultad;
