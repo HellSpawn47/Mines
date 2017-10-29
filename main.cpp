@@ -28,14 +28,17 @@ int main(){
 	do{
 
 		partida->avanzarTurno();
-		cout << "Es el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
-		interactuar->pedirJugada(jugada);
-		puntaje = partida->actualizarTablero(jugada);
-		partida->actualizarPuntaje(puntaje);
-		partida->imprimirTablero();
+
+		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
+			cout << "Es el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
+			interactuar->pedirJugada(jugada);
+			puntaje = partida->actualizarTablero(jugada);
+			partida->actualizarPuntaje(puntaje);
+			partida->imprimirTablero();
+			cout << "puntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
+		}
 
 
-		cout << "puntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 
 	}while( partida->continuarPartida() );
 
