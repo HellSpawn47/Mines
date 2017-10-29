@@ -38,11 +38,11 @@ class Tablero{
 
 	private:
 
-		void ponerBombasAleatoriamente();
+		void ponerBombasAleatoriamente(uint cantidadBombas);
 
 		void rellenarConNumeros();
 
-		void rellenarSubMatrizAledaniaBomba(int fila,int columna);
+		void rellenarSubMatrizAledaniaBomba(uint fila,uint columna);
 
 		bool esPosicionValida(uint fila, uint columna);
 

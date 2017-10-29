@@ -27,15 +27,17 @@ int main(){
 		cout << jugadorActual->getNombre() << endl;
 	}*/
 
-	/*Tablero tablero(100,100);
-	tablero.imprimir();*/
-	Randomizador randomizador;
+	Tablero tablero(10,10);
+	tablero.inicializar(15);
+	tablero.imprimir();
+
+	/*Randomizador randomizador;
 	randomizador.setearSemillaRandom();
 	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
 	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
 	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
 	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
-
+	*/
 
 	return 0;
 }

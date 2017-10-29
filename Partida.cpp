@@ -4,9 +4,10 @@
 Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
 	tablero = new Tablero(cantidadFilas, cantidadColumnas);
-	dificultad = new Dificultad(nivelDificultad);
+	dificultad = new Dificultad(cantidadFilas, cantidadColumnas, nivelDificultad);
 	listaDeJugadores = new Lista<Jugador*>;
 	listaDeJugadores->iniciarCursor();
+	jugadorEnTurno = NULL;
 
 	tablero->inicializar(dificultad->obtenerCantidadDeBombas());
 

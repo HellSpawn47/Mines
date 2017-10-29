@@ -2,6 +2,7 @@
 #define RANDOM_H
 #include <cstdlib>
 #include <ctime>
+#include "typedefs.h"
 
 class Randomizador {
 
@@ -11,7 +12,7 @@ class Randomizador {
 		 * post: Calcula un numero entero pseudo-aleatorio entre el rango (minimo, maximo).
 		 *
 		 */
-		int obtenerNumeroAleatorioEntreRango(int minimo, int maximo);
+		uint obtenerNumeroAleatorioEntreRango(uint minimo, uint maximo);
 
 		/*
 		 * pre:

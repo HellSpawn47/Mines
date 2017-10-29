@@ -2,8 +2,8 @@
 
 using namespace std;
 
-int Randomizador::obtenerNumeroAleatorioEntreRango(int minimo, int maximo){
-	int numero=0;
+uint Randomizador::obtenerNumeroAleatorioEntreRango(uint minimo, uint maximo){
+	uint numero=0;
 	numero=(rand()%(maximo+1-minimo))+minimo;
 
 	return numero;

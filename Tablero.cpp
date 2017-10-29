@@ -1,4 +1,5 @@
 #include "Tablero.h"
+#include "Randomizador.h"
 #include "constantes.h"
 #include <iostream>
 
@@ -17,7 +18,9 @@ Tablero::Tablero(uint filas, uint columnas){
 
 void Tablero::inicializar(uint cantidadDeBombas){
 
+	this->ponerBombasAleatoriamente(cantidadDeBombas);
 
+	this->rellenarConNumeros();
 
 }
 
@@ -78,26 +81,29 @@ void Tablero::imprimir(){
 
 }
 
-void Tablero::ponerBombasAleatoriamente(){
-	/*	setearSemillaRandom();
-		int coordenadaX, coordenadaY;
-		for(int cantBombas = 0; cantBombas < CANTIDAD_BOMBAS; cantBombas++){
+void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
+		Randomizador* randomizador = new Randomizador;
+		randomizador->setearSemillaRandom();
+		uint coordenadaX, coordenadaY;
+		for(uint cantBombas = 0; cantBombas < cantidadBombas; cantBombas++){
 
 			do{
 
-				coordenadaX = numeroAleatorioEntreRango(0, DIMENSION-1);
-				coordenadaY = numeroAleatorioEntreRango(0, DIMENSION-1);
+				coordenadaX = randomizador->obtenerNumeroAleatorioEntreRango(0, this->cantidadFilas-1);
+				coordenadaY = randomizador->obtenerNumeroAleatorioEntreRango(0, this->cantidadColumnas-1);
 
 			}while(tablero[coordenadaX][coordenadaY].getValor() == BOMBA);
 
 			tablero[coordenadaX][coordenadaY].setValor(BOMBA);
-		}*/
-	//Eso esta mal,falta hacerlo de forma copada
+		}
+
+		delete randomizador;
+
 }
 
 void Tablero::rellenarConNumeros(){
-	for(int fila = 0; fila < this->cantidadFilas; fila++){
-		for(int columna = 0; columna < this->cantidadColumnas; columna++){
+	for(uint fila = 0; fila < this->cantidadFilas; fila++){
+		for(uint columna = 0; columna < this->cantidadColumnas; columna++){
 
 			if(this->obtenerValorCasillero(fila, columna) == BOMBA){
 				rellenarSubMatrizAledaniaBomba(fila, columna);
@@ -107,9 +113,9 @@ void Tablero::rellenarConNumeros(){
 	}
 }
 
-void Tablero::rellenarSubMatrizAledaniaBomba(int fila,int columna){
-	for(int i = fila-1; i <= fila+1; i++){
-		for(int j = columna-1; j <= columna+1; j++){
+void Tablero::rellenarSubMatrizAledaniaBomba(uint fila,uint columna){
+	for(uint i = fila-1; i <= fila+1; i++){
+		for(uint j = columna-1; j <= columna+1; j++){
 
 			if(this->esPosicionValida(i,j) && this->obtenerValorCasillero(fila, columna) != BOMBA){
 				tablero[i][j].incrementarValor();
@@ -126,8 +132,8 @@ bool Tablero::esPosicionValida(uint fila, uint columna){
 }
 
 Tablero::~Tablero() {
-	for (int i=0; i<this->cantidadFilas; i++){
-		delete[] Tablero[i];
+	for (uint i=0; i<this->cantidadFilas; i++){
+		delete[] tablero[i];
 	}
-	delete[] Tablero;
+	delete[] tablero;
 }
