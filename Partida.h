@@ -16,9 +16,17 @@ class Partida{
 
 		Lista<Jugador*>* listaDeJugadores;
 
+		Jugador* jugadorEnTurno;
+
+
 	public:
 
-		Partida();
+		Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad);
+
+		void agregarJugador(std::string nombre);
+
+		void avanzarTurno();
+
 		~Partida();
 
 };

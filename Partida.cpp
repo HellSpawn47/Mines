@@ -1,19 +1,28 @@
 #include "Partida.h"
 #include "InteraccionConJugador.h"
 
-Partida::Partida(){
-	/*uint filas = 0, columnas = 0;
-	/*Pedir dificultad, cantidad de jugadores, filas y columnas*/
-/*	InteraccionConJugador interactuar;
+Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
-	filas = interactuar.pedirCantidad("filas");
-	columnas = interactuar.pedirCantidad("columnas");
-	char nivelDificultad = interactuar.pedirDificultad();
-
-	tablero = new Tablero(filas, columnas);
+	tablero = new Tablero(cantidadFilas, cantidadColumnas);
 	dificultad = new Dificultad(nivelDificultad);
 	listaDeJugadores = new Lista<Jugador*>;
-*/
+	listaDeJugadores->iniciarCursor();
+
+	tablero->inicializar(dificultad->obtenerCantidadDeBombas());
+
+}
+
+void Partida::agregarJugador(std::string nombre){
+
+	Jugador* nuevoJugador = new Jugador(nombre);
+	listaDeJugadores->agregar(nuevoJugador);
+
+}
+
+void Partida::avanzarTurno(){
+
+	listaDeJugadores->avanzarCursor();
+	jugadorEnTurno = listaDeJugadores->obtenerCursor();
 
 }
 
