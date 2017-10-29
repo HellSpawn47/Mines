@@ -123,6 +123,18 @@ void TableroBMP::completarConBandera(unsigned int fila, unsigned int columna)
 
 }
 
+void TableroBMP::completarCasilleroOculto(unsigned int fila, unsigned int columna)
+{
+	BMP oculto;
+
+	oculto.ReadFromFile("oculta.bmp");
+
+	Rescale(oculto, 'W', this->tamanioPixel);
+	Rescale(oculto, 'H', this->tamanioPixel);
+
+	RangedPixelToPixelCopy(oculto, 0, this->tamanioPixel, 0, this->tamanioPixel, this->tablero, columna * this->tamanioPixel, fila * this->tamanioPixel);
+}
+
 void TableroBMP::imprimirTablero()
 {
 	this->tablero.WriteToFile("tablero.bmp");

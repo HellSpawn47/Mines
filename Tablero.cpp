@@ -1,6 +1,7 @@
 #include "Tablero.h"
 #include "Randomizador.h"
 #include "constantes.h"
+#include "TableroBMP.h"
 #include <iostream>
 
 using namespace std;
@@ -106,33 +107,30 @@ uint Tablero::obtenerCantidadColumnas(){
 
 void Tablero::imprimir(){
 	int marcados = 0;
-	cout<<'\n';
-	cout<<"     0      1      2      3      4      5      6      7      8      9 \n";
-	cout<<"   -----  -----  -----  -----  -----  -----  -----  -----  -----  -----\n";
+	TableroBMP tableroBMP(this->cantidadFilas, this->cantidadColumnas);
+
 	for(int fila = 0; fila < this->cantidadFilas; fila++){
-		cout<<fila;
+
 		for(int columna = 0; columna < this->cantidadColumnas; columna++){
 			if(tablero[fila][columna].getEstado() == OCULTO){
-				cout<<"  |   |";
+				tableroBMP.completarCasilleroOculto(fila, columna);
 			}
 			else if(tablero[fila][columna].getEstado()==MARCADO){
-				cout<<"  | ? |";
+				tableroBMP.completarConBandera(fila, columna);
 				marcados++;
 			}
-			else if(tablero[fila][columna].getValor() == BOMBA){
-				cout<<"  | B |";
-			}
-			else{
-				cout<<"  | "<< tablero[fila][columna].getValor() <<" |";
+			else {
+				tableroBMP.completarConJugada(fila, columna, tablero[fila][columna].getValor());
 			}
 		}
-		cout<<'\n';
-		cout<<"   -----  -----  -----  -----  -----  -----  -----  -----  -----  -----";
-		cout<<'\n';
+
 	}
 	if(marcados>0){
 		cout<<"               Cantidad de Casilleros Marcados: "<<marcados<<endl;
 	}
+
+	tableroBMP.imprimirTablero();
+
 }
 
 void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){

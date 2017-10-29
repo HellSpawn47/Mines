@@ -31,6 +31,8 @@ public:
 
 	void completarConBandera(unsigned int fila, unsigned int columna);
 
+	void completarCasilleroOculto(unsigned int fila, unsigned int columna);
+
 	void imprimirTablero();
 };
 
