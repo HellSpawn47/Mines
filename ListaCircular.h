@@ -219,14 +219,18 @@ template<class T> void Lista<T>::remover(unsigned int posicion) {
 
         Nodo<T>* removido;
 
-        if (posicion == 1) {
+        if (this->contarElementos()==1){
+
+            removido = this->primero();
+            primero = NULL;
+
+        }
+        else if (posicion == 1) {
 
             removido = this->primero;
             this->primero = removido->obtenerSiguiente();
-            if (this->contarElementos()!=1){
-                Nodo<T>* ultimo = obtenerNodo(this->contarElementos());
-                ultimo->cambiarSiguiente(primero);
-            }
+            Nodo<T>* ultimo = obtenerNodo(this->contarElementos());
+            ultimo->cambiarSiguiente(primero);
 
         } else {
 
