@@ -3,7 +3,7 @@
 
 #include "Dificultad.h"
 #include "Tablero.h"
-#include "Lista.h"
+#include "ListaCircular.h"
 #include "Jugador.h"
 
 class Partida{

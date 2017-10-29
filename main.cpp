@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Jugador.h"
-#include "Lista.h"
+#include "ListaCircular.h"
 #include "Tablero.h"
 #include "Randomizador.h"
 using namespace std;
