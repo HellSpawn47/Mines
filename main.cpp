@@ -31,6 +31,7 @@ int main(){
 	tablero.inicializar(15);
 	tablero.imprimir();
 	tablero.descubrirCasillero(0,0);
+	tablero.descubrirCasillero(9,9);
 	tablero.imprimir();
 
 	/*Randomizador randomizador;
