@@ -25,7 +25,8 @@ int main(){
 		interactuar->pedirJugada(jugada);
 		partida->actualizarTablero(jugada);
 		partida->imprimirTablero();
-	}while(1);
+		delete jugada;
+	}while(partida->cantidadJugadoresActivos()>0);
 
 	return 0;
 }
