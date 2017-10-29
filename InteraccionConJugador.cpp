@@ -3,6 +3,18 @@
 
 using namespace std;
 
+void InteraccionConJugador::bienvenida(){
+
+	imprimirMensaje("BIENVENIDO AL BUSCAMINAS");
+	imprimirMensaje("V2.0 - by God Save The Pandas");
+
+}
+
+void InteraccionConJugador::imprimirMensaje(string frase){
+
+	cout<<"\n                 ..::"<<frase<<"::..\n";
+}
+
 uint InteraccionConJugador::pedirCantidad(string unaCosa){
 	uint cantidad = 0;
 

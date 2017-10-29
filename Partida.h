@@ -1,6 +1,7 @@
 #ifndef	PARTIDA_H
 #define	PARTIDA_H
 
+#include <iostream>
 #include "Dificultad.h"
 #include "Tablero.h"
 #include "ListaCircular.h"

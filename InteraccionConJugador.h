@@ -35,6 +35,10 @@ class InteraccionConJugador{
 		 * Post: Devuelve
 		 */
 		void pedirJugada(Jugada* jugada);
+
+		void bienvenida();
+
+		void imprimirMensaje(std::string frase);
 };
 
 #endif

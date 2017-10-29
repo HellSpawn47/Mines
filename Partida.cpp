@@ -1,7 +1,7 @@
 #include "Partida.h"
 #include "InteraccionConJugador.h"
 #include "constantes.h"
-
+using namespace std;
 Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
 	tablero = new Tablero(cantidadFilas, cantidadColumnas);
@@ -25,7 +25,7 @@ void Partida::agregarJugadores(uint cantJugadores){
 	InteraccionConJugador interactuar;
 	for (uint i = 0; i < cantJugadores; i++){
 
-		std::string nombre = interactuar.pedirNombreJugador(i);
+		string nombre = interactuar.pedirNombreJugador(i);
 		this->agregarJugador(nombre);
 
 	}
@@ -52,6 +52,7 @@ int Partida::actualizarTablero(Jugada* jugada){
 
 		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
 			jugadorEnTurno->dejarFueraDeJuego();
+			cout << jugadorEnTurno->getNombre() << " esta fuera de juego" << endl;
 		}
 	}
 	else if(jugada->obtenerAccion() == MARCAR){
