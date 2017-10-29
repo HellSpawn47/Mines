@@ -12,6 +12,8 @@ int main(){
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");
 	char dificultad = interactuar->pedirDificultad();
+	int puntaje = 0;
+	Jugada* jugada = new Jugada;
 
 	Partida* partida = new Partida(filas, columnas, dificultad);
 
@@ -19,12 +21,18 @@ int main(){
 	partida->agregarJugadores(cantJugadores);
 
 	do{
-		Jugada* jugada = new Jugada;
+
 		partida->avanzarTurno();
+		cout << "Es el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
 		interactuar->pedirJugada(jugada);
-		partida->actualizarTablero(jugada);
+		puntaje = partida->actualizarTablero(jugada);
+		partida->actualizarPuntaje(puntaje);
 		partida->imprimirTablero();
+		cout << "puntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
+
 	}while(1);
 
+	delete interactuar;
+	delete jugada;
 	return 0;
 }

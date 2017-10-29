@@ -9,7 +9,7 @@ class Jugador {
 
 		std::string nombre;
 
-		uint puntaje;
+		int puntaje;
 
 		bool sigueJugando;
 
@@ -23,7 +23,7 @@ class Jugador {
 
 		std::string getNombre();
 
-		uint getPuntaje();
+		int getPuntaje();
 
 		void modificarPuntaje(short int puntos);
 

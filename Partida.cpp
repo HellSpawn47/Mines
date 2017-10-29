@@ -45,11 +45,32 @@ Jugador* Partida::obtenerJugadorEnTurno(){
 
 }
 
-void Partida::actualizarTablero(Jugada* jugada){
-
+int Partida::actualizarTablero(Jugada* jugada){
+	int puntaje = 0;
 	if(jugada->obtenerAccion() == DESCUBRIR){
 		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
+
+		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
+			jugadorEnTurno->dejarFueraDeJuego();
+		}
 	}
+	else if(jugada->obtenerAccion() == MARCAR){
+		tablero->marcarCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
+
+		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
+			puntaje += 1;
+		}
+		else{
+			puntaje -=1;
+		}
+	}
+
+	return puntaje;
+}
+
+void Partida::actualizarPuntaje(int puntaje){
+
+	this->jugadorEnTurno->modificarPuntaje(puntaje);
 
 }
 

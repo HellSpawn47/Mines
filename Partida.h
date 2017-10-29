@@ -32,7 +32,9 @@ class Partida{
 
 		Jugador* obtenerJugadorEnTurno();
 
-		void actualizarTablero(Jugada* jugada);
+		int actualizarTablero(Jugada* jugada);
+
+		void actualizarPuntaje(int puntaje);
 
 		void imprimirTablero();
 

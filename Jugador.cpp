@@ -16,7 +16,7 @@ string Jugador::getNombre(){
 
 }
 
-uint Jugador::getPuntaje(){
+int Jugador::getPuntaje(){
 
 	return this->puntaje;
 
