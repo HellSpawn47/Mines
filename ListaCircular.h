@@ -177,18 +177,6 @@ template<class T> void Lista<T>::agregar(T elemento, unsigned int posicion) {
             nodoAnterior->cambiarSiguiente(nuevo);
         }
 
-/*        if (posicion == 1) {
-
-            nuevo->cambiarSiguiente(this->primero);
-            this->primero = nuevo;
-
-        } else {
-
-            Nodo<T>* anterior = this->obtenerNodo(posicion - 1);
-            nuevo->cambiarSiguiente(anterior->obtenerSiguiente());
-            anterior->cambiarSiguiente(nuevo);
-        }
-*/
         this->tamanio++;
 
         /* cualquier recorrido actual queda invalidado */
