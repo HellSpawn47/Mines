@@ -84,17 +84,22 @@ void Tablero::imprimir(){
 void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
 		Randomizador* randomizador = new Randomizador;
 		randomizador->setearSemillaRandom();
-		uint coordenadaX, coordenadaY;
-		for(uint cantBombas = 0; cantBombas < cantidadBombas; cantBombas++){
+		uint posiciones = (this->cantidadFilas * this->cantidadColumnas);
+		uint vectorDePosiciones[posiciones];
 
-			do{
+		for(uint i = 0; i < posiciones; i++){
+			vectorDePosiciones[i] = i;
+		}
 
-				coordenadaX = randomizador->obtenerNumeroAleatorioEntreRango(0, this->cantidadFilas-1);
-				coordenadaY = randomizador->obtenerNumeroAleatorioEntreRango(0, this->cantidadColumnas-1);
+		for (uint i = 0; i < cantidadBombas; i++) {
 
-			}while(tablero[coordenadaX][coordenadaY].getValor() == BOMBA);
+			uint random = randomizador->obtenerNumeroAleatorioEntreRango(0, posiciones - i - 1);
+		    uint posicion = vectorDePosiciones[random];
+		    vectorDePosiciones[random] = vectorDePosiciones[posiciones - i - 1];
+		    uint fila = posicion / (this->cantidadFilas);
+		    uint col = posicion % (this->cantidadColumnas);
+		    this->tablero[fila][col].setValor(BOMBA);
 
-			tablero[coordenadaX][coordenadaY].setValor(BOMBA);
 		}
 
 		delete randomizador;
