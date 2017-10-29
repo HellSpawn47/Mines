@@ -165,7 +165,7 @@ template<class T> void Lista<T>::agregar(T elemento, unsigned int posicion) {
             nuevo->cambiarSiguiente(nuevo);
             this->primero = nuevo;
         }
-        else if (posicion==0){
+        else if (posicion==1){
             Nodo<T>* ultimo = obtenerNodo(this->contarElementos());
             ultimo->cambiarSiguiente(nuevo);
             nuevo->cambiarSiguiente(primero);
