@@ -3,6 +3,8 @@
 #include "constantes.h"
 #include <iostream>
 
+using namespace std;
+
 Tablero::Tablero(uint filas, uint columnas){
 
 	this->cantidadFilas = filas;
@@ -48,10 +50,40 @@ void Tablero::marcarCasillero(uint fila, uint columna){
 
 }
 
-void Tablero::descubirCasillero(uint fila, uint columna){
+void Tablero::descubrirCasillero(uint fila, uint columna){
 
-	this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
+	if(tablero[fila][columna].getValor() == CERO){
+		this->descubrirCasillerosAledaniosVacio(fila, columna);
+	}
+	else{
+		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
+	}
 
+}
+
+int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna){
+
+	if(!esPosicionValida(fila,columna))
+		return 0;
+	if(tablero[fila][columna].getValor() == CERO && tablero[fila][columna].getEstado() == OCULTO){
+
+		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
+
+		for(int i = fila-1; i <= fila+1; i++){
+			for(int j = columna-1; j <= columna+1; j++){
+
+				if(this->descubrirCasillerosAledaniosVacio(i, j)){ //Llamado recursivo.
+					return 1;
+				}
+
+			}
+		}
+	}
+	else{
+		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
+		return 0;
+	}
+	return 0;
 }
 
 uint Tablero::obtenerCantidadFilas(){
@@ -67,18 +99,34 @@ uint Tablero::obtenerCantidadColumnas(){
 }
 
 void Tablero::imprimir(){
-
-	for(uint i = 0; i < this->cantidadFilas; i++){
-		for(uint j = 0; j < this->cantidadColumnas; j++){
-
-			std::cout << this->obtenerValorCasillero(i, j);
-
+	int marcados = 0;
+	cout<<'\n';
+	cout<<"     0      1      2      3      4      5      6      7      8      9 \n";
+	cout<<"   -----  -----  -----  -----  -----  -----  -----  -----  -----  -----\n";
+	for(int fila = 0; fila < this->cantidadFilas; fila++){
+		cout<<fila;
+		for(int columna = 0; columna < this->cantidadColumnas; columna++){
+			if(tablero[fila][columna].getEstado() == OCULTO){
+				cout<<"  |   |";
+			}
+			else if(tablero[fila][columna].getEstado()==MARCADO){
+				cout<<"  | ? |";
+				marcados++;
+			}
+			else if(tablero[fila][columna].getValor() == BOMBA){
+				cout<<"  | B |";
+			}
+			else{
+				cout<<"  | "<< tablero[fila][columna].getValor() <<" |";
+			}
 		}
-		std::cout << '\n';
-
+		cout<<'\n';
+		cout<<"   -----  -----  -----  -----  -----  -----  -----  -----  -----  -----";
+		cout<<'\n';
 	}
-
-
+	if(marcados>0){
+		cout<<"               Cantidad de Casilleros Marcados: "<<marcados<<endl;
+	}
 }
 
 void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
@@ -118,12 +166,13 @@ void Tablero::rellenarConNumeros(){
 	}
 }
 
-void Tablero::rellenarSubMatrizAledaniaBomba(uint fila,uint columna){
-	for(uint i = fila-1; i <= fila+1; i++){
-		for(uint j = columna-1; j <= columna+1; j++){
+void Tablero::rellenarSubMatrizAledaniaBomba(int fila,int columna){
+	for(int i = fila-1; i <= fila+1; i++){
+		for(int j = columna-1; j <= columna+1; j++){
 
-			if(this->esPosicionValida(i,j) && this->obtenerValorCasillero(fila, columna) != BOMBA){
+			if(this->esPosicionValida(i, j) && this->obtenerValorCasillero(i, j) != BOMBA){
 				tablero[i][j].incrementarValor();
+
 			}
 
 		}

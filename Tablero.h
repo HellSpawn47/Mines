@@ -26,7 +26,7 @@ class Tablero{
 
 		void marcarCasillero(uint fila, uint columna);
 
-		void descubirCasillero(uint fila, uint columna);
+		void descubrirCasillero(uint fila, uint columna);
 
 		uint obtenerCantidadFilas();
 
@@ -42,7 +42,9 @@ class Tablero{
 
 		void rellenarConNumeros();
 
-		void rellenarSubMatrizAledaniaBomba(uint fila,uint columna);
+		void rellenarSubMatrizAledaniaBomba(int fila,int columna);
+
+		int descubrirCasillerosAledaniosVacio(int fila,int columna);
 
 		bool esPosicionValida(uint fila, uint columna);
 

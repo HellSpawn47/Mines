@@ -30,6 +30,8 @@ int main(){
 	Tablero tablero(10,10);
 	tablero.inicializar(15);
 	tablero.imprimir();
+	tablero.descubrirCasillero(0,0);
+	tablero.imprimir();
 
 	/*Randomizador randomizador;
 	randomizador.setearSemillaRandom();
