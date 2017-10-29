@@ -19,6 +19,7 @@ int main(){
 	uint cantJugadores = interactuar->pedirCantidad("jugadores");
 	partida->agregarJugadores(cantJugadores);
 
+	//inicio de cada jugada
 	do{
 		Jugada* jugada = new Jugada;
 		partida->avanzarTurno();
