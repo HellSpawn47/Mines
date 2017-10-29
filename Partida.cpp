@@ -46,7 +46,7 @@ Jugador* Partida::obtenerJugadorEnTurno(){
 }
 
 int Partida::actualizarTablero(Jugada* jugada){
-	int puntaje = 0;
+	int puntaje;
 	if(jugada->obtenerAccion() == DESCUBRIR){
 		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
 
@@ -55,16 +55,26 @@ int Partida::actualizarTablero(Jugada* jugada){
 		}
 	}
 	else if(jugada->obtenerAccion() == MARCAR){
+		bool estabaMarcado = (tablero->obtenerEstadoCasillero(jugada->obtenerFila(),jugada->obtenerColumna()) == MARCADO);
 		tablero->marcarCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
 
-		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
-			puntaje += 1;
+		if (tablero->obtenerValorCasillero(jugada->obtenerFila(),jugada->obtenerColumna()) == BOMBA){
+			if (estabaMarcado) {
+				puntaje = -2;
+			}
+			else {
+				puntaje = 1;
+			}
 		}
 		else{
-			puntaje -=1;
+			if (estabaMarcado){
+				puntaje = 2;
+			}
+			else{
+				puntaje = -1;
+			}
 		}
 	}
-
 	return puntaje;
 }
 

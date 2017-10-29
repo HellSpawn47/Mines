@@ -46,8 +46,12 @@ void Tablero::cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado){
 
 void Tablero::marcarCasillero(uint fila, uint columna){
 
-	this->cambiarEstadoCasillero(fila, columna, MARCADO);
-
+	if (this->obtenerEstadoCasillero(fila,columna) == MARCADO){
+		this->cambiarEstadoCasillero(fila,columna,OCULTO);
+	}
+	else{
+		this->cambiarEstadoCasillero(fila, columna, MARCADO);
+	}
 }
 
 void Tablero::descubrirCasillero(uint fila, uint columna){
