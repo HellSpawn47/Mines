@@ -281,12 +281,8 @@ template<class T> T Lista<T>::obtenerCursor() {
 
 template<class T> Lista<T>::~Lista() {
 
-    while (this->primero != NULL) {
-
-        Nodo<T>* aBorrar = this->primero;
-        this->primero = this->primero->obtenerSiguiente();
-
-        delete aBorrar;
+    while (!this->estaVacia()) {
+        remover(1);
     }
 }
 
