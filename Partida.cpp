@@ -1,5 +1,6 @@
 #include "Partida.h"
 #include "InteraccionConJugador.h"
+#include "constantes.h"
 
 Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
@@ -20,6 +21,17 @@ void Partida::agregarJugador(std::string nombre){
 
 }
 
+void Partida::agregarJugadores(uint cantJugadores){
+	InteraccionConJugador interactuar;
+	for (uint i = 0; i < cantJugadores; i++){
+
+		std::string nombre = interactuar.pedirNombreJugador(i);
+		this->agregarJugador(nombre);
+
+	}
+
+}
+
 void Partida::avanzarTurno(){
 
 	listaDeJugadores->avanzarCursor();
@@ -27,9 +39,28 @@ void Partida::avanzarTurno(){
 
 }
 
+Jugador* Partida::obtenerJugadorEnTurno(){
+
+	return this->jugadorEnTurno;
+
+}
+
+void Partida::actualizarTablero(Jugada* jugada){
+
+	if(jugada->obtenerAccion() == DESCUBRIR){
+		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
+	}
+
+}
+
+void Partida::imprimirTablero(){
+
+	tablero->imprimir();
+
+}
+
 Partida::~Partida() {
-/*	delete Tablero;
+	delete tablero;
 	delete dificultad;
 	delete listaDeJugadores;
-*/
 }

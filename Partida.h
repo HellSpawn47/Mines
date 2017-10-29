@@ -5,6 +5,7 @@
 #include "Tablero.h"
 #include "ListaCircular.h"
 #include "Jugador.h"
+#include "Jugada.h"
 
 class Partida{
 
@@ -25,7 +26,15 @@ class Partida{
 
 		void agregarJugador(std::string nombre);
 
+		void agregarJugadores(uint cantJugadores);
+
 		void avanzarTurno();
+
+		Jugador* obtenerJugadorEnTurno();
+
+		void actualizarTablero(Jugada* jugada);
+
+		void imprimirTablero();
 
 		~Partida();
 

@@ -6,7 +6,7 @@ using namespace std;
 uint InteraccionConJugador::pedirCantidad(string unaCosa){
 	uint cantidad = 0;
 
-	cout << "Ingrese la cantidad de" << unaCosa << ": ";
+	cout << "Ingrese la cantidad de " << unaCosa << ": ";
 
 	cin >> cantidad ;
 
@@ -35,13 +35,18 @@ string InteraccionConJugador::pedirNombreJugador(uint numero){
 	return nombre;
 }
 
-string InteraccionConJugador::pedirJugada(){
-	string jugada;
+void InteraccionConJugador::pedirJugada(Jugada* jugada){
+	uint fila, columna;
+	char accion, coma;
+	cout << "Ingrese accion(d/m/s),fila,columna: ";
 
-	cout << "Ingrese accion(m/d/s),fila,columna: ";
+	cin >> accion;
+	cin >> coma;
+	cin >> fila;
+	cin >> coma;
+	cin >> columna;
 
-	cin >> jugada;
-
-	return jugada;
-
+	jugada->modificarFila(fila);
+	jugada->modificarColumna(columna);
+	jugada->modificarAccion(accion);
 }

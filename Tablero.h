@@ -32,6 +32,10 @@ class Tablero{
 
 		uint obtenerCantidadColumnas();
 
+		void descubrirTodasLasBombas();
+
+		bool estanTodosCasillerosDescubiertos();
+
 		void imprimir();
 
 		~Tablero();
@@ -47,6 +51,8 @@ class Tablero{
 		int descubrirCasillerosAledaniosVacio(int fila,int columna);
 
 		bool esPosicionValida(uint fila, uint columna);
+
+
 
 };
 

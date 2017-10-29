@@ -3,6 +3,7 @@
 
 #include "typedefs.h"
 #include "Jugador.h"
+#include "Jugada.h"
 
 
 class InteraccionConJugador{
@@ -15,7 +16,7 @@ class InteraccionConJugador{
 
 		std::string pedirNombreJugador(uint numero);
 
-		std::string pedirJugada();
+		void pedirJugada(Jugada* jugada);
 };
 
 #endif

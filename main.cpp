@@ -3,44 +3,28 @@
 #include "ListaCircular.h"
 #include "Tablero.h"
 #include "Randomizador.h"
+#include "InteraccionConJugador.h"
+#include "Partida.h"
 using namespace std;
 
 int main(){
+	InteraccionConJugador* interactuar = new InteraccionConJugador();
+	uint filas = interactuar->pedirCantidad("filas");
+	uint columnas = interactuar->pedirCantidad("columnas");
+	char dificultad = interactuar->pedirDificultad();
 
-	/*Lista<Jugador*> ListaDeJugadores;
-	string nombre;
-	Jugador* nuevoJugador;
-	int i = 0;
+	Partida* partida = new Partida(filas, columnas, dificultad);
 
-	while (i < 3){
-		cout << "Ingrese el nombre del nuevo Jugador: ";
-		cin >> nombre ;
-		nuevoJugador = new Jugador(nombre);
-		ListaDeJugadores.agregar(nuevoJugador);
-		i++;
-	}
+	uint cantJugadores = interactuar->pedirCantidad("jugadores");
+	partida->agregarJugadores(cantJugadores);
 
-	ListaDeJugadores.iniciarCursor();
-
-	while(ListaDeJugadores.avanzarCursor()){
-		Jugador* jugadorActual = ListaDeJugadores.obtenerCursor();
-		cout << jugadorActual->getNombre() << endl;
-	}*/
-
-	Tablero tablero(10,10);
-	tablero.inicializar(15);
-	tablero.imprimir();
-	tablero.descubrirCasillero(0,0);
-	tablero.descubrirCasillero(9,9);
-	tablero.imprimir();
-
-	/*Randomizador randomizador;
-	randomizador.setearSemillaRandom();
-	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
-	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
-	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
-	cout << randomizador.obtenerNumeroAleatorioEntreRango(0, 5) << endl;
-	*/
+	do{
+		Jugada* jugada = new Jugada;
+		partida->avanzarTurno();
+		interactuar->pedirJugada(jugada);
+		partida->actualizarTablero(jugada);
+		partida->imprimirTablero();
+	}while(1);
 
 	return 0;
 }
