@@ -34,7 +34,7 @@ int main(){
 
 		cout << "puntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 
-	}while( partida->cantidadJugadoresActivos() > 0);
+	}while( partida->continuarPartida() );
 
 
 	delete interactuar;

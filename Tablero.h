@@ -11,6 +11,7 @@ class Tablero{
 		Casillero ** tablero;
 		uint cantidadFilas;
 		uint cantidadColumnas;
+		uint casillerosPorDescubrir;
 
 	public:
 
@@ -37,6 +38,8 @@ class Tablero{
 		bool estanTodosCasillerosDescubiertos();
 
 		void imprimir();
+
+		uint casillerosRestantesPorDescubrir();
 
 		~Tablero();
 

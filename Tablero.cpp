@@ -9,6 +9,7 @@ Tablero::Tablero(uint filas, uint columnas){
 
 	this->cantidadFilas = filas;
 	this->cantidadColumnas = columnas;
+    this->casillerosPorDescubrir = filas*columnas;
 
 	tablero = new Casillero* [filas];
 
@@ -19,6 +20,8 @@ Tablero::Tablero(uint filas, uint columnas){
 }
 
 void Tablero::inicializar(uint cantidadDeBombas){
+
+    this->casillerosPorDescubrir = this->casillerosPorDescubrir - cantidadDeBombas;
 
 	this->ponerBombasAleatoriamente(cantidadDeBombas);
 
@@ -45,7 +48,6 @@ void Tablero::cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado){
 }
 
 void Tablero::marcarCasillero(uint fila, uint columna){
-
 	if (this->obtenerEstadoCasillero(fila,columna) == MARCADO){
 		this->cambiarEstadoCasillero(fila,columna,OCULTO);
 	}
@@ -220,4 +222,8 @@ bool Tablero::estanTodosCasillerosDescubiertos(){
 		}
 	}
 	return true;
+}
+
+uint casillerosRestantesPorDescubrir(){
+    return (this->casillerosPorDescubrir);
 }

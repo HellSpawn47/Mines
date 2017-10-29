@@ -19,7 +19,6 @@ class Partida{
 
 		Jugador* jugadorEnTurno;
 
-
 	public:
 
 		//pre: cantidad de filas del tablero, cantidad de columnas y nivel de dificultad deseado (FACIL, MEDIO, DIFICIL)
@@ -51,6 +50,11 @@ class Partida{
 
 		//post: devuelve la cantidad de jugadores que todavia no perdieron.
 		uint cantidadJugadoresActivos ();
+
+		//post: devuelve si la partida puede continuar
+		bool continuarPartida();
+
+		bool
 
 		~Partida();
 
