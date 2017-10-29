@@ -28,6 +28,7 @@ int main(){
 		puntaje = partida->actualizarTablero(jugada);
 		partida->actualizarPuntaje(puntaje);
 		partida->imprimirTablero();
+
 		cout << "puntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 
 	}while(1);
