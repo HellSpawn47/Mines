@@ -46,7 +46,7 @@ Jugador* Partida::obtenerJugadorEnTurno(){
 }
 
 int Partida::actualizarTablero(Jugada* jugada){
-	int puntaje;
+	int puntaje = 0;
 	if(jugada->obtenerAccion() == DESCUBRIR){
 		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
 
