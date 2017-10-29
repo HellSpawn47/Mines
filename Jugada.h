@@ -5,6 +5,9 @@
 
 class Jugada{
 
+	/*
+	 * Una jugada es
+	 */
 	private:
 
 		uint fila;
@@ -13,12 +16,34 @@ class Jugada{
 
 	public:
 
+		/*
+		 *
+		 */
 		void modificarFila(uint nuevaFila);
+
+		/*
+		 *
+		 */
 		void modificarColumna(uint nuevaColumna);
+
+		/*
+		 *
+		 */
 		void modificarAccion(char nuevaAccion);
 
+		/*
+		 * Post: Devuelve la fila.
+		 */
 		uint obtenerFila();
+
+		/*
+		 * Post: Devuelve la columna.
+		 */
 		uint obtenerColumna();
+
+		/*
+		 * Post: Devuelve el caracter de accion (DESCUBRIR, MARCAR o SALIR).
+		 */
 		char obtenerAccion();
 
 };
