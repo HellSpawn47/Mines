@@ -55,6 +55,8 @@ class Partida{
 		//post: devuelve si la partida puede continuar
 		bool continuarPartida();
 
+		Tablero* getTablero();
+
 		~Partida();
 
 };

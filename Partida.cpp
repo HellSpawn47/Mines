@@ -107,6 +107,12 @@ bool Partida::continuarPartida(){
 	return ((this->tablero->casillerosRestantesPorDescubrir() > 0)&&(this->cantidadJugadoresActivos() > 0));
 }
 
+Tablero* Partida::getTablero(){
+
+	return this->tablero;
+
+}
+
 Partida::~Partida() {
 	delete tablero;
 	delete dificultad;

@@ -39,7 +39,7 @@ int main(){
 
 	}while( partida->continuarPartida() );
 
-
+	partida->getTablero()->descubrirTodasLasBombas();
 	partida->imprimirTablero();
 
 	delete interactuar;
