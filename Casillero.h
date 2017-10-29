@@ -2,7 +2,7 @@
 #define CASILLERO_H
 
 #include "typedefs.h"
-
+//prueba
 class Casillero{
 
 	private:
