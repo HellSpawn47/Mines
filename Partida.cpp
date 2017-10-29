@@ -102,8 +102,8 @@ uint Partida::cantidadJugadoresActivos() {
 	return jugadoresActivos;
 }
 
-bool continuarPartida(){
-	return ((this->tablero->casillerosRestantesPorDescubrir > 0)&&(this->cantidadJugadoresActivos > 0));
+bool Partida::continuarPartida(){
+	return ((this->tablero->casillerosRestantesPorDescubrir() > 0)&&(this->cantidadJugadoresActivos() > 0));
 }
 
 Partida::~Partida() {

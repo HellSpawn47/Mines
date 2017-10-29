@@ -54,8 +54,6 @@ class Partida{
 		//post: devuelve si la partida puede continuar
 		bool continuarPartida();
 
-		bool
-
 		~Partida();
 
 };

@@ -224,6 +224,6 @@ bool Tablero::estanTodosCasillerosDescubiertos(){
 	return true;
 }
 
-uint casillerosRestantesPorDescubrir(){
+uint Tablero::casillerosRestantesPorDescubrir(){
     return (this->casillerosPorDescubrir);
 }
