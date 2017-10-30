@@ -7,7 +7,10 @@
 class Tablero{
 
 	/*
-	 * Un tablero es
+	 * Un tablero es un conjunto de n*m casilleros en el que se desarrollara la partida.
+	 *
+	 * Posee una cantidad n de filas y m de columnas que seran definidos por el usuario al comienzo de la partida, asi como un contador
+	 * de los casilleros restantes por descubrir para que finalice la partida.
 	 */
 	private:
 

@@ -7,7 +7,10 @@
 class Randomizador {
 
 	/*
-	 * El randomizador se utiliza para
+	 * El randomizador es un generador de numeros enteros aleatorios al que se le puede pedir que genere un numero entre cierto rango.
+	 *
+	 * El generador genera numeros a partir de una semilla, que podra ser cambiada en funcion de la hora que tenga la computadora para que
+	 * sea aun mas aleatorio.
 	 */
 	public:
 		/*
