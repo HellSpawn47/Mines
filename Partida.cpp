@@ -42,8 +42,9 @@ void Partida::avanzarTurno(){
 
 	listaDeJugadores->avanzarCursor();
 	jugadorEnTurno = listaDeJugadores->obtenerCursor();
-	turno++;
-
+	if (jugadorEnTurno->getSigueJugando()){
+		turno++;
+	}
 }
 
 Jugador* Partida::obtenerJugadorEnTurno(){

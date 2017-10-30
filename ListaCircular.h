@@ -79,6 +79,10 @@ template<class T> class Lista {
         /*
          * Pre : Posicion pertenece al intervalo: [1, contarElementos()]
          * Post: Remueve de la Lista el elemento en la posicion indicada.
+         * 		 Si el dato en el nodo es un puntero a memoria dinamica
+         * 		 se debe liberar esa memoria previamente. Este metodo
+         * 		 libera unicamente la memoria reservada para el nodo
+         * 		 independientemente de el dato que contenga.
          */
         void remover(unsigned int posicion);
 
