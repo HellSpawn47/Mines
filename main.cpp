@@ -24,6 +24,8 @@ int main(){
 	uint cantJugadores = interactuar->pedirCantidad("jugadores");
 	partida->agregarJugadores(cantJugadores);
 
+	partida->imprimirTablero();
+
 	//inicio de cada jugada
 	do{
 
@@ -31,10 +33,13 @@ int main(){
 
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
 			cout << "Es el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
+
 			interactuar->pedirJugada(jugada);
 			puntaje = partida->actualizarTablero(jugada);
+
 			partida->actualizarPuntaje(puntaje);
 			partida->imprimirTablero();
+
 			cout << "puntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 			cout << "------------------------------------------------------------------" << endl;
 		}
