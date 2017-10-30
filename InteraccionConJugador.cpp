@@ -88,6 +88,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 		}
 
 
+
 	}while ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion)));
 
 	jugada->modificarFila(fila);

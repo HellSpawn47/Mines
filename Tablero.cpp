@@ -197,7 +197,7 @@ void Tablero::rellenarSubMatrizAledaniaBomba(int fila,int columna){
 
 bool Tablero::esPosicionValida(uint fila, uint columna){
 
-	return (fila >= 0 && columna >= 0 && fila < this->cantidadFilas && columna < this->cantidadColumnas);
+	return (fila >= 0 && columna >= 0 && fila < this->cantidadFilas && columna < this->cantidadColumnas && this->obtenerEstadoCasillero(fila,columna)==OCULTO);
 
 }
 
