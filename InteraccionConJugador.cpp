@@ -8,18 +8,18 @@ void InteraccionConJugador::bienvenida(){
 	imprimirBanner();
 	imprimirMensaje("BIENVENIDO AL BUSCAMINAS");
 	imprimirMensaje("V2.0 - by God Save The Pandas");
+	cout << endl;
 
 }
 
 void InteraccionConJugador::imprimirBanner(){
-	cout << "	                                           __ \n";
-	cout << "	 _____                       _            |  |\n";
-	cout << "	| __  |_ _ ___ ___ ___ _____|_|___ ___ ___|  |\n";
-	cout << "	| __ -| | |_ -|  _| .'|     | |   | .'|_ -|__|\n";
-	cout << "	|_____|___|___|___|__,|_|_|_|_|_|_|__,|___|__|\n";
-	cout << "	                                              V2.0\n";
-	cout << "	\n";
-	cout << "	\n";
+	cout << "	                                              __ \n";
+	cout << "	    _____                       _            |  |\n";
+	cout << "	   | __  |_ _ ___ ___ ___ _____|_|___ ___ ___|  |\n";
+	cout << "	   | __ -| | |_ -|  _| .'|     | |   | .'|_ -|__|\n";
+	cout << "	   |_____|___|___|___|__,|_|_|_|_|_|_|__,|___|__|\n";
+	cout << "	                                                 V2.0\n";
+	cout << "\n";
 }
 
 void InteraccionConJugador::imprimirMensaje(string frase){
