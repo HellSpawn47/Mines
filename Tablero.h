@@ -107,8 +107,8 @@ class Tablero{
 		~Tablero();
 
 		/*
-		 * Pre :
-		 * Post:
+		 * Pre : Recibe dos numeros enteros.
+		 * Post: Devuelve si es una posicion valida en el tablero y si no es una jugada que ya se hizo.
 		 */
 		bool esPosicionValida(uint fila, uint columna);
 
