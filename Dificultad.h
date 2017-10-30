@@ -4,8 +4,9 @@
 #include "typedefs.h"
 
 	/*
-	 * Definir Dificultad
-	 *
+	 * La dificultad indicara cuan complicado sera hallar todos los casilleros que no tengan minas. Cuanto mas dificil sea el la partida
+	 * mas minas habrá en el tablero. La cantidad de minas de la partida se definira segun si el jugador quiere que la partida sea
+	 * DIFICIL, MEDIA o FACIL.
 	 */
 class Dificultad{
 

@@ -5,7 +5,8 @@
 class Casillero{
 
 	/*
-	 * Un casillero es
+	 * Un casillero es un segmento del tablero. Puede estar oculto, marcado o descubierto y posee un valor que indica cuantas bombas
+	 * tiene alrededor o si tiene una bomba dentro.
 	 */
 	private:
 
