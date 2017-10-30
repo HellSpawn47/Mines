@@ -11,7 +11,11 @@
 class Partida{
 
 	/*
-	 * Una partida es
+	 * Una partida es el conjunto de jugadas que se van a realizar en un juego para que uno de los jugadores gane o pierda definitivamente.
+	 *
+	 * La partida posee un tablero, que sera modificado a lo largo de la misma y como se genere dependera de la dificultad que los usuarios
+	 * quieran que tenga la partida. La partida tambien tiene una lista de los jugadores que van a participar en el juego y puede controlar
+	 * de quien es el turno.
 	 */
 	private:
 
