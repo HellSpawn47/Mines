@@ -42,15 +42,15 @@ class Tablero{
 		 */
 		uint obtenerEstadoCasillero(uint fila, uint columna);
 
-<<<<<<< HEAD
+
 		Casillero* obtenerCasillero(uint fila, uint columna);
 
-=======
+
 		/*
 		 * Pre :
 		 * Post:
 		 */
->>>>>>> branch 'master' of https://github.com/HellSpawn47/MinesV2.0.git
+
 		void cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado);
 
 		/*
