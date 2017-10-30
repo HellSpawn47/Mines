@@ -135,7 +135,7 @@ template<class T> Lista<T>::Lista(Lista<T>& otraLista) {
     this->tamanio = 0;
     this->cursor = NULL;
 
-    /* copia los elementos de otraLista */
+    /* Copia los elementos de otraLista */
     this->agregar(otraLista);
 }
 
@@ -178,7 +178,7 @@ template<class T> void Lista<T>::agregar(T elemento, unsigned int posicion) {
 
         this->tamanio++;
 
-        /* cualquier recorrido actual queda invalidado */
+        /* Cualquier recorrido actual queda invalidado */
         this->iniciarCursor();
     }
 
@@ -241,7 +241,7 @@ template<class T> void Lista<T>::remover(unsigned int posicion) {
         delete removido;
         this->tamanio--;
 
-        /* cualquier recorrido actual queda invalidado */
+        /* Cualquier recorrido actual queda invalidado */
         this->iniciarCursor();
     }
 }
@@ -262,7 +262,7 @@ template<class T> bool Lista<T>::avanzarCursor() {
         this->cursor = this->cursor->obtenerSiguiente();
     }
 
-    /* pudo avanzar si el cursor ahora apunta a un nodo */
+    /* Pudo avanzar si el cursor ahora apunta a un nodo */
     return (this->cursor != NULL);
 }
 

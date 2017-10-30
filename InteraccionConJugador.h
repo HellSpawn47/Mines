@@ -38,6 +38,8 @@ class InteraccionConJugador{
 
 		void bienvenida();
 
+		void imprimirBanner();
+
 		void imprimirMensaje(std::string frase);
 };
 
