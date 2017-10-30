@@ -6,8 +6,8 @@
 class Jugador {
 
 	/*
-	 * Un jugador es
-	 *
+	 * Un jugador es un participante del juego. Posee un nombre, un puntaje (que inicialmente es CERO), y un atributo que indica
+	 * si esta habilitado para continuar jugando.
 	 */
 	private:
 

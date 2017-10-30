@@ -6,7 +6,8 @@
 class Jugada{
 
 	/*
-	 * Una jugada es
+	 * Una jugada es una acción o intervención de un participante en un juego, en este caso la intervencion del jugador va a ser
+	 * elegir una accion a realizar en el tablero del juego, en que fila y en que columna.
 	 */
 	private:
 
