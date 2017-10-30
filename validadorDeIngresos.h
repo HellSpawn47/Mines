@@ -10,6 +10,12 @@
 
 class Validador{
 
+
+	/*
+	 * El Validador cumple la funcion de verificar si algun dato recibido se corresponde con otro. En este caso el validador
+	 * comprobara que una dificultad recibida sea una de las dificultades constantes, definidas como DIFICIL, MEDIA o FACIL, y tambien
+	 * puede validar que una accion recibida sea una de las acciones constantes, definidas como DESCUBRIR o MARCAR.
+	 */
 public:
 
 	/*
@@ -25,7 +31,6 @@ public:
 	bool esAccionValida (char accion);
 
 };
-
 
 
 #endif /* VALIDADORDEINGRESOS_H_ */
