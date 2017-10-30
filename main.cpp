@@ -42,10 +42,16 @@ int main(){
 
 	}while( partida->continuarPartida() );
 
-	partida->getTablero()->descubrirTodasLasBombas();
+	if(partida->getTablero()->casillerosRestantesPorDescubrir() > 0){
+		partida->getTablero()->descubrirTodasLasBombas();
+	}
+
+	interactuar->imprimirMensaje("Partida Terminada");
+
 	partida->imprimirTablero();
 
 	delete interactuar;
 	delete jugada;
+	delete partida;
 	return 0;
 }
