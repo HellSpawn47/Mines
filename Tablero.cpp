@@ -109,9 +109,9 @@ void Tablero::imprimir(){
 	int marcados = 0;
 	TableroBMP tableroBMP(this->cantidadFilas, this->cantidadColumnas);
 
-	for(int fila = 0; fila < this->cantidadFilas; fila++){
+	for(uint fila = 0; fila < this->cantidadFilas; fila++){
 
-		for(int columna = 0; columna < this->cantidadColumnas; columna++){
+		for(uint columna = 0; columna < this->cantidadColumnas; columna++){
 			if(tablero[fila][columna].getEstado() == OCULTO){
 				tableroBMP.completarCasilleroOculto(fila, columna);
 			}
@@ -209,18 +209,6 @@ void Tablero::descubrirTodasLasBombas(){
 
 }
 
-bool Tablero::estanTodosCasillerosDescubiertos(){
-	for(uint fila = 0; fila < this->cantidadFilas; fila++){
-		for(uint columna = 0; columna < this->cantidadColumnas; columna++){
-
-			if(this->obtenerValorCasillero(fila, columna) != BOMBA && this->obtenerEstadoCasillero(fila,columna) == OCULTO){
-				return false;
-			}
-
-		}
-	}
-	return true;
-}
 
 uint Tablero::casillerosRestantesPorDescubrir(){
     return (this->casillerosPorDescubrir);
