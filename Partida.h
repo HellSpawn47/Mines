@@ -10,6 +10,9 @@
 
 class Partida{
 
+	/*
+	 * Una partida es
+	 */
 	private:
 
 		Tablero* tablero;
@@ -22,41 +25,69 @@ class Partida{
 
 	public:
 
-		//pre: cantidad de filas del tablero, cantidad de columnas y nivel de dificultad deseado (FACIL, MEDIO, DIFICIL)
-		//post: inicia una partida.
+		/* Pre : Recibe cantidad de filas y columnas del tablero que ingreso el jugador por teclado, asi como tambien el nivel
+		 * 		 de dificultad deseado (FACIL, MEDIO, DIFICIL)
+		 * Post: Prepara un tablero de filas por columnas, con una cantidad de bombas que depende de la dificultad recibida y se genera
+		 * 		 una lista de jugadores que van a participar en la partida. Tambien se asigna NULL al "jugadorEnTurno".
+		 */
 		Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad);
 
-		//pre: un nombre
-		//post: agrega el jugador con el nombre indicado
+		/*
+		 * Pre : Recibe el nombre de un jugador para agregarlo a la lista de jugadores.
+		 * Post: Agrega el jugador con el nombre indicado a la lista de jugadores.
+		 */
 		void agregarJugador(std::string nombre);
 
-		//pre: numero mayor a cero.
-		//post: agrega la cantidad de jugadores indicada pidiendo que se ingrese un nombre para cada uno
+		/*
+		 * Pre : Recibe la cantidad de jugadores que van a participar de la partida.
+		 * Post: Agrega la cantidad de jugadores a la lista de jugadores pidiendo que se ingrese un nombre para cada uno.
+		 */
 		void agregarJugadores(uint cantJugadores);
 
-		//post: pasa al siguiente jugador.
+		/*
+		 * Post: Pasa el turno al siguiente jugador.
+		 */
 		void avanzarTurno();
 
-		//post: devuelve el jugador del turno actual.
+		/*
+		 * Post: Devuelve el jugador del turno actual.
+		 */
 		Jugador* obtenerJugadorEnTurno();
 
-		//pre: recibe un puntero a jugada
-		//post: realiza la jugada en el tablero
+		/*
+		 * Pre : Recibe un puntero a la jugada que quiere realizar el jugador.
+		 * Post: Realiza la jugada en el tablero.
+		 */
 		int actualizarTablero(Jugada* jugada);
 
+		/*
+		 * Post: Al jugador que este en turno se le agregan o restan los puntos que correspondan segun los puntos recibidos.
+		 */
 		void actualizarPuntaje(int puntaje);
 
-		//post: imprime por pantalla el tablero en su estado actual.
+		/*
+		 * Post: Imprime por pantalla el tablero en su estado actual.
+		 */
 		void imprimirTablero();
 
-		//post: devuelve la cantidad de jugadores que todavia no perdieron.
+		/*
+		 * Post: Devuelve la cantidad de jugadores que todavia no perdieron.
+		 */
 		uint cantidadJugadoresActivos ();
 
-		//post: devuelve si la partida puede continuar
+		/*
+		 * Post: Devuelve verdadero si la partida puede continuar y falso si es no es el caso.
+		 */
 		bool continuarPartida();
 
+		/*
+		 * Post: Devuelve un puntero al tablero.
+		 */
 		Tablero* getTablero();
 
+		/*
+		 * Post: Libera los recursos pedidos por el tablero, la lista de jugadores y la dificultad.
+		 */
 		~Partida();
 
 };
