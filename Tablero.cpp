@@ -105,6 +105,12 @@ uint Tablero::obtenerCantidadColumnas(){
 
 }
 
+Casillero* Tablero::obtenerCasillero(uint fila, uint columna){
+
+	return &tablero[fila][columna];
+
+}
+
 void Tablero::imprimir(){
 	int marcados = 0;
 	TableroBMP tableroBMP(this->cantidadFilas, this->cantidadColumnas);
@@ -138,19 +144,22 @@ void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
 		Randomizador* randomizador = new Randomizador;
 		randomizador->setearSemillaRandom();
 		uint cantPosiciones = (this->cantidadFilas * this->cantidadColumnas);
-		uint vectorDePosiciones[cantPosiciones];
+		Casillero* vectorDePosiciones[cantPosiciones];
+		uint k = 0;
 
-		for(uint i = 0; i < cantPosiciones; i++){
-			vectorDePosiciones[i] = i;
+		for(uint i = 0; i < this->cantidadFilas; i++){
+			for(uint j = 0; j < this->cantidadColumnas; j++){
+				vectorDePosiciones[k] = this->obtenerCasillero(i,j);
+				k++;
+			}
 		}
 
 		for (uint i = 0; i < cantidadBombas; i++) {
+
 			uint random = randomizador->obtenerNumeroAleatorioEntreRango(0, cantPosiciones - i - 1);
-		    uint posicion = vectorDePosiciones[random];
+		    Casillero* posicion = vectorDePosiciones[random];
 		    vectorDePosiciones[random] = vectorDePosiciones[cantPosiciones - i - 1];
-		    uint fila = posicion / (this->cantidadFilas);
-		    uint col = posicion % (this->cantidadColumnas);
-		    this->tablero[fila][col].setValor(BOMBA);
+		    posicion->setValor(BOMBA);
 
 		}
 

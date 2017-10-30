@@ -23,6 +23,8 @@ class Tablero{
 
 		uint obtenerEstadoCasillero(uint fila, uint columna);
 
+		Casillero* obtenerCasillero(uint fila, uint columna);
+
 		void cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado);
 
 		void marcarCasillero(uint fila, uint columna);
