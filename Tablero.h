@@ -35,8 +35,6 @@ class Tablero{
 
 		void descubrirTodasLasBombas();
 
-		bool estanTodosCasillerosDescubiertos();
-
 		void imprimir();
 
 		uint casillerosRestantesPorDescubrir();

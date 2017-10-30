@@ -134,6 +134,7 @@ void Tablero::imprimir(){
 }
 
 void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
+
 		Randomizador* randomizador = new Randomizador;
 		randomizador->setearSemillaRandom();
 		uint cantPosiciones = (this->cantidadFilas * this->cantidadColumnas);
@@ -144,7 +145,6 @@ void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
 		}
 
 		for (uint i = 0; i < cantidadBombas; i++) {
-
 			uint random = randomizador->obtenerNumeroAleatorioEntreRango(0, cantPosiciones - i - 1);
 		    uint posicion = vectorDePosiciones[random];
 		    vectorDePosiciones[random] = vectorDePosiciones[cantPosiciones - i - 1];
@@ -197,8 +197,8 @@ Tablero::~Tablero() {
 }
 
 void Tablero::descubrirTodasLasBombas(){
-	for(int fila = 0; fila < this->cantidadFilas; fila++){
-		for(int columna = 0; columna < this->cantidadColumnas; columna++){
+	for(uint fila = 0; fila < this->cantidadFilas; fila++){
+		for(uint columna = 0; columna < this->cantidadColumnas; columna++){
 
 			if(this->obtenerValorCasillero(fila, columna) == BOMBA){
 				this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
@@ -210,8 +210,8 @@ void Tablero::descubrirTodasLasBombas(){
 }
 
 bool Tablero::estanTodosCasillerosDescubiertos(){
-	for(int fila = 0; fila < this->cantidadFilas; fila++){
-		for(int columna = 0; columna < this->cantidadColumnas; columna++){
+	for(uint fila = 0; fila < this->cantidadFilas; fila++){
+		for(uint columna = 0; columna < this->cantidadColumnas; columna++){
 
 			if(this->obtenerValorCasillero(fila, columna) != BOMBA && this->obtenerEstadoCasillero(fila,columna) == OCULTO){
 				return false;
