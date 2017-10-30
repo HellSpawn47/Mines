@@ -9,7 +9,12 @@ class InteraccionConJugador{
 
 
 	/*
-	 * La interaccion con el jugador es
+	 * La interaccion con el jugador se utilizara para pedirle que ingrese datos por teclado y mostrarle cosas por pantalla.
+	 *
+	 * Se le puede pedir una cantidad numerica de algo, un caracter para que elija la dificultad, una cadena de caracteres para asignarle
+	 * el nombre a un jugador de la partida y se le puede pedir tambien que ingrese los datos necesarios para realizar una jugada valida.
+	 *
+	 * Tambien posee procesos para imprimir los mensajes de bienvenida a la partida.
 	 */
 	public:
 
