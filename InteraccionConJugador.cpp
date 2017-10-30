@@ -18,7 +18,7 @@ void InteraccionConJugador::imprimirMensaje(string frase){
 uint InteraccionConJugador::pedirCantidad(string unaCosa){
 	uint cantidad = 0;
 
-	cout << "Ingrese la cantidad de " << unaCosa << ": ";
+	cout << "\nIngrese la cantidad de " << unaCosa << ": ";
 
 	cin >> cantidad ;
 
@@ -29,7 +29,7 @@ uint InteraccionConJugador::pedirCantidad(string unaCosa){
 char InteraccionConJugador::pedirDificultad(){
 	char dificultad;
 
-	cout << "Ingrese la dificultad: ";
+	cout << "\nIngrese la dificultad: ";
 
 	cin >> dificultad;
 
@@ -40,7 +40,7 @@ char InteraccionConJugador::pedirDificultad(){
 string InteraccionConJugador::pedirNombreJugador(uint numero){
 	string nombre;
 
-	cout << "Ingrese el nombre del Jugador " << numero << ": ";
+	cout << "\nIngrese el nombre del Jugador " << numero+1<< ": ";
 
 	cin >> nombre;
 
@@ -50,7 +50,7 @@ string InteraccionConJugador::pedirNombreJugador(uint numero){
 void InteraccionConJugador::pedirJugada(Jugada* jugada){
 	uint fila, columna;
 	char accion, coma;
-	cout << "Ingrese accion(d/m/s),fila,columna: ";
+	cout << "\nIngrese accion(d/m/s),fila,columna: ";
 
 	cin >> accion;
 	cin >> coma;

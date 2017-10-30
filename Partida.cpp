@@ -52,7 +52,7 @@ int Partida::actualizarTablero(Jugada* jugada){
 
 		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
 			jugadorEnTurno->dejarFueraDeJuego();
-			cout << jugadorEnTurno->getNombre() << " esta fuera de juego" << endl;
+			cout << jugadorEnTurno->getNombre() << " esta fuera de juego\n" << endl;
 		}
 	}
 	else if(jugada->obtenerAccion() == MARCAR){
