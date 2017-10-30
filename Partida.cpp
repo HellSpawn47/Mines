@@ -117,6 +117,12 @@ Tablero* Partida::getTablero(){
 }
 
 Partida::~Partida() {
+	listaDeJugadores->iniciarCursor();
+	for(uint i=1;i<=listaDeJugadores->contarElementos();i++){
+		listaDeJugadores->avanzarCursor();
+		Jugador* jugadorActual = listaDeJugadores->obtenerCursor();
+		delete jugadorActual;
+	}
 	delete tablero;
 	delete dificultad;
 	delete listaDeJugadores;
