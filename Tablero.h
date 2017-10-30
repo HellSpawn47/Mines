@@ -104,6 +104,12 @@ class Tablero{
 		 */
 		~Tablero();
 
+		/*
+		 * Pre :
+		 * Post:
+		 */
+		bool esPosicionValida(uint fila, uint columna);
+
 	private:
 
 		/*
@@ -130,11 +136,6 @@ class Tablero{
 		 */
 		int descubrirCasillerosAledaniosVacio(int fila,int columna);
 
-		/*
-		 * Pre :
-		 * Post:
-		 */
-		bool esPosicionValida(uint fila, uint columna);
 
 
 

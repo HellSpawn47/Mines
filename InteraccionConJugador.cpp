@@ -1,5 +1,8 @@
 #include "InteraccionConJugador.h"
+#include "validadorDeIngresos.h"
+#include "Partida.h"
 #include <iostream>
+
 
 using namespace std;
 
@@ -40,10 +43,18 @@ uint InteraccionConJugador::pedirCantidad(string unaCosa){
 
 char InteraccionConJugador::pedirDificultad(){
 	char dificultad;
+	Validador validador;
+	do{
 
-	cout << "\nIngrese la dificultad: ";
+		cout << "\nIngrese la dificultad: ";
 
-	cin >> dificultad;
+		cin >> dificultad;
+
+		if (!validador.esDificultadValida(dificultad)){
+			cout << "La dificultad ingresada no es valida, ingrese nuevamente" << endl;
+		}
+
+	}while (!validador.esDificultadValida(dificultad));
 
 	return dificultad;
 
@@ -59,16 +70,25 @@ string InteraccionConJugador::pedirNombreJugador(uint numero){
 	return nombre;
 }
 
-void InteraccionConJugador::pedirJugada(Jugada* jugada){
+void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 	uint fila, columna;
+	Validador validador;
 	char accion, coma;
-	cout << "\nIngrese accion(d/m/s),fila,columna: ";
+	do{
+		cout << "\nIngrese accion(d/m/s),fila,columna: ";
 
-	cin >> accion;
-	cin >> coma;
-	cin >> fila;
-	cin >> coma;
-	cin >> columna;
+		cin >> accion;
+		cin >> coma;
+		cin >> fila;
+		cin >> coma;
+		cin >> columna;
+
+		if ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))){
+				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
+		}
+
+
+	}while ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion)));
 
 	jugada->modificarFila(fila);
 	jugada->modificarColumna(columna);

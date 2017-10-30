@@ -35,7 +35,7 @@ int main(){
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
 			cout << "\nEs el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
 
-			interactuar->pedirJugada(jugada);
+			interactuar->pedirJugada(jugada,partida);
 			puntaje = partida->actualizarTablero(jugada);
 
 			partida->actualizarPuntaje(puntaje);
