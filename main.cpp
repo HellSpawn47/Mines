@@ -9,10 +9,10 @@ using namespace std;
 
 int main(){
 
+	//Se definio el tipo de dato unsigned int como uint
+
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
 	interactuar->bienvenida();
-	//se definio el tipo de dato unsigned int como uint
-
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");
 	char dificultad = interactuar->pedirDificultad();
@@ -26,7 +26,8 @@ int main(){
 
 	partida->imprimirTablero();
 
-	//inicio de cada jugada
+	//Inicio de cada jugada
+
 	do{
 
 		partida->avanzarTurno();

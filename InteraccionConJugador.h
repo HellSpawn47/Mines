@@ -36,8 +36,19 @@ class InteraccionConJugador{
 		 */
 		void pedirJugada(Jugada* jugada);
 
+		/*
+		 * Post: Muestra los mensajes de bienvenida por pantalla.
+		 */
 		void bienvenida();
 
+		/*
+		 * Post: Muestra por pantalla el banner del buscaminas.
+		 */
+		void imprimirBanner();
+
+		/*
+		 * Post: Imprime por pantalla una frase en una linea.
+		 */
 		void imprimirMensaje(std::string frase);
 };
 
