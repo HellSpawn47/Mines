@@ -31,8 +31,7 @@ class InteraccionConJugador{
 		std::string pedirNombreJugador(uint numero);
 
 		/*
-		 * Pre : Recibe
-		 * Post: Devuelve
+		 * Post: Le asigna a la jugada recibida los valores de accion, fila y columna que ingrese el jugador por teclado.
 		 */
 		void pedirJugada(Jugada* jugada);
 

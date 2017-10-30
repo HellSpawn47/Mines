@@ -6,18 +6,18 @@
 
 class Randomizador {
 
+	/*
+	 * El randomizador se utiliza para
+	 */
 	public:
 		/*
-		 * pre: La semilla debe estar inicializada.
-		 * post: Calcula un numero entero pseudo-aleatorio entre el rango (minimo, maximo).
-		 *
+		 * Pre : La semilla debe estar inicializada.
+		 * Post: Calcula un numero entero pseudo-aleatorio entre el rango [minimo..maximo].
 		 */
 		uint obtenerNumeroAleatorioEntreRango(uint minimo, uint maximo);
 
 		/*
-		 * pre:
-		 * post: Prepara la semilla para obtenerNumeroAleatorioEntreRango() a partir de la hora.
-		 *
+		 * Post: Prepara la semilla para obtenerNumeroAleatorioEntreRango() a partir de la hora.
 		 */
 		void setearSemillaRandom();
 
