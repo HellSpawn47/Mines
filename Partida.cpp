@@ -1,6 +1,7 @@
 #include "Partida.h"
 #include "InteraccionConJugador.h"
 #include "constantes.h"
+#include "TableroBMP.h"
 using namespace std;
 Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
@@ -19,9 +20,9 @@ Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad
 	turno = 0;
 }
 
-void Partida::agregarJugador(std::string nombre){
+void Partida::agregarJugador(std::string nombre, uint numeroJugador){
 
-	Jugador* nuevoJugador = new Jugador(nombre);
+	Jugador* nuevoJugador = new Jugador(nombre, numeroJugador);
 	listaDeJugadores->agregar(nuevoJugador);
 
 }
@@ -31,7 +32,7 @@ void Partida::agregarJugadores(uint cantJugadores){
 	for (uint i = 0; i < cantJugadores; i++){
 
 		string nombre = interactuar.pedirNombreJugador(i);
-		this->agregarJugador(nombre);
+		this->agregarJugador(nombre, i+1);
 
 	}
 
@@ -102,6 +103,13 @@ void Partida::actualizarPuntaje(int puntaje){
 void Partida::imprimirTablero(uint turno){
 
 	tablero->imprimir(turno);
+
+}
+
+void Partida::imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion) {
+	TableroBMP puntajes;
+
+	puntajes.imprimirPuntajes(nombreJugador, puntaje, posicion);
 
 }
 

@@ -12,6 +12,8 @@
 #include <iostream>
 #include "EasyBMP.h"
 #include "typedefs.h"
+#include "EasyBMP_Font.h"
+#include "EasyBMP_Geometry.h"
 
 class TableroBMP
 {
@@ -25,6 +27,7 @@ private:
 public:
 
 	TableroBMP(unsigned int filas, unsigned int columnas);
+	TableroBMP();
 
 	void generarTableroInicial();
 
@@ -35,6 +38,8 @@ public:
 	void completarCasilleroOculto(unsigned int fila, unsigned int columna);
 
 	void imprimirTablero(uint turno);
+
+	void imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion);
 };
 
 

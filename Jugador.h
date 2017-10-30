@@ -17,13 +17,15 @@ class Jugador {
 
 		bool sigueJugando;
 
+		uint numeroJugador;
+
 	public:
 
 		/*
-		 * Pre : Recibe el nombre que se le quiera asignar al jugador.
+		 * Pre : Recibe el nombre que se le quiera asignar al jugador y el numero.
 		 * Post: Le asigna al jugador el nombre, se inicializa su puntaje en 0 y sigueJugando en true.
 		 */
-		Jugador(std::string nombre);
+		Jugador(std::string nombre, uint numeroJugador);
 
 		/*
 		 * Post: Devuelve el nombre del jugador.
@@ -50,6 +52,11 @@ class Jugador {
 		 * Post: Inhabilita al usuario para que continue participando en la partida.
 		 */
 		void dejarFueraDeJuego();
+
+		/*
+		 * Post: Devuelve el numero de jugador
+		 */
+		uint getNumeroJugador();
 };
 
 #endif

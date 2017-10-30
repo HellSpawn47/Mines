@@ -2,11 +2,12 @@
 
 using namespace std;
 
-Jugador::Jugador(string nombre){
+Jugador::Jugador(string nombre, uint numeroJugador){
 
 	this->nombre = nombre;
 	this->puntaje = 0;
 	this->sigueJugando = true;
+	this->numeroJugador = numeroJugador;
 
 }
 
@@ -37,5 +38,11 @@ void Jugador::modificarPuntaje(short int puntos){
 void Jugador::dejarFueraDeJuego(){
 
 	this->sigueJugando = false;
+
+}
+
+uint Jugador::getNumeroJugador(){
+
+	return this->numeroJugador;
 
 }

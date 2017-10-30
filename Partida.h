@@ -42,7 +42,7 @@ class Partida{
 		 * Pre : Recibe el nombre de un jugador para agregarlo a la lista de jugadores.
 		 * Post: Agrega el jugador con el nombre indicado a la lista de jugadores.
 		 */
-		void agregarJugador(std::string nombre);
+		void agregarJugador(std::string nombre, uint numeroJugador);
 
 		/*
 		 * Pre : Recibe la cantidad de jugadores que van a participar de la partida.
@@ -96,6 +96,13 @@ class Partida{
 		 */
 
 		int obtenerTurnoActual();
+
+		/*
+		 * Post: Genera un BMP con los puntajes.
+		 */
+
+		void imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion);
+
 		/*
 		 * Post: Devuelve un puntero al tablero.
 		 */

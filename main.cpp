@@ -43,6 +43,7 @@ int main(){
 
 			cout << "\npuntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 			cout << "\n------------------------------------------------------------------" << endl;
+			partida->imprimirPuntajes(partida->obtenerJugadorEnTurno()->getNombre(), partida->obtenerJugadorEnTurno()->getPuntaje(), partida->obtenerJugadorEnTurno()->getNumeroJugador());
 		}
 
 
