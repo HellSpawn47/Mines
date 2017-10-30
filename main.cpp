@@ -24,7 +24,7 @@ int main(){
 	uint cantJugadores = interactuar->pedirCantidad("jugadores");
 	partida->agregarJugadores(cantJugadores);
 
-	partida->imprimirTablero();
+	partida->imprimirTablero(1);
 
 	//Inicio de cada jugada
 
@@ -39,7 +39,7 @@ int main(){
 			puntaje = partida->actualizarTablero(jugada);
 
 			partida->actualizarPuntaje(puntaje);
-			partida->imprimirTablero();
+			partida->imprimirTablero(partida->obtenerTurnoActual());
 
 			cout << "\npuntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 			cout << "\n------------------------------------------------------------------" << endl;
@@ -54,7 +54,7 @@ int main(){
 
 	interactuar->imprimirMensaje("Partida Terminada");
 
-	partida->imprimirTablero();
+	partida->imprimirTablero(partida->obtenerTurnoActual());
 
 	delete interactuar;
 	delete jugada;

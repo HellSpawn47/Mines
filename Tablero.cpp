@@ -114,7 +114,7 @@ Casillero* Tablero::obtenerCasillero(uint fila, uint columna){
 
 }
 
-void Tablero::imprimir(){
+void Tablero::imprimir(uint turno){
 	int marcados = 0;
 	TableroBMP tableroBMP(this->cantidadFilas, this->cantidadColumnas);
 
@@ -138,7 +138,7 @@ void Tablero::imprimir(){
 		cout<<"               Cantidad de Casilleros Marcados: "<<marcados<<endl;
 	}
 
-	tableroBMP.imprimirTablero();
+	tableroBMP.imprimirTablero(turno);
 
 }
 

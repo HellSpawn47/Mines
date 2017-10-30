@@ -27,6 +27,8 @@ class Partida{
 
 		Jugador* jugadorEnTurno;
 
+		uint turno;
+
 	public:
 
 		/* Pre : Recibe cantidad de filas y columnas del tablero que ingreso el jugador por teclado, asi como tambien el nivel
@@ -77,7 +79,7 @@ class Partida{
 		/*
 		 * Post: Imprime por pantalla el tablero en su estado actual.
 		 */
-		void imprimirTablero();
+		void imprimirTablero(uint turno);
 
 		/*
 		 * Post: Devuelve la cantidad de jugadores que todavia no perdieron.
@@ -89,6 +91,11 @@ class Partida{
 		 */
 		bool continuarPartida();
 
+		/*
+		 * Post: Devuelve el turno actual.
+		 */
+
+		int obtenerTurnoActual();
 		/*
 		 * Post: Devuelve un puntero al tablero.
 		 */

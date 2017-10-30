@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "EasyBMP.h"
+#include "typedefs.h"
 
 class TableroBMP
 {
@@ -33,7 +34,7 @@ public:
 
 	void completarCasilleroOculto(unsigned int fila, unsigned int columna);
 
-	void imprimirTablero();
+	void imprimirTablero(uint turno);
 };
 
 

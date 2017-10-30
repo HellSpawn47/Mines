@@ -94,7 +94,7 @@ class Tablero{
 		/*
 		 * Post: Crea un archivo bmp que muestra el estado del tablero, los jugadores y su puntaje.
 		 */
-		void imprimir();
+		void imprimir(uint turno);
 
 		/*
 		 * Post: Devuelve la cantidad de casilleros que faltan descubrir para que termine la partida.

@@ -6,6 +6,10 @@
  */
 
 #include "TableroBMP.h"
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 TableroBMP::TableroBMP(unsigned int filas, unsigned int columnas)
 {
@@ -135,9 +139,20 @@ void TableroBMP::completarCasilleroOculto(unsigned int fila, unsigned int column
 	RangedPixelToPixelCopy(oculto, 0, this->tamanioPixel, 0, this->tamanioPixel, this->tablero, columna * this->tamanioPixel, fila * this->tamanioPixel);
 }
 
-void TableroBMP::imprimirTablero()
+void TableroBMP::imprimirTablero(uint turno)
 {
-	this->tablero.WriteToFile("tablero.bmp");
+	string rtn, ruta;
+	char* nombreBMP;
+
+	for(rtn="";turno>0;rtn.insert(rtn.begin(),turno%10+'0'),turno/=10);
+
+    ruta += "tablero-partida1-turno";
+    ruta += rtn;
+    ruta += ".bmp";
+
+    nombreBMP = (char *)ruta.c_str();
+
+	this->tablero.WriteToFile(nombreBMP);
 }
 
 

@@ -15,6 +15,8 @@ Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad
 	jugadorEnTurno = NULL;
 
 	tablero->inicializar(dificultad->obtenerCantidadDeBombas());
+
+	turno = 0;
 }
 
 void Partida::agregarJugador(std::string nombre){
@@ -39,6 +41,7 @@ void Partida::avanzarTurno(){
 
 	listaDeJugadores->avanzarCursor();
 	jugadorEnTurno = listaDeJugadores->obtenerCursor();
+	turno++;
 
 }
 
@@ -96,9 +99,9 @@ void Partida::actualizarPuntaje(int puntaje){
 
 }
 
-void Partida::imprimirTablero(){
+void Partida::imprimirTablero(uint turno){
 
-	tablero->imprimir();
+	tablero->imprimir(turno);
 
 }
 
@@ -116,6 +119,10 @@ uint Partida::cantidadJugadoresActivos() {
 
 bool Partida::continuarPartida(){
 	return ((this->tablero->casillerosRestantesPorDescubrir() > 0)&&(this->cantidadJugadoresActivos() > 0));
+}
+
+int Partida::obtenerTurnoActual(){
+	return this->turno;
 }
 
 Tablero* Partida::getTablero(){
