@@ -59,6 +59,11 @@ class Partida{
 		Jugador* obtenerJugadorEnTurno();
 
 		/*
+		 * Post: devuelve el puntaje que le corresponde a la jugada.
+		 */
+		int calcularPuntajeDeJugada(Jugada* jugada);
+
+		/*
 		 * Pre : Recibe un puntero a la jugada que quiere realizar el jugador.
 		 * Post: Realiza la jugada en el tablero.
 		 */

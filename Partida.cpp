@@ -48,10 +48,32 @@ Jugador* Partida::obtenerJugadorEnTurno(){
 
 }
 
+int Partida::calcularPuntajeDeJugada(Jugada* jugada){
+
+	bool hayBomba = (this->tablero->obtenerValorCasillero(jugada->obtenerFila(),jugada->obtenerColumna()) == BOMBA);
+	bool estabaMarcado = (this->tablero->obtenerEstadoCasillero(jugada->obtenerFila(),jugada->obtenerColumna()) == MARCADO);
+	char accion = jugada->obtenerAccion();
+
+	if (hayBomba && estabaMarcado && (accion == MARCAR || accion == DESCUBRIR)){
+		return -2;
+	}
+	else if (!hayBomba && estabaMarcado && (accion == MARCAR || accion == DESCUBRIR)){
+		return 2;
+	}
+	else if (accion == MARCAR && hayBomba && !estabaMarcado){
+		return 1;
+	}
+	else if (accion == MARCAR && !hayBomba && !estabaMarcado){
+		return -1;
+	}
+	return 0;
+}
+
 int Partida::actualizarTablero(Jugada* jugada){
 
-	int puntaje = 0;
-	bool estabaMarcado = (tablero->obtenerEstadoCasillero(jugada->obtenerFila(),jugada->obtenerColumna()) == MARCADO);
+	int puntaje;
+
+	puntaje = calcularPuntajeDeJugada(jugada);
 
 	if(jugada->obtenerAccion() == DESCUBRIR){
 		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
@@ -59,34 +81,12 @@ int Partida::actualizarTablero(Jugada* jugada){
 		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
 			jugadorEnTurno->dejarFueraDeJuego();
 			cout << jugadorEnTurno->getNombre() << " esta fuera de juego\n" << endl;
-			if (estabaMarcado){
-				puntaje = -2;
-			}
-		}
-		else if (estabaMarcado){
-			puntaje = 2;
 		}
 	}
 	else if(jugada->obtenerAccion() == MARCAR){
 		tablero->marcarCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
-
-		if (tablero->obtenerValorCasillero(jugada->obtenerFila(),jugada->obtenerColumna()) == BOMBA){
-			if (estabaMarcado) {
-				puntaje = -2;
-			}
-			else {
-				puntaje = 1;
-			}
-		}
-		else{
-			if (estabaMarcado){
-				puntaje = 2;
-			}
-			else{
-				puntaje = -1;
-			}
-		}
 	}
+
 	return puntaje;
 }
 
