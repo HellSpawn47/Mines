@@ -32,13 +32,13 @@ void Tablero::inicializar(uint cantidadDeBombas){
 
 uint Tablero::obtenerValorCasillero(uint fila, uint columna){
 
-	return tablero[fila][columna].getValor();
+	return this->obtenerCasillero(fila, columna)->getValor();
 
 }
 
 uint Tablero::obtenerEstadoCasillero(uint fila, uint columna){
 
-	return tablero[fila][columna].getEstado();
+	return this->obtenerCasillero(fila, columna)->getEstado();
 
 }
 
@@ -48,7 +48,7 @@ void Tablero::cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado){
 		this->casillerosPorDescubrir--;
 	}
 
-	tablero[fila][columna].setEstado(nuevoEstado);
+	this->obtenerCasillero(fila, columna)->setEstado(nuevoEstado);
 }
 
 void Tablero::marcarCasillero(uint fila, uint columna){
@@ -62,7 +62,7 @@ void Tablero::marcarCasillero(uint fila, uint columna){
 
 void Tablero::descubrirCasillero(uint fila, uint columna){
 
-	if(tablero[fila][columna].getValor() == CERO){
+	if(this->obtenerCasillero(fila, columna)->getValor() == CERO){
 		this->descubrirCasillerosAledaniosVacio(fila, columna);
 	}
 	else{
@@ -75,7 +75,7 @@ int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna){
 
 	if(!esPosicionValida(fila,columna))
 		return 0;
-	if(tablero[fila][columna].getValor() == CERO && tablero[fila][columna].getEstado() == OCULTO){
+	if(this->obtenerCasillero(fila, columna)->getValor() == CERO && this->obtenerCasillero(fila, columna)->getEstado() == OCULTO){
 
 		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
 
@@ -121,15 +121,15 @@ void Tablero::imprimir(){
 	for(uint fila = 0; fila < this->cantidadFilas; fila++){
 
 		for(uint columna = 0; columna < this->cantidadColumnas; columna++){
-			if(tablero[fila][columna].getEstado() == OCULTO){
+			if(this->obtenerCasillero(fila, columna)->getEstado() == OCULTO){
 				tableroBMP.completarCasilleroOculto(fila, columna);
 			}
-			else if(tablero[fila][columna].getEstado()==MARCADO){
+			else if(this->obtenerCasillero(fila, columna)->getEstado()==MARCADO){
 				tableroBMP.completarConBandera(fila, columna);
 				marcados++;
 			}
 			else {
-				tableroBMP.completarConJugada(fila, columna, tablero[fila][columna].getValor());
+				tableroBMP.completarConJugada(fila, columna, this->obtenerCasillero(fila, columna)->getValor());
 			}
 		}
 
@@ -187,7 +187,7 @@ void Tablero::rellenarSubMatrizAledaniaBomba(int fila,int columna){
 		for(int j = columna-1; j <= columna+1; j++){
 
 			if(this->esPosicionValida(i, j) && this->obtenerValorCasillero(i, j) != BOMBA){
-				tablero[i][j].incrementarValor();
+				this->obtenerCasillero(fila, columna)->incrementarValor();
 
 			}
 
