@@ -1,5 +1,6 @@
 #include "Dificultad.h"
 #include "constantes.h"
+#include <math.h>
 
 Dificultad::Dificultad(uint filas, uint columnas, char dificultad){
 
@@ -14,7 +15,7 @@ Dificultad::Dificultad(uint filas, uint columnas, char dificultad){
 	else if(dificultad == DIFICIL)
 		coeficienteProporcion = 0.25;
 
-	cantidadBombas = filas * columnas * coeficienteProporcion;
+	cantidadBombas = ceil(filas * columnas * coeficienteProporcion);
 
 	cantidadDeBombas = cantidadBombas;
 
