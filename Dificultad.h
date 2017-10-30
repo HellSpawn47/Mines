@@ -4,7 +4,7 @@
 #include "typedefs.h"
 
 	/*
-	 * Definir Dificultad
+	 * La dificultad es
 	 *
 	 */
 class Dificultad{
