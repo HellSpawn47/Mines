@@ -44,8 +44,11 @@ uint Tablero::obtenerEstadoCasillero(uint fila, uint columna){
 
 void Tablero::cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado){
 
-	tablero[fila][columna].setEstado(nuevoEstado);
+	if(this->obtenerValorCasillero(fila, columna) != BOMBA && nuevoEstado == DESCUBIERTO){
+		this->casillerosPorDescubrir--;
+	}
 
+	tablero[fila][columna].setEstado(nuevoEstado);
 }
 
 void Tablero::marcarCasillero(uint fila, uint columna){
