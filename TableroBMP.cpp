@@ -34,7 +34,7 @@ void TableroBMP::generarTableroInicial ()
 {
 	BMP otraImagen;
 
-	otraImagen.ReadFromFile("oculta.bmp");
+	otraImagen.ReadFromFile("./images/oculta.bmp");
 
 	Rescale(otraImagen, 'W', this->tamanioPixel);
 	Rescale(otraImagen, 'H', this->tamanioPixel);
@@ -59,52 +59,52 @@ void TableroBMP::completarConJugada(unsigned int fila, unsigned int columna, uns
 	{
 		case 1:
 
-			imagen.ReadFromFile("uno.bmp");
+			imagen.ReadFromFile("./images/uno.bmp");
 			break;
 
 		case 2:
 
-			imagen.ReadFromFile("dos.bmp");
+			imagen.ReadFromFile("./images/dos.bmp");
 			break;
 
 		case 3:
 
-			imagen.ReadFromFile("tres.bmp");
+			imagen.ReadFromFile("./images/tres.bmp");
 			break;
 
 		case 4:
 
-			imagen.ReadFromFile("cuatro.bmp");
+			imagen.ReadFromFile("./images/cuatro.bmp");
 			break;
 
 		case 5:
 
-			imagen.ReadFromFile("cinco.bmp");
+			imagen.ReadFromFile("./images/cinco.bmp");
 			break;
 
 		case 6:
 
-			imagen.ReadFromFile("seis.bmp");
+			imagen.ReadFromFile("./images/seis.bmp");
 			break;
 
 		case 7:
 
-			imagen.ReadFromFile("siete.bmp");
+			imagen.ReadFromFile("./images/siete.bmp");
 			break;
 
 		case 8:
 
-			imagen.ReadFromFile("ocho.bmp");
+			imagen.ReadFromFile("./images/ocho.bmp");
 			break;
 
 		case 'B':
 
-			imagen.ReadFromFile("mina.bmp");
+			imagen.ReadFromFile("./images/mina.bmp");
 			break;
 
 		default:
 
-			imagen.ReadFromFile("descubierta.bmp");
+			imagen.ReadFromFile("./images/descubierta.bmp");
 			break;
 	}
 
@@ -119,7 +119,7 @@ void TableroBMP::completarConBandera(unsigned int fila, unsigned int columna)
 {
 	BMP bandera;
 
-	bandera.ReadFromFile("bandera.bmp");
+	bandera.ReadFromFile("./images/bandera.bmp");
 
 	Rescale(bandera, 'W', this->tamanioPixel);
 	Rescale(bandera, 'H', this->tamanioPixel);
@@ -132,7 +132,7 @@ void TableroBMP::completarCasilleroOculto(unsigned int fila, unsigned int column
 {
 	BMP oculto;
 
-	oculto.ReadFromFile("oculta.bmp");
+	oculto.ReadFromFile("./images/oculta.bmp");
 
 	Rescale(oculto, 'W', this->tamanioPixel);
 	Rescale(oculto, 'H', this->tamanioPixel);
