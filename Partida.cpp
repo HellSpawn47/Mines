@@ -2,6 +2,7 @@
 #include "InteraccionConJugador.h"
 #include "constantes.h"
 #include "TableroBMP.h"
+#include "PuntajesBMP.h"
 using namespace std;
 Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
@@ -108,7 +109,7 @@ void Partida::imprimirTablero(uint turno){
 }
 
 void Partida::imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion) {
-	TableroBMP puntajes;
+	PuntajesBMP puntajes;
 
 	puntajes.imprimirPuntajes(nombreJugador, puntaje, posicion);
 
