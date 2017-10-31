@@ -39,9 +39,9 @@ void TableroBMP::generarTableroInicial ()
 	Rescale(otraImagen, 'W', this->tamanioPixel);
 	Rescale(otraImagen, 'H', this->tamanioPixel);
 
-	for (int i = 0; i < (this->tamanioPixel * this->alto) + 1; i = i + this->tamanioPixel)
+	for (uint i = 0; i < (this->tamanioPixel * this->alto) + 1; i = i + this->tamanioPixel)
 	{
-		for (int j = 0; j < (this->tamanioPixel * this->ancho) + 1; j = j + this->tamanioPixel)
+		for (uint j = 0; j < (this->tamanioPixel * this->ancho) + 1; j = j + this->tamanioPixel)
 		{
 			RangedPixelToPixelCopy(otraImagen,0,this->tamanioPixel,0,this->tamanioPixel,this->tablero,j,i);
 		}
