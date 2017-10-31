@@ -8,7 +8,6 @@ const int CERO=0;
 //Acciones a tomar en la Partida
 const char DESCUBRIR='d';
 const char MARCAR='m';
-const char SALIR='s';
 
 //Niveles de Dificultad
 const char FACIL='f';
