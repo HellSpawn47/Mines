@@ -7,6 +7,10 @@
 
 template<class T> class Nodo {
 
+	/*
+	 * Un Nodo que es uno de los elementos que componen una lista, este tiene un dato y está conectado al siguiente
+	 * elemento de la lista.
+	 */
     private:
 
         T dato;
