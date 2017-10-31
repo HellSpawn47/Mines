@@ -7,6 +7,10 @@
 
 template<class T> class Nodo {
 
+	/*
+	 * Un Nodo que es uno de los elementos que componen una lista, este tiene un dato y está conectado al siguiente
+	 * elemento de la lista.
+	 */
     private:
 
         T dato;
@@ -16,7 +20,7 @@ template<class T> class Nodo {
     public:
 
         /*
-         * post: el Nodo resulta inicializado con el dato dado
+         * Post: El Nodo resulta inicializado con el dato dado
          *       y sin un Nodo siguiente.
          */
         Nodo(T dato) {
@@ -26,7 +30,7 @@ template<class T> class Nodo {
         }
 
         /*
-         * post: devuelve el valor del dato.
+         * Post: Devuelve el valor del dato.
          */
         T obtenerDato() {
 
@@ -34,7 +38,7 @@ template<class T> class Nodo {
         }
 
         /*
-         * post: cambia el valor del dato.
+         * Post: Cambia el valor del dato.
          */
         void cambiarDato(T nuevoDato) {
 
@@ -42,7 +46,7 @@ template<class T> class Nodo {
         }
 
         /*
-         * post: devuelve el siguiente Nodo.
+         * Post: Devuelve el siguiente Nodo.
          */
         Nodo<T>* obtenerSiguiente() {
 
@@ -50,7 +54,7 @@ template<class T> class Nodo {
         }
 
         /*
-         * post: cambia el siguiente Nodo por nuevoSiguiente.
+         * Post: Cambia el siguiente Nodo por nuevoSiguiente.
          */
         void cambiarSiguiente(Nodo<T>* nuevoSiguiente) {
 
