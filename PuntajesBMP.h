@@ -14,6 +14,9 @@
 #include "EasyBMP_Font.h"
 #include "EasyBMP_Geometry.h"
 
+/*
+ * Un PuntajesBMP es una imagen que representa los puntajes de los jugadores en la partida.
+ */
 class PuntajesBMP
 {
 private:
@@ -22,8 +25,14 @@ private:
 
 public:
 
+	/*
+	 * post: Crea una imagen vacia que se utilizara para mostrar los puntajes de cada jugador
+	 */
 	PuntajesBMP();
 
+	/*
+	 * post: Actualiza el puntaje del jugador ingresado en "nombreJugador" en el BMP.
+	 */
 	void imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion);
 
 };

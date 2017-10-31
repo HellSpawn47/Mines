@@ -35,16 +35,33 @@ public:
 	 * pos: prepara una BMP que se utilizara para mostrar el estado del tablero
 	 */
 	TableroBMP(unsigned int filas, unsigned int columnas);
-	TableroBMP();
 
+	/*
+	 * post: Guarda una imagen BMP con el tablero inicial
+	 */
 	void generarTableroInicial();
 
+	/*
+	 * pre: recibe como parametros la fila, columna y el valor de la jugada a actualizar en el tablero
+	 * post: actualiza el tablero segun los parametros ingresados
+	 */
 	void completarConJugada(unsigned int fila, unsigned int columna, unsigned int valor);
 
+	/*
+	 * pre: recibe como entrada la fila y columna donde se ha marcado una bandera
+	 * post: actualiza el BMP con la bandera segun fila y columna
+	 */
 	void completarConBandera(unsigned int fila, unsigned int columna);
 
+	/*
+	 * pre: recibe como entrada la fila y columna del casillero oculto
+	 * post: actualiza el BMP con un casillero oculto segun fila y columna
+	 */
 	void completarCasilleroOculto(unsigned int fila, unsigned int columna);
 
+	/*
+	 * post: genera un archivo BMP segun el turno ingresado
+	 */
 	void imprimirTablero(uint turno);
 
 };
