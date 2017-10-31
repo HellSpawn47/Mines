@@ -7,6 +7,7 @@
 #include "ListaCircular.h"
 #include "Jugador.h"
 #include "Jugada.h"
+#include "PuntajesBMP.h"
 
 class Partida{
 
@@ -101,7 +102,7 @@ class Partida{
 		 * Post: Genera un BMP con los puntajes.
 		 */
 
-		void imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion);
+		void imprimirPuntajes(PuntajesBMP* puntajes, std::string nombreJugador, int puntaje, uint posicion);
 
 		/*
 		 * Post: Devuelve un puntero al tablero.

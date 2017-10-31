@@ -108,10 +108,9 @@ void Partida::imprimirTablero(uint turno){
 
 }
 
-void Partida::imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion) {
-	PuntajesBMP puntajes;
+void Partida::imprimirPuntajes(PuntajesBMP* puntajes, std::string nombreJugador, int puntaje, uint posicion) {
 
-	puntajes.imprimirPuntajes(nombreJugador, puntaje, posicion);
+	puntajes->imprimirPuntajes(nombreJugador, puntaje, posicion);
 
 }
 

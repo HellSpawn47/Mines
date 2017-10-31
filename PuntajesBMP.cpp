@@ -12,13 +12,20 @@
 using namespace std;
 
 PuntajesBMP::PuntajesBMP(){
-	this->puntaje.SetSize(800,600);
+
 	SetEasyBMPwarningsOff();
+
+	this->puntaje.ReadFromFile("puntajes.bmp");
+
+	this->puntaje.SetSize(800,600);
+
+	this->puntaje.WriteToFile("puntajes.bmp");
+
 }
 
 void PuntajesBMP::imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion)
 {
-	BMP puntajes;
+	//BMP puntajes;
 	RGBApixel colorFuente;
 	char* mensajeFinal;
 	string mensaje, rtn, simbolo = "";
@@ -26,13 +33,7 @@ void PuntajesBMP::imprimirPuntajes(std::string nombreJugador, int puntaje, uint 
 
 	colorFuente.Red = 255, colorFuente.Alpha = 0, colorFuente.Blue = 0, colorFuente.Green = 0;
 
-	if (!puntajes.ReadFromFile("puntajes.bmp"))
-	{
-		puntajes.SetSize(800,600);
-		puntajes.WriteToFile("puntajes.bmp");
-	}
-
-	puntajes.ReadFromFile("puntajes.bmp");
+	this->puntaje.ReadFromFile("puntajes.bmp");
 
 	if (puntaje < 0)
 	{
@@ -55,9 +56,9 @@ void PuntajesBMP::imprimirPuntajes(std::string nombreJugador, int puntaje, uint 
 
 	mensajeFinal = (char *)mensaje.c_str();
 
-	PrintString(puntajes, mensajeFinal, 5, posicion*15, 12, colorFuente);
+	PrintString(this->puntaje, mensajeFinal, 5, posicion*15, 12, colorFuente);
 
-	puntajes.WriteToFile("puntajes.bmp");
+	this->puntaje.WriteToFile("puntajes.bmp");
 
 
 }

@@ -21,6 +21,8 @@ int main(){
 
 	Partida* partida = new Partida(filas, columnas, dificultad);
 
+	PuntajesBMP* puntajes = new PuntajesBMP;
+
 	uint cantJugadores = interactuar->pedirCantidad("jugadores");
 	partida->agregarJugadores(cantJugadores);
 
@@ -43,7 +45,7 @@ int main(){
 
 			cout << "\npuntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
 			cout << "\n------------------------------------------------------------------" << endl;
-			partida->imprimirPuntajes(partida->obtenerJugadorEnTurno()->getNombre(), partida->obtenerJugadorEnTurno()->getPuntaje(), partida->obtenerJugadorEnTurno()->getNumeroJugador());
+			partida->imprimirPuntajes(puntajes, partida->obtenerJugadorEnTurno()->getNombre(), partida->obtenerJugadorEnTurno()->getPuntaje(), partida->obtenerJugadorEnTurno()->getNumeroJugador());
 		}
 
 
@@ -60,5 +62,6 @@ int main(){
 	delete interactuar;
 	delete jugada;
 	delete partida;
+	delete puntajes;
 	return 0;
 }
