@@ -75,7 +75,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 	Validador validador;
 	char accion, coma;
 	do{
-		cout << "\nIngrese accion(d/m/s),fila,columna: ";
+		cout << "\nIngrese accion(d/m),fila,columna: ";
 
 		cin >> accion;
 		cin >> coma;
