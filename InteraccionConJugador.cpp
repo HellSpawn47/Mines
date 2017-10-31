@@ -83,6 +83,8 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 		cin >> coma;
 		cin >> columna;
 
+		fila--;
+		columna--;
 		if ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))){
 				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
 		}
