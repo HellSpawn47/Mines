@@ -26,12 +26,12 @@ private:
 public:
 
 	/*
-	 * post: Crea una imagen vacia que se utilizara para mostrar los puntajes de cada jugador
+	 * Post: Crea una imagen vacia que se utilizara para mostrar los puntajes de cada jugador
 	 */
 	PuntajesBMP();
 
 	/*
-	 * post: Actualiza el puntaje del jugador ingresado en "nombreJugador" en el BMP.
+	 * Post: Actualiza el puntaje del jugador ingresado en "nombreJugador" en el BMP.
 	 */
 	void imprimirPuntajes(std::string nombreJugador, int puntaje, uint posicion);
 
