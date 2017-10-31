@@ -114,6 +114,10 @@ void Partida::imprimirPuntajes(PuntajesBMP* puntajes, std::string nombreJugador,
 
 }
 
+Lista<Jugador*>* Partida::obtenerListaDeJugadores(){
+	return this->listaDeJugadores;
+}
+
 uint Partida::cantidadJugadoresActivos() {
 	Jugador* jugadorActual;
 	uint jugadoresActivos = 0;

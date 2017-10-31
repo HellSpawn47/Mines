@@ -101,8 +101,12 @@ class Partida{
 		/*
 		 * Post: Genera un BMP con los puntajes.
 		 */
-
 		void imprimirPuntajes(PuntajesBMP* puntajes, std::string nombreJugador, int puntaje, uint posicion);
+
+		/*
+		 * Post: Devuelve la lista de jugadores.
+		 */
+		Lista<Jugador*>* obtenerListaDeJugadores();
 
 		/*
 		 * Post: Devuelve un puntero al tablero.
