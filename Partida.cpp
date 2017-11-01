@@ -108,12 +108,6 @@ void Partida::imprimirTablero(uint turno){
 
 }
 
-void Partida::imprimirPuntajes(PuntajesBMP* puntajes, std::string nombreJugador, int puntaje, uint posicion) {
-
-	puntajes->imprimirPuntajes(nombreJugador, puntaje, posicion);
-
-}
-
 Lista<Jugador*>* Partida::obtenerListaDeJugadores(){
 	return this->listaDeJugadores;
 }
