@@ -31,8 +31,9 @@ void PuntajesBMP::imprimirPuntajes(Lista<Jugador*>* jugador, unsigned int turno)
 	Jugador* jugadorAux = NULL;
 	char* mensajeFinal, *rutaBMP;
 	string mensaje, rtn, simbolo = "", nombreBMP;
+	uint j;
 
-	colorFuente.Red = 255, colorFuente.Alpha = 0, colorFuente.Blue = 0, colorFuente.Green = 0;
+	colorFuente.Red = 255; colorFuente.Alpha = 0; colorFuente.Blue = 0; colorFuente.Green = 0;
 
     //Genero el nombre que tendra el BMP
     for(rtn="";turno>0;rtn.insert(rtn.begin(),turno%10+'0'),turno/=10);
@@ -42,6 +43,22 @@ void PuntajesBMP::imprimirPuntajes(Lista<Jugador*>* jugador, unsigned int turno)
     nombreBMP += ".bmp";
 
     rutaBMP = (char *)nombreBMP.c_str();
+
+    while (this->puntaje.ReadFromFile(rutaBMP))
+    {
+    	j = 0;
+    	j++;
+        nombreBMP = "puntajes-turno";
+        nombreBMP += rtn;
+        nombreBMP += "_";
+        for(rtn="";j>0;rtn.insert(rtn.begin(),j%10+'0'),j/=10);
+        nombreBMP += rtn;
+        nombreBMP += ".bmp";
+
+        rutaBMP = (char *)nombreBMP.c_str();
+    }
+
+    this-puntaje.SetSize(800,600);
 
     for (int i = 1; i < jugador->contarElementos()+1; i++)
     {
