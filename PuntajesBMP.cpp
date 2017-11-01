@@ -16,11 +16,7 @@ PuntajesBMP::PuntajesBMP(){
 
 	SetEasyBMPwarningsOff();
 
-	this->puntaje.ReadFromFile("puntajes.bmp");
-
 	this->puntaje.SetSize(800,600);
-
-	this->puntaje.WriteToFile("puntajes.bmp");
 
 }
 
