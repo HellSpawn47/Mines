@@ -58,9 +58,9 @@ void PuntajesBMP::imprimirPuntajes(Lista<Jugador*>* jugador, unsigned int turno)
         rutaBMP = (char *)nombreBMP.c_str();
     }
 
-    this-puntaje.SetSize(800,600);
+    this->puntaje.SetSize(800,600);
 
-    for (int i = 1; i < jugador->contarElementos()+1; i++)
+    for (uint i = 1; i < jugador->contarElementos()+1; i++)
     {
     	jugadorAux = jugador->obtener(i);
 
