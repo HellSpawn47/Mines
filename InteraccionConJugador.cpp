@@ -10,7 +10,7 @@ void InteraccionConJugador::bienvenida(){
 
 	imprimirBanner();
 	imprimirMensaje("BIENVENIDO AL BUSCAMINAS");
-	imprimirMensaje("V2.0 - by God Save The Pandas");
+	imprimirMensaje("V3.0 - by God Save The Pandas");
 	cout << endl;
 
 }
