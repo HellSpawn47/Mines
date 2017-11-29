@@ -1,14 +1,17 @@
 #include <iostream>
+
+#include "EstadoDePartida.h"
 #include "Jugador.h"
-#include "ListaCircular.h"
 #include "Tablero.h"
 #include "Randomizador.h"
 #include "InteraccionConJugador.h"
 #include "Partida.h"
+#include "ArbolDeEstados.h"
+
 using namespace std;
 
 int main(){
-
+/*
 	//Se definio el tipo de dato unsigned int como uint
 
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
@@ -63,5 +66,22 @@ int main(){
 	delete jugada;
 	delete partida;
 	delete puntajes;
+
+	*/
+
+	EstadoDePartida estado;
+	ArbolDeEstados arbol(estado);
+
+	estado.agregarPosicionDescubierta(4,5);
+	EstadoDePartida otroEstado;
+
+	otroEstado.agregarPosicionDescubierta(7,6);
+	cout << "1" << endl;
+	arbol.agregar(otroEstado);
+	cout << "2" << endl;
+
+	cout << arbol.obtenerSenialador()->obtenerEstado().obtenerPosicionesDescubiertas()->fila << endl;
+
+
 	return 0;
 }
