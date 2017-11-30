@@ -77,7 +77,7 @@ void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* i
 	cantidadRehacer = this->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
 	char accion;
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
-	//xd
+
 	do{
 		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
 			    " turnos y \n" << "rehacer hasta " << cantidadRehacer << " turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
