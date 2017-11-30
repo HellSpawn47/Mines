@@ -28,6 +28,7 @@ void EstadoDePartida::agregarPosicionInteractuada(uint fila, uint columna, char 
 
 	arrayAuxiliar[tope-1] = nuevaPosicion;
 
+	delete posicionesDescubiertas;
 	posicionesDescubiertas = arrayAuxiliar;
 
 	/*
