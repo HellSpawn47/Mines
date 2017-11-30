@@ -101,7 +101,7 @@ int Partida::actualizarTablero(Jugada* jugada,EstadoDePartida* estado){
 	return puntaje;
 }
 
-int Partida::actualizarTableroDeshaciendoJugada(EstadoDePartida* estado){
+int Partida::volverAlFuturo(EstadoDePartida* estado,char accion){
 	int costeDeshacer = -3;
 	Posicion* posicionesADeshacer=estado->obtenerPosicionesDescubiertas();
 	uint tope=estado->obtenerTope();
@@ -109,28 +109,17 @@ int Partida::actualizarTableroDeshaciendoJugada(EstadoDePartida* estado){
 		tablero->cambiarEstadoCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna,posicionesADeshacer[i].estadoDePosicion);
 	}
 	if (estado->obtenerJugadorEliminado()){
-		Jugador* jugadorARevivir = estado->obtenerJugadorEliminado();
-		jugadorARevivir->revivirJugador();
+		Jugador* jugadorAModificar = estado->obtenerJugadorEliminado();
+		if (accion == DESHACER){
+			jugadorAModificar->revivirJugador();
+		}else if (accion == REHACER){
+			jugadorAModificar->dejarFueraDeJuego();
+			cout << jugadorAEliminar->getNombre() << " esta fuera de juego\n" << endl;
+		}
 	}
 
 	//Coste en puntos de deshacer una Jugada
 	return costeDeshacer;
-}
-
-
-int Partida::actualizarTableroRehaciendoJugada(EstadoDePartida* estado){
-	int costeRehacer = -3;
-	Posicion* posicionesARehacer=estado->obtenerPosicionesDescubiertas();
-	uint tope=estado->obtenerTope();
-	for (uint i=0; i<tope; i++){
-		tablero->cambiarEstadoCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna,posicionesADeshacer[i].estadoDePosicion);
-	}
-	if (estado->obtenerJugadorEliminado()){
-		Jugador* jugadorAEliminar = estado->obtenerJugadorEliminado();
-		jugadorAEliminar->dejarFueraDeJuego();
-		cout << jugadorAEliminar->getNombre() << " esta fuera de juego\n" << endl;
-	}
-	return costeRehacer;
 }
 
 void Partida::actualizarPuntaje(int puntaje){
