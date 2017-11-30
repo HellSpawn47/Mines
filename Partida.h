@@ -69,6 +69,12 @@ class Partida{
 		int calcularPuntajeDeJugada(Jugada* jugada);
 
 		/*
+		 * Pre:
+		 * Post:
+		 */
+		void eliminarJugador();
+
+		/*
 		 * Pre : Recibe un puntero a la jugada que quiere realizar el jugador y al estado de la partida.
 		 * Post: Realiza la jugada en el tablero y modifica el estado de la partida segun los cambios hechos en el turno.
 		 */

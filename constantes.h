@@ -10,6 +10,7 @@ const char ABRIR='a';
 const char MARCAR='m';
 const char DESHACER='d';
 const char REHACER='r';
+const char SALIR='s';
 
 //Niveles de Dificultad
 const char FACIL='f';

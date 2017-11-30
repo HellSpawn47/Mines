@@ -95,6 +95,7 @@ int main(){
 	delete jugada;
 	delete partida;
 	delete puntajes;
+	delete arbol;
 
 
 	/*EstadoDePartida estado;

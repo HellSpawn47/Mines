@@ -79,19 +79,27 @@ int Partida::calcularPuntajeDeJugada(Jugada* jugada){
 	return 0;
 }
 
+void Partida::eliminarJugador(){
+	jugadorEnTurno->dejarFueraDeJuego();
+	cout << jugadorEnTurno->getNombre() << " esta fuera de juego\n" << endl;
+}
+
+
+
 int Partida::actualizarTablero(Jugada* jugada,EstadoDePartida* estado){
 
 	int puntaje;
 
 	puntaje = calcularPuntajeDeJugada(jugada);
-
-	if(jugada->obtenerAccion() == ABRIR){
+	if (jugada->obtenerAccion() == SALIR){
+		this->eliminarJugador();
+	}
+	else if(jugada->obtenerAccion() == ABRIR){
 		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna(),estado);
 
 		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
-			jugadorEnTurno->dejarFueraDeJuego();
+			this->eliminarJugador();
 			estado->agregarJugadorEliminado(jugadorEnTurno);
-			cout << jugadorEnTurno->getNombre() << " esta fuera de juego\n" << endl;
 		}
 	}
 	else if(jugada->obtenerAccion() == MARCAR){

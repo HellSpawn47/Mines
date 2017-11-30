@@ -25,6 +25,6 @@ bool Validador::verificarSiNo(char accion){
 }
 
 bool Validador::verificarDeshacerRehacerOSalir(char accion){
-	return (accion='s')||(accion==DESHACER)||(accion==REHACER);
+	return (accion=SALIR)||(accion==DESHACER)||(accion==REHACER);
 }
 

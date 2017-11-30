@@ -107,7 +107,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 	//a: Abrir, m: Marcar.
 	if (accion=='n' || puntajeJugadorEnTurno < 3){
 		do{
-			cout << "\nIngrese accion(a/m),fila,columna: ";
+			cout << "\nIngrese accion(a/m/s),fila,columna: ";
 			cin >> accion;
 			cin >> coma;
 			cin >> fila;
@@ -118,9 +118,11 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 			if ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))){
 					cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
 			}
-		}while ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion)));
-		jugada->modificarFila(fila);
-		jugada->modificarColumna(columna);
+		}while (((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))) && (accion!=SALIR));
+		if (accion!=SALIR){
+			jugada->modificarFila(fila);
+			jugada->modificarColumna(columna);
+		}
 	}
 	//d: Deshacer la jugada anterior, r: Rehacer jugada, s: Dejar de deshacer o rehacer.
 	/*else {
