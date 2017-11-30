@@ -67,18 +67,9 @@ int main(){
 				puntajes->imprimirPuntajes(partida->obtenerListaDeJugadores(), partida->obtenerTurnoActual());
 
 			}
-			/*if (jugada->obtenerAccion() == ABRIR || jugada->obtenerAccion() == MARCAR){
-				arbol->agregar();
-				estado=arbol->obtenerSenialador()->obtenerEstado();
-				puntaje = partida->actualizarTablero(jugada,estado);
-			}
-			else{
-				//arbol->modificarSenialador(jugada->obtenerAccion(),partida);
-			}*/
-
 		}
 
-	partida->avanzarTurno();
+		partida->avanzarTurno();
 
 
 	}while( partida->continuarPartida() );
@@ -97,20 +88,5 @@ int main(){
 	delete puntajes;
 	delete arbol;
 
-
-	/*EstadoDePartida estado;
-	ArbolDeEstados arbol(estado);
-
-	estado.agregarPosicionDescubierta(4,5);
-	EstadoDePartida otroEstado;
-
-	otroEstado.agregarPosicionDescubierta(7,6);
-	cout << "1" << endl;
-	arbol.agregar(otroEstado);
-	cout << "2" << endl;
-
-	cout << arbol.obtenerSenialador()->obtenerEstado().obtenerPosicionesDescubiertas()->fila << endl;
-
-	*/
 	return 0;
 }
