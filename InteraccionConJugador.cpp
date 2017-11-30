@@ -113,19 +113,16 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 	}
 	//d: Deshacer la jugada anterior, r: Rehacer jugada, s: Dejar de deshacer o rehacer.
 	else {
-		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
-			    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
 		do{
+			cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
+				    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
 			cin >> accion;
-			if (accion==REHACER && cantidadRehacer > 0) {
+			if ((accion==REHACER && cantidadRehacer > 0) || (accion==DESHACER && cantidadDeshacer > 0)) {
 				puntajeARestar = arbol->modificarSenialador(accion, partida);
 				partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);
 				puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
-			}
-			else if(accion==DESHACER && cantidadDeshacer > 0){
-				puntajeARestar = arbol->modificarSenialador(accion, partida);
-				partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);
-				puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
+				cantidadDeshacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
+				cantidadRehacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
 			}
 			else if(!validador.verificarDeshacerRehacerOSalir(accion)){
 				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
