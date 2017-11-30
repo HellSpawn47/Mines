@@ -5,7 +5,6 @@
 #include "Jugador.h"
 #include "Jugada.h"
 #include "Partida.h"
-#include "ArbolDeEstados.h"
 
 class InteraccionConJugador{
 

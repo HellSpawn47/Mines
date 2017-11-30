@@ -1,6 +1,8 @@
 #include "ArbolDeEstados.h"
 #include "constantes.h"
 #include <iostream>
+#include "validadorDeIngresos.h"
+#include "InteraccionConJugador.h"
 
 using namespace std;
 
@@ -68,12 +70,12 @@ NodoDeEstados* ArbolDeEstados::obtenerSenialador(){
 
 void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* interactuar){
 	
-	uint fila, columna,cantidadDeshacer,cantidadRehacer;
+	uint cantidadDeshacer,cantidadRehacer;
 	int puntajeJugadorEnTurno, puntajeARestar;
 	Validador validador;
 	cantidadDeshacer = this->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
 	cantidadRehacer = this->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
-	char accion, coma;
+	char accion;
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 	//xd
 	do{

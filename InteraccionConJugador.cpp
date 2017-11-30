@@ -2,7 +2,6 @@
 #include "validadorDeIngresos.h"
 #include "constantes.h"
 #include "NodoDeEstados.h"
-#include "ArbolDeEstados.h"
 #include <iostream>
 
 
