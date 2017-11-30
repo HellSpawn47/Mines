@@ -11,10 +11,10 @@
 using namespace std;
 
 int main(){
-/*
 	//Se definio el tipo de dato unsigned int como uint
 
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
+	ArbolDeEstados* arbol;
 	interactuar->bienvenida();
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");
@@ -37,6 +37,7 @@ int main(){
 	do{
 
 		partida->avanzarTurno();
+
 
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
 			cout << "\nEs el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
@@ -68,7 +69,6 @@ int main(){
 	delete partida;
 	delete puntajes;
 
-	*/
 
 	/*EstadoDePartida estado;
 	ArbolDeEstados arbol(estado);

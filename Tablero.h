@@ -119,6 +119,8 @@ class Tablero{
 		 */
 		void cubrirCasillero(uint fila, uint columna);
 
+
+
 	private:
 
 		/*

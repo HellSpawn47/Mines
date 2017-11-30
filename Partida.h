@@ -113,6 +113,12 @@ class Partida{
 		int obtenerTurnoActual();
 
 		/*
+		 * Pre:
+		 * Post:
+		 */
+		int volverAlFuturo(EstadoDePartida* estado,char accion);
+
+		/*
 		 * Post: Devuelve la lista de jugadores.
 		 */
 		Lista<Jugador*>* obtenerListaDeJugadores();
@@ -126,6 +132,7 @@ class Partida{
 		 * Post: Libera los recursos pedidos por el tablero, la lista de jugadores y la dificultad.
 		 */
 		~Partida();
+
 
 };
 
