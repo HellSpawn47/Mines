@@ -15,6 +15,7 @@ int main(){
 
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
 	ArbolDeEstados* arbol = new ArbolDeEstados;
+	EstadoDePartida* estado;
 	interactuar->bienvenida();
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");
@@ -36,14 +37,21 @@ int main(){
 
 	do{
 
-		partida->avanzarTurno(arbol);
+		partida->avanzarTurno();
 
 
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
 			cout << "\nEs el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
 
-			interactuar->pedirJugada(jugada,partida);
-			puntaje = partida->actualizarTablero(jugada,estado);
+			interactuar->pedirJugada(jugada,partida,arbol);
+			if (jugada->obtenerAccion() == ABRIR || jugada->obtenerAccion() == MARCAR){
+				arbol->agregar();
+				estado=arbol->obtenerSenialador()->obtenerEstado();
+				puntaje = partida->actualizarTablero(jugada,estado);
+			}
+			else{
+				//arbol->modificarSenialador(jugada->obtenerAccion(),partida);
+			}
 
 			partida->actualizarPuntaje(puntaje);
 			partida->imprimirTablero(partida->obtenerTurnoActual());

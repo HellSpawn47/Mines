@@ -42,9 +42,9 @@ void Partida::agregarJugadores(uint cantJugadores){
 
 }
 
-void Partida::avanzarTurno(ArbolDeEstados* arbol){
+void Partida::avanzarTurno(){
 
-	arbol->agregar();
+
 	listaDeJugadores->avanzarCursor();
 	jugadorEnTurno = listaDeJugadores->obtenerCursor();
 	if (jugadorEnTurno->getSigueJugando()){
@@ -116,7 +116,7 @@ int Partida::volverAlFuturo(EstadoDePartida* estado,char accion){
 			jugadorAModificar->revivirJugador();
 		}else if (accion == REHACER){
 			jugadorAModificar->dejarFueraDeJuego();
-			cout << jugadorAEliminar->getNombre() << " esta fuera de juego\n" << endl;
+			cout << jugadorAModificar->getNombre() << " esta fuera de juego\n" << endl;
 		}
 	}
 
