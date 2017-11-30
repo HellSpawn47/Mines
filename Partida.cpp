@@ -132,7 +132,7 @@ int Partida::actualizarTableroRehaciendoJugada(EstadoDePartida* estado){
 			tablero->marcarCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna);
 		}
 		else if ((tablero->obtenerEstadoCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna) == OCULTO)){
-			tablero->descubrirCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna);
+			tablero->cambiarEstadoCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna,DESCUBIERTO);
 		}
 	}
 	if (estado->obtenerJugadorEliminado()){
