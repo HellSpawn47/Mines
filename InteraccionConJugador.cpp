@@ -1,6 +1,5 @@
 #include "InteraccionConJugador.h"
 #include "validadorDeIngresos.h"
-#include "Partida.h"
 #include "constantes.h"
 #include "NodoDeEstados.h"
 #include "ArbolDeEstados.h"
@@ -127,7 +126,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 			else if(!validador.verificarDeshacerRehacerOSalir(accion)){
 				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
 			}
-		}while(!accion=='s' && puntajeJugadorEnTurno > 3);
+		}while(accion!='s' && puntajeJugadorEnTurno > 3);
 
 	}
 

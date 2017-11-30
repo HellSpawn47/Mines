@@ -5,6 +5,7 @@
 #include "Jugador.h"
 #include "Jugada.h"
 #include "Partida.h"
+#include "ArbolDeEstados.h"
 
 class InteraccionConJugador{
 
@@ -39,7 +40,7 @@ class InteraccionConJugador{
 		/*
 		 * Post: Le asigna a la jugada recibida los valores de accion, fila y columna que ingrese el jugador por teclado.
 		 */
-		void pedirJugada(Jugada* jugada,Partida* partida);
+		void pedirJugada(Jugada* jugada,Partida* partida,ArbolDeEstados* arbol);
 
 		/*
 		 * Post: Muestra los mensajes de bienvenida por pantalla.

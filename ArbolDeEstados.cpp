@@ -1,5 +1,4 @@
 #include "ArbolDeEstados.h"
-#include "Partida.h"
 #include "constantes.h"
 #include <iostream>
 
