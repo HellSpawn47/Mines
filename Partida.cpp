@@ -117,7 +117,18 @@ int Partida::volverAlFuturo(EstadoDePartida* estado,char accion){
 	Posicion* posicionesADeshacer=estado->obtenerPosicionesDescubiertas();
 	uint tope=estado->obtenerTope();
 	for (uint i=0; i<tope; i++){
-		tablero->cambiarEstadoCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna,posicionesADeshacer[i].estadoDePosicion);
+		cout << posicionesADeshacer[i].fila << " " << posicionesADeshacer[i].columna << endl;
+		char cambio;
+		if (accion == DESHACER){
+			switch (posicionesADeshacer[i].estadoDePosicion){
+			case MARCADO: cambio = OCULTO; break;
+			case DESCUBIERTO: cambio = OCULTO; break;
+			case OCULTO: cambio = MARCADO;
+			}
+		}else{
+			cambio = posicionesADeshacer[i].estadoDePosicion;
+		}
+		tablero->cambiarEstadoCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna,cambio);
 	}
 	if (estado->obtenerJugadorEliminado()){
 		Jugador* jugadorAModificar = estado->obtenerJugadorEliminado();

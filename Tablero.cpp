@@ -44,12 +44,12 @@ uint Tablero::obtenerEstadoCasillero(uint fila, uint columna){
 }
 
 void Tablero::cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado){
-
+	char estadoInicial = tablero[fila][columna].getEstado();
 	tablero[fila][columna].setEstado(nuevoEstado);
 	if ((nuevoEstado==DESCUBIERTO)&&(this->obtenerValorCasillero(fila,columna)!=BOMBA)){
 		casillerosPorDescubrir--;
 	}
-	else if ((nuevoEstado==OCULTO)&&(this->obtenerValorCasillero(fila,columna)!=BOMBA)){
+	else if ((estadoInicial == DESCUBIERTO && nuevoEstado==OCULTO)&&(this->obtenerValorCasillero(fila,columna)!=BOMBA)){
 		casillerosPorDescubrir++;
 	}
 
