@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "EstadoDePartida.h"
+#include "EstadoDeTurno.h"
 #include "NodoDeEstados.h"
 #include "constantes.h"
 #include "Partida.h"
@@ -28,15 +28,39 @@ class ArbolDeEstados{
 		 */
 		ArbolDeEstados();
 
+		/*
+		 *
+		 * Post: Crea y agrega un nodo de estados nuevo en un nivel inferior al que apunta el senialador. Y mueve el senialador al nuevo nodo.
+		 *
+		 */
 		void agregar();
 
+		/*
+		 * Pre:  Recibe la opcion (deshacer/rehacer) y la partida.
+		 * Post: Deshace o rehace el turno modificando el senialador.
+		 *
+		 */
 		int modificarSenialador(char opcion,Partida* partida);
 
+		/*
+		 *
+		 * Post: Devuelve el nodo al cual apunta el senialador.
+		 *
+		 */
 		NodoDeEstados* obtenerSenialador();
 
-		//se encarga de viajar en el tiempo en el turno
+		/*
+		 * Pre:  Recibe la partida y la interfaz de interaccion con el usuario.
+		 * Post: Pregunta al jugador si quiere deshacer o rehacer turnos mientras tenga puntaje suficiente para realizar esta accion, o si el
+		 *  	 jugador desea salir de este menu.
+		 */
 		void viajarEnElTiempo(Partida* partida, InteraccionConJugador* interactuar);
 
+		/*
+		 *
+		 * Destructor.
+		 *
+		 */
 		~ArbolDeEstados();
 
 };

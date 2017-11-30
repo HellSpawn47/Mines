@@ -1,8 +1,8 @@
-#include "EstadoDePartida.h"
+#include "EstadoDeTurno.h"
 
 #include <iostream>
 
-EstadoDePartida::EstadoDePartida(){
+EstadoDeTurno::EstadoDeTurno(){
 
 	this->posicionesDescubiertas = NULL;
 
@@ -11,7 +11,7 @@ EstadoDePartida::EstadoDePartida(){
 	this->tope = 0;
 }
 
-void EstadoDePartida::agregarPosicionInteractuada(uint fila, uint columna, char estadoDeLaPosicion){
+void EstadoDeTurno::agregarPosicionInteractuada(uint fila, uint columna, char estadoDeLaPosicion){
 	tope++;
 	Posicion* arrayAuxiliar = new Posicion [tope];
 	Posicion nuevaPosicion;
@@ -34,28 +34,28 @@ void EstadoDePartida::agregarPosicionInteractuada(uint fila, uint columna, char 
 
 }
 
-void EstadoDePartida::agregarJugadorEliminado(Jugador* jugador){
+void EstadoDeTurno::agregarJugadorEliminado(Jugador* jugador){
 	this->jugadorEliminado = jugador;
 
 }
 
-Jugador* EstadoDePartida::obtenerJugadorEliminado(){
+Jugador* EstadoDeTurno::obtenerJugadorEliminado(){
 	return jugadorEliminado;
 
 }
 
-Posicion* EstadoDePartida::obtenerPosicionesDescubiertas(){
+Posicion* EstadoDeTurno::obtenerPosicionesDescubiertas(){
 
 	return posicionesDescubiertas;
 
 }
 
-uint EstadoDePartida::obtenerTope(){
+uint EstadoDeTurno::obtenerTope(){
 	return tope;
 }
 
 
-EstadoDePartida::~EstadoDePartida(){
+EstadoDeTurno::~EstadoDeTurno(){
 	delete[] posicionesDescubiertas;
 }
 

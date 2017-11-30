@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "EstadoDePartida.h"
+#include "EstadoDeTurno.h"
 #include "Jugador.h"
 #include "Tablero.h"
 #include "Randomizador.h"
@@ -15,7 +15,7 @@ int main(){
 
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
 	ArbolDeEstados* arbol = new ArbolDeEstados;
-	EstadoDePartida* estado;
+	EstadoDeTurno* estado;
 	interactuar->bienvenida();
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");

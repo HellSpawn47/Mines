@@ -3,7 +3,7 @@
 #include "constantes.h"
 #include "TableroBMP.h"
 #include "PuntajesBMP.h"
-#include "EstadoDePartida.h"
+#include "EstadoDeTurno.h"
 #include "Posicion.h"
 #include "ArbolDeEstados.h"
 using namespace std;
@@ -79,7 +79,7 @@ int Partida::calcularPuntajeDeJugada(Jugada* jugada){
 	return 0;
 }
 
-void Partida::eliminarJugador(EstadoDePartida* estado){
+void Partida::eliminarJugador(EstadoDeTurno* estado){
 	jugadorEnTurno->dejarFueraDeJuego();
 	estado->agregarJugadorEliminado(jugadorEnTurno);
 	cout << jugadorEnTurno->getNombre() << " esta fuera de juego\n" << endl;
@@ -87,7 +87,7 @@ void Partida::eliminarJugador(EstadoDePartida* estado){
 
 
 
-int Partida::actualizarTablero(Jugada* jugada,EstadoDePartida* estado){
+int Partida::actualizarTablero(Jugada* jugada,EstadoDeTurno* estado){
 
 	int puntaje;
 
@@ -112,7 +112,7 @@ int Partida::actualizarTablero(Jugada* jugada,EstadoDePartida* estado){
 	return puntaje;
 }
 
-int Partida::volverAlFuturo(EstadoDePartida* estado,char accion){
+int Partida::volverAlFuturo(EstadoDeTurno* estado,char accion){
 	int costeDeshacer = -3;
 	Posicion* posicionesADeshacer=estado->obtenerPosicionesDescubiertas();
 	uint tope=estado->obtenerTope();

@@ -6,19 +6,19 @@
 #endif
 
 #include "iostream"
-#include "EstadoDePartida.h"
+#include "EstadoDeTurno.h"
 #include "ListaCircular.h"
 #include "typedefs.h"
 
 class NodoDeEstados {
 
 	/*
-	 * Un Nodo que es uno de los elementos que componen una lista, este tiene un estado y está conectado al nodo padre,
+	 * Un Nodo es uno de los elementos que componen un arbol, este tiene un estado y está conectado al nodo padre,
 	 * además posee una lista de nodos hijo.
 	 */
     private:
 
-		EstadoDePartida* estado;
+		EstadoDeTurno* estado;
 
         NodoDeEstados* padre;
 
@@ -37,7 +37,7 @@ class NodoDeEstados {
          */
         NodoDeEstados(){
 
-            this->estado = new EstadoDePartida;
+            this->estado = new EstadoDeTurno;
             this->padre = NULL;
             this->listaDeHijos = new Lista<NodoDeEstados*>;
             this->cantidadDeNodosSuperiores=0;
@@ -47,7 +47,7 @@ class NodoDeEstados {
         /*
          * Post: Devuelve el valor del estado.
          */
-        EstadoDePartida* obtenerEstado() {
+        EstadoDeTurno* obtenerEstado() {
 
             return this->estado;
         }
@@ -55,27 +55,49 @@ class NodoDeEstados {
         /*
          * Post: Cambia el valor del estado.
          */
-        void cambiarEstado(EstadoDePartida* nuevoEstado) {
+        void cambiarEstado(EstadoDeTurno* nuevoEstado) {
 
             this->estado = nuevoEstado;
         }
 
+		/*
+		 *
+		 * Post: Devuelve el nodo padre del nodo actual si es que lo posee.
+		 *
+		 */
         NodoDeEstados* obtenerPadre() {
 
             return this->padre;
         }
 
+		/*
+		 *
+		 * Post: Devuelve la lista de nodos hijo.
+		 *
+		 */
         Lista<NodoDeEstados*>* obtenerEstadosHijos() {
 
             return this->listaDeHijos;
         }
 
+		/*
+		 *
+		 * Post: Cambia el nodo padre del nodo actual e incrementa el contador de nodos inferiores que tienen sus nodos
+		 * 		 superiores.
+		 *
+		 */
         void cambiarPadre(NodoDeEstados* nuevoPadre) {
 
             this->padre = nuevoPadre;
             cantidadDeNodosSuperiores=nuevoPadre->obtenerCantidadDeNodosSuperiores() + 1;
         }
 
+		/*
+		 *
+		 * Post: Agrega el nodo recibido a la lista de hijos del nodo actual e incrementa el contador de nodos inferiores
+		 * 		 del nodo actual.
+		 *
+		 */
         void agregarEstadoHijo(NodoDeEstados* nuevoEstado){
 
         	listaDeHijos->agregar(nuevoEstado);
@@ -86,6 +108,12 @@ class NodoDeEstados {
 
         }
 
+		/*
+		 *
+		 * Post: Incrementa el contador de nodos inferiores y si el nodo tiene padre aumenta tambien el de este.
+		 * 		 (Llamado recursivo)
+		 *
+		 */
         void aumentarNodosInferioresAPadre(){
         	cantidadDeNodosInferiores++;
         	if (this->obtenerPadre()!=NULL){
@@ -93,15 +121,30 @@ class NodoDeEstados {
         	}
         }
 
+		/*
+		 *
+		 * Post: Devuelve la cantidad de nodos superiores.
+		 *
+		 */
         int obtenerCantidadDeNodosSuperiores(){
 
         	return this->cantidadDeNodosSuperiores;
         }
 
+		/*
+		 *
+		 * Post: Devuelve la cantidad de nodos inferiores.
+		 *
+		 */
         int obtenerCantidadDeNodosInferiores(){
         	return this->cantidadDeNodosInferiores;
         }
 
+		/*
+		 *
+		 * Destructor.
+		 *
+		 */
         ~NodoDeEstados(){
         	delete estado;
 

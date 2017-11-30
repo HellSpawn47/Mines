@@ -3,7 +3,7 @@
 
 #include "Casillero.h"
 #include "typedefs.h"
-#include "EstadoDePartida.h"
+#include "EstadoDeTurno.h"
 
 class Tablero{
 
@@ -75,7 +75,7 @@ class Tablero{
 		 * Post: Se descubre esa posicion y si es un casillero que no tenga bombas en ninguno de los casilleros vecinos (ni tampoco en
 		 * 		 esa posicion) estos se descubren automaticamente.
 		 */
-		void descubrirCasillero(uint fila, uint columna, EstadoDePartida* estado);
+		void descubrirCasillero(uint fila, uint columna, EstadoDeTurno* estado);
 
 		/*
 		 * Post: Devuelve la cantidad de filas del tablero.
@@ -113,14 +113,6 @@ class Tablero{
 		 */
 		bool esPosicionValida(uint fila, uint columna);
 
-		/*
-		 * Pre:
-		 * Post:
-		 */
-		void cubrirCasillero(uint fila, uint columna);
-
-
-
 	private:
 
 		/*
@@ -145,7 +137,7 @@ class Tablero{
 		 * Post: Si el casillero que se descubre no tiene bombas alrededor se realizara un llamado recursivo para descubirir los casilleros
 		 * 		 aledanios y ver la cantidad bombas que tienen estos alrededor.
 		 */
-		int descubrirCasillerosAledaniosVacio(int fila,int columna, EstadoDePartida* estado);
+		int descubrirCasillerosAledaniosVacio(int fila,int columna, EstadoDeTurno* estado);
 
 
 

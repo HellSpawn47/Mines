@@ -1,7 +1,7 @@
 #include "Tablero.h"
 #include "Randomizador.h"
 #include "constantes.h"
-#include "EstadoDePartida.h"
+#include "EstadoDeTurno.h"
 #include "TableroBMP.h"
 #include <iostream>
 
@@ -64,7 +64,7 @@ void Tablero::marcarCasillero(uint fila, uint columna){
 	}
 }
 
-void Tablero::descubrirCasillero(uint fila, uint columna, EstadoDePartida* estado){
+void Tablero::descubrirCasillero(uint fila, uint columna, EstadoDeTurno* estado){
 
 	if(tablero[fila][columna].getValor() == CERO){
 		this->descubrirCasillerosAledaniosVacio(fila, columna, estado);
@@ -76,7 +76,7 @@ void Tablero::descubrirCasillero(uint fila, uint columna, EstadoDePartida* estad
 
 }
 
-int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna, EstadoDePartida* estado){
+int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna, EstadoDeTurno* estado){
 
 	if(!esPosicionValida(fila,columna))
 		return 0;

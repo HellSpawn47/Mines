@@ -30,6 +30,11 @@ class InteraccionConJugador{
 		 */
 		char pedirDificultad();
 
+		/*
+		 *
+		 * Post: Devuelve true si el jugador desea deshacer o rehacer turnos.
+		 *
+		 */
 		bool preguntarViajeTemporal();
 
 		/*
