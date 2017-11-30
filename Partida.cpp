@@ -106,12 +106,7 @@ int Partida::actualizarTableroDeshaciendoJugada(EstadoDePartida* estado){
 	Posicion* posicionesADeshacer=estado->obtenerPosicionesDescubiertas();
 	uint tope=estado->obtenerTope();
 	for (uint i=0; i<tope; i++){
-		if (posicionesADeshacer[i].estadoDePosicion == MARCADO){
-			tablero->marcarCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna);
-		}
-		else{
-			tablero->cambiarEstadoCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna,OCULTO);
-		}
+		tablero->cambiarEstadoCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna,posicionesADeshacer[i].estadoDePosicion);
 	}
 	if (estado->obtenerJugadorEliminado()){
 		Jugador* jugadorARevivir = estado->obtenerJugadorEliminado();
@@ -128,13 +123,7 @@ int Partida::actualizarTableroRehaciendoJugada(EstadoDePartida* estado){
 	Posicion* posicionesARehacer=estado->obtenerPosicionesDescubiertas();
 	uint tope=estado->obtenerTope();
 	for (uint i=0; i<tope; i++){
-		//Primero se verifica que el casillero ahora oculto no estaba marcado, si no estaba marcado y esta oculto se debe descubrir.
-		if (posicionesARehacer[i].estadoDePosicion == MARCADO){
-			tablero->marcarCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna);
-		}
-		else if ((tablero->obtenerEstadoCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna) == OCULTO)){
-			tablero->cambiarEstadoCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna,DESCUBIERTO);
-		}
+		tablero->cambiarEstadoCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna,posicionesADeshacer[i].estadoDePosicion);
 	}
 	if (estado->obtenerJugadorEliminado()){
 		Jugador* jugadorAEliminar = estado->obtenerJugadorEliminado();
