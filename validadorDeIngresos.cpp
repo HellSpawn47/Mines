@@ -16,7 +16,7 @@ bool Validador::esDificultadValida(char dificultad){
 
 bool Validador::esAccionValida(char accion){
 
-	return (accion==ABRIR)||(accion==MARCAR);
+	return (accion==ABRIR)||(accion==MARCAR)||(accion==SALIR);
 
 }
 
