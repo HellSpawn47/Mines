@@ -122,6 +122,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 				puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 				cantidadDeshacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
 				cantidadRehacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
+				partida->imprimirTablero(partida->obtenerTurnoActual());
 			}
 			else if(!validador.verificarDeshacerRehacerOSalir(accion)){
 				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
