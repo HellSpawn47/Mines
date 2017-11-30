@@ -72,7 +72,7 @@ class Partida{
 		 * Pre:
 		 * Post:
 		 */
-		void eliminarJugador();
+		void eliminarJugador(EstadoDePartida* estado);
 
 		/*
 		 * Pre : Recibe un puntero a la jugada que quiere realizar el jugador y al estado de la partida.
