@@ -111,7 +111,7 @@ class NodoDeEstados {
         		delete nodoABorrar;
         	}
 
-        	delete[] listaDeHijos;
+        	delete listaDeHijos;
         }
 };
 

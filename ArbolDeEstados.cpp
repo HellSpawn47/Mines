@@ -8,7 +8,7 @@ using namespace std;
 
 ArbolDeEstados::ArbolDeEstados(){
 
-	NodoDeEstados* nuevoNodo = new NodoDeEstados();
+	NodoDeEstados* nuevoNodo = new NodoDeEstados;
 
 	this->raiz = nuevoNodo;
 	this->senialador = raiz;
@@ -17,7 +17,7 @@ ArbolDeEstados::ArbolDeEstados(){
 
 void ArbolDeEstados::agregar(){
 
-	NodoDeEstados* nuevo = new NodoDeEstados();
+	NodoDeEstados* nuevo = new NodoDeEstados;
 
 	this->senialador->agregarEstadoHijo(nuevo);
 

@@ -21,7 +21,7 @@ void EstadoDePartida::agregarPosicionInteractuada(uint fila, uint columna, char 
 	nuevaPosicion.estadoDePosicion = estadoDeLaPosicion;
 
 	if(posicionesDescubiertas){
-		for (uint i = 0; i < tope ; i++){
+		for (uint i = 0; i < (tope-1) ; i++){
 			arrayAuxiliar[i] = posicionesDescubiertas[i];
 		}
 	}

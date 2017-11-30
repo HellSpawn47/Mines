@@ -145,7 +145,7 @@ template<class T> Lista<T>::Lista(Lista<T>& otraLista) {
 
 template<class T> bool Lista<T>::estaVacia() {
 
-    return (this->tamanio == 0);
+    return (this->contarElementos() == 0);
 }
 
 template<class T> unsigned int Lista<T>::contarElementos() {

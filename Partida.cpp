@@ -117,7 +117,6 @@ int Partida::volverAlFuturo(EstadoDePartida* estado,char accion){
 	Posicion* posicionesADeshacer=estado->obtenerPosicionesDescubiertas();
 	uint tope=estado->obtenerTope();
 	for (uint i=0; i<tope; i++){
-		cout << posicionesADeshacer[i].fila << " " << posicionesADeshacer[i].columna << endl;
 		char cambio;
 		if (accion == DESHACER){
 			switch (posicionesADeshacer[i].estadoDePosicion){
