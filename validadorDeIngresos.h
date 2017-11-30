@@ -30,6 +30,17 @@ public:
 	 */
 	bool esAccionValida (char accion);
 
+	/*
+	 * Pre:
+	 * Post:
+	 */
+	bool verificarSiNo (char accion);
+
+	/*
+	 * Pre:
+	 * Post:
+	 */
+	bool verificarDeshacerRehacerOSalir(char accion);
 };
 
 

@@ -30,7 +30,7 @@ class Jugada{
 		void modificarColumna(uint nuevaColumna);
 
 		/*
-		 * Pre : Recibe el caracter de accion que el usuario haya ingresado (DESCUBRIR, MARCAR o SALIR).
+		 * Pre : Recibe el caracter de accion que el usuario haya ingresado (ABRIR, MARCAR, DESHACER o REHACER).
 		 * Post: Se actualiza la accion por el caracter de accion recibido.
 		 */
 		void modificarAccion(char nuevaAccion);

@@ -1,6 +1,7 @@
 #include "Tablero.h"
 #include "Randomizador.h"
 #include "constantes.h"
+#include "EstadoDePartida.h"
 #include "TableroBMP.h"
 #include <iostream>
 
@@ -60,29 +61,30 @@ void Tablero::marcarCasillero(uint fila, uint columna){
 	}
 }
 
-void Tablero::descubrirCasillero(uint fila, uint columna){
+void Tablero::descubrirCasillero(uint fila, uint columna, EstadoDePartida* estado){
 
 	if(tablero[fila][columna].getValor() == CERO){
-		this->descubrirCasillerosAledaniosVacio(fila, columna);
+		this->descubrirCasillerosAledaniosVacio(fila, columna, estado);
 	}
 	else{
 		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
+		estado->agregarPosicionInteractuada(fila, columna,DESCUBIERTO);
 	}
 
 }
 
-int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna){
+int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna, EstadoDePartida* estado){
 
 	if(!esPosicionValida(fila,columna))
 		return 0;
 	if(tablero[fila][columna].getValor() == CERO && tablero[fila][columna].getEstado() == OCULTO){
 
 		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
-
+		estado->agregarPosicionInteractuada(fila, columna,DESCUBIERTO);
 		for(int i = fila-1; i <= fila+1; i++){
 			for(int j = columna-1; j <= columna+1; j++){
 
-				if(this->descubrirCasillerosAledaniosVacio(i, j)){ //Llamado recursivo.
+				if(this->descubrirCasillerosAledaniosVacio(i, j, estado)){ //Llamado recursivo.
 					return 1;
 				}
 
@@ -91,6 +93,7 @@ int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna){
 	}
 	else if (tablero[fila][columna].getEstado()==OCULTO){
 		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
+		estado->agregarPosicionInteractuada(fila, columna,DESCUBIERTO);
 		return 0;
 	}
 	return 0;
@@ -141,6 +144,14 @@ void Tablero::imprimir(uint turno){
 	tableroBMP.imprimirTablero(turno);
 
 }
+
+
+void Tablero::cubrirCasillero(uint fila, uint columna){
+
+	this->cambiarEstadoCasillero(fila,columna,OCULTO);
+
+}
+
 
 void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
 

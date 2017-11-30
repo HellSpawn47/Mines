@@ -8,6 +8,7 @@
 #include "iostream"
 #include "EstadoDePartida.h"
 #include "ListaCircular.h"
+#include "typedefs.h"
 
 class NodoDeEstados {
 
@@ -17,31 +18,36 @@ class NodoDeEstados {
 	 */
     private:
 
-		EstadoDePartida estado;
+		EstadoDePartida* estado;
 
         NodoDeEstados* padre;
 
         Lista<NodoDeEstados*>* listaDeHijos;
 
+        uint cantidadDeNodosSuperiores;
+
+        uint cantidadDeNodosInferiores;
+
 
     public:
 
         /*
-         * Post: El Nodo resulta inicializado con el estado dado
+         * Post: El Nodo resulta inicializado
          *       y sin un Nodo siguiente.
          */
-        NodoDeEstados(EstadoDePartida estado) {
+        NodoDeEstados(){
 
-            this->estado = estado;
+            this->estado = new EstadoDePartida;
             this->padre = NULL;
             this->listaDeHijos = NULL;
-
+            this->cantidadDeNodosSuperiores=0;
+            this->cantidadDeNodosInferiores=0;
         }
 
         /*
          * Post: Devuelve el valor del estado.
          */
-        EstadoDePartida obtenerEstado() {
+        EstadoDePartida* obtenerEstado() {
 
             return this->estado;
         }
@@ -49,7 +55,7 @@ class NodoDeEstados {
         /*
          * Post: Cambia el valor del estado.
          */
-        void cambiarEstado(EstadoDePartida nuevoEstado) {
+        void cambiarEstado(EstadoDePartida* nuevoEstado) {
 
             this->estado = nuevoEstado;
         }
@@ -67,12 +73,35 @@ class NodoDeEstados {
         void cambiarPadre(NodoDeEstados* nuevoPadre) {
 
             this->padre = nuevoPadre;
+            cantidadDeNodosSuperiores=nuevoPadre->obtenerCantidadDeNodosSuperiores() + 1;
         }
 
         void agregarEstadoHijo(NodoDeEstados* nuevoEstado){
 
         	listaDeHijos->agregar(nuevoEstado);
+        	cantidadDeNodosInferiores++;
+        	obtenerPadre()->aumentarNodosInferioresAPadre();
 
+        }
+
+        void aumentarNodosInferioresAPadre(){
+        	cantidadDeNodosInferiores++;
+        	if (this->obtenerPadre()!=NULL){
+        		this->obtenerPadre()->aumentarNodosInferioresAPadre();
+        	}
+        }
+
+        int obtenerCantidadDeNodosSuperiores(){
+
+        	return this->cantidadDeNodosSuperiores;
+        }
+
+        int obtenerCantidadDeNodosInferiores(){
+        	return this->cantidadDeNodosInferiores;
+        }
+
+        ~NodoDeEstados(){
+        	delete estado;
         }
 };
 

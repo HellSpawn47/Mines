@@ -21,6 +21,7 @@ int main(){
 	char dificultad = interactuar->pedirDificultad();
 	int puntaje = 0;
 	Jugada* jugada = new Jugada;
+	EstadoDePartida* estado;
 
 	Partida* partida = new Partida(filas, columnas, dificultad);
 
@@ -41,7 +42,7 @@ int main(){
 			cout << "\nEs el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
 
 			interactuar->pedirJugada(jugada,partida);
-			puntaje = partida->actualizarTablero(jugada);
+			puntaje = partida->actualizarTablero(jugada,estado);
 
 			partida->actualizarPuntaje(puntaje);
 			partida->imprimirTablero(partida->obtenerTurnoActual());
@@ -69,7 +70,7 @@ int main(){
 
 	*/
 
-	EstadoDePartida estado;
+	/*EstadoDePartida estado;
 	ArbolDeEstados arbol(estado);
 
 	estado.agregarPosicionDescubierta(4,5);
@@ -82,6 +83,6 @@ int main(){
 
 	cout << arbol.obtenerSenialador()->obtenerEstado().obtenerPosicionesDescubiertas()->fila << endl;
 
-
+	*/
 	return 0;
 }

@@ -41,6 +41,12 @@ void Jugador::dejarFueraDeJuego(){
 
 }
 
+void Jugador::revivirJugador(){
+
+	this->sigueJugando = true;
+
+}
+
 uint Jugador::getNumeroJugador(){
 
 	return this->numeroJugador;

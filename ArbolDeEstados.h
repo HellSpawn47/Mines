@@ -5,6 +5,8 @@
 
 #include "EstadoDePartida.h"
 #include "NodoDeEstados.h"
+#include "constantes.h"
+#include "Partida.h"
 
 class ArbolDeEstados{
 
@@ -16,11 +18,11 @@ class ArbolDeEstados{
 
 	public:
 
-		ArbolDeEstados(EstadoDePartida Estado);
+		ArbolDeEstados();
 
-		void agregar(EstadoDePartida nuevoEstado);
+		void agregar();
 
-		void modificarSenialador(std::string opcion);
+		int modificarSenialador(char opcion,Partida* partida);
 
 		NodoDeEstados* obtenerSenialador();
 

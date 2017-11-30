@@ -7,6 +7,7 @@ struct Posicion{
 
 	uint fila;
 	uint columna;
+	char estadoDePosicion;
 
 };
 

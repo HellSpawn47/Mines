@@ -8,6 +8,8 @@
 #include "Jugador.h"
 #include "Jugada.h"
 #include "PuntajesBMP.h"
+#include "Posicion.h"
+#include "EstadoDePartida.h"
 
 class Partida{
 
@@ -67,10 +69,22 @@ class Partida{
 		int calcularPuntajeDeJugada(Jugada* jugada);
 
 		/*
-		 * Pre : Recibe un puntero a la jugada que quiere realizar el jugador.
-		 * Post: Realiza la jugada en el tablero.
+		 * Pre : Recibe un puntero a la jugada que quiere realizar el jugador y al estado de la partida.
+		 * Post: Realiza la jugada en el tablero y modifica el estado de la partida segun los cambios hechos en el turno.
 		 */
-		int actualizarTablero(Jugada* jugada);
+		int actualizarTablero(Jugada* jugada,EstadoDePartida* estado);
+
+		/*
+		 * Pre:
+		 * Post:
+		 */
+		int actualizarTableroDeshaciendoJugada(EstadoDePartida* estado);
+
+		/*
+		 * Pre:
+		 * Post:
+		 */
+		int actualizarTableroRehaciendoJugada(EstadoDePartida* estado);
 
 		/*
 		 * Post: Al jugador que este en turno se le agregan o restan los puntos que correspondan segun los puntos recibidos.

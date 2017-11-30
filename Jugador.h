@@ -53,6 +53,12 @@ class Jugador {
 		 */
 		void dejarFueraDeJuego();
 
+
+		/*
+		 * Post: Habilita al usuario para que vuelva a la partida.
+		 */
+		void revivirJugador();
+
 		/*
 		 * Post: Devuelve el numero de jugador
 		 */

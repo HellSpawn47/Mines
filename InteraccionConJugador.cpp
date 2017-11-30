@@ -1,6 +1,8 @@
 #include "InteraccionConJugador.h"
 #include "validadorDeIngresos.h"
 #include "Partida.h"
+#include "constantes.h"
+#include "NodoDeEstados.h"
 #include <iostream>
 
 
@@ -70,30 +72,49 @@ string InteraccionConJugador::pedirNombreJugador(uint numero){
 	return nombre;
 }
 
-void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
-	uint fila, columna;
+
+//a: Abrir, m: Marcar, r: Deshacer la jugada anterior, r: Rehacer jugada.
+void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,NodoDeEstados* nodoDeEstado){
+	uint fila, columna, puntajeJugadorEnTurno,cantidadDeshacer,cantidadRehacer;
 	Validador validador;
+	cantidadDeshacer = nodoDeEstado->obtenerCantidadDeNodosSuperiores();
+	cantidadRehacer = nodoDeEstado->obtenerCantidadDeNodosInferiores();
 	char accion, coma;
-	do{
-		cout << "\nIngrese accion(d/m),fila,columna: ";
-
-		cin >> accion;
-		cin >> coma;
-		cin >> fila;
-		cin >> coma;
-		cin >> columna;
-
-		fila--;
-		columna--;
-		if ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))){
+	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
+	if (puntajeJugadorEnTurno >= 3){
+		do{
+			cout << "Quiere deshacer/rehacer turnos? s/n: ";
+			cin >> accion;
+			if (!validador.verificarSiNo(accion)){
 				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
-		}
+			}
+		}while (!validador.verificarSiNo(accion));
+	}
+	if (accion=='n' || puntajeJugadorEnTurno < 3){
+		do{
+			cout << "\nIngrese accion(a/m),fila,columna: ";
+			cin >> accion;
+			cin >> coma;
+			cin >> fila;
+			cin >> coma;
+			cin >> columna;
+			fila--;
+			columna--;
+			if ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))){
+					cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
+			}
+		}while ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion)));
+		jugada->modificarFila(fila);
+		jugada->modificarColumna(columna);
+	}
+	else {
+		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
+			    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
+		cin >> accion
 
 
 
-	}while ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion)));
+	}
 
-	jugada->modificarFila(fila);
-	jugada->modificarColumna(columna);
 	jugada->modificarAccion(accion);
 }

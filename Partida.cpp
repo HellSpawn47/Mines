@@ -3,6 +3,8 @@
 #include "constantes.h"
 #include "TableroBMP.h"
 #include "PuntajesBMP.h"
+#include "EstadoDePartida.h"
+#include "Posicion.h"
 using namespace std;
 Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
@@ -60,10 +62,10 @@ int Partida::calcularPuntajeDeJugada(Jugada* jugada){
 	bool estabaMarcado = (this->tablero->obtenerEstadoCasillero(jugada->obtenerFila(),jugada->obtenerColumna()) == MARCADO);
 	char accion = jugada->obtenerAccion();
 
-	if (hayBomba && estabaMarcado && (accion == MARCAR || accion == DESCUBRIR)){
+	if (hayBomba && estabaMarcado && (accion == MARCAR || accion == ABRIR)){
 		return -2;
 	}
-	else if (!hayBomba && estabaMarcado && (accion == MARCAR || accion == DESCUBRIR)){
+	else if (!hayBomba && estabaMarcado && (accion == MARCAR || accion == ABRIR)){
 		return 2;
 	}
 	else if (accion == MARCAR && hayBomba && !estabaMarcado){
@@ -75,25 +77,70 @@ int Partida::calcularPuntajeDeJugada(Jugada* jugada){
 	return 0;
 }
 
-int Partida::actualizarTablero(Jugada* jugada){
+int Partida::actualizarTablero(Jugada* jugada,EstadoDePartida* estado){
 
 	int puntaje;
 
 	puntaje = calcularPuntajeDeJugada(jugada);
 
-	if(jugada->obtenerAccion() == DESCUBRIR){
-		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
+	if(jugada->obtenerAccion() == ABRIR){
+		tablero->descubrirCasillero(jugada->obtenerFila(), jugada->obtenerColumna(),estado);
 
 		if(tablero->obtenerValorCasillero(jugada->obtenerFila(), jugada->obtenerColumna()) == BOMBA){
 			jugadorEnTurno->dejarFueraDeJuego();
+			estado->agregarJugadorEliminado(jugadorEnTurno);
 			cout << jugadorEnTurno->getNombre() << " esta fuera de juego\n" << endl;
 		}
 	}
 	else if(jugada->obtenerAccion() == MARCAR){
 		tablero->marcarCasillero(jugada->obtenerFila(), jugada->obtenerColumna());
+		estado->agregarPosicionInteractuada(jugada->obtenerFila(), jugada->obtenerColumna(),MARCADO);
+
 	}
 
 	return puntaje;
+}
+
+int Partida::actualizarTableroDeshaciendoJugada(EstadoDePartida* estado){
+	int costeDeshacer = -3;
+	Posicion* posicionesADeshacer=estado->obtenerPosicionesDescubiertas();
+	uint tope=estado->obtenerTope();
+	for (uint i=0; i<tope; i++){
+		if (posicionesADeshacer[i].estadoDePosicion == MARCADO){
+			tablero->marcarCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna);
+		}
+		else{
+			tablero->cubrirCasillero(posicionesADeshacer[i].fila, posicionesADeshacer[i].columna);
+		}
+	}
+	if (estado->obtenerJugadorEliminado()){
+		Jugador* jugadorARevivir = estado->obtenerJugadorEliminado();
+		jugadorARevivir->revivirJugador();
+	}
+
+	//Coste en puntos de deshacer una Jugada
+	return costeDeshacer;
+}
+
+
+int Partida::actualizarTableroRehaciendoJugada(EstadoDePartida* estado){
+	int costeRehacer = -3;
+	Posicion* posicionesARehacer=estado->obtenerPosicionesDescubiertas();
+	uint tope=estado->obtenerTope();
+	for (uint i=0; i<tope; i++){
+		if (posicionesARehacer[i].estadoDePosicion == MARCADO){
+			tablero->marcarCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna);
+		}
+		else if ((tablero->obtenerEstadoCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna) == OCULTO)){
+			tablero->descubrirCasillero(posicionesARehacer[i].fila, posicionesARehacer[i].columna);
+		}
+	}
+	if (estado->obtenerJugadorEliminado()){
+		Jugador* jugadorAEliminar = estado->obtenerJugadorEliminado();
+		jugadorAEliminar->dejarFueraDeJuego();
+		cout << jugadorAEliminar->getNombre() << " esta fuera de juego\n" << endl;
+	}
+	return costeRehacer;
 }
 
 void Partida::actualizarPuntaje(int puntaje){

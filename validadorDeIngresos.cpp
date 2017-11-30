@@ -16,8 +16,15 @@ bool Validador::esDificultadValida(char dificultad){
 
 bool Validador::esAccionValida(char accion){
 
-	return (accion==DESCUBRIR)||(accion==MARCAR);
+	return (accion==ABRIR)||(accion==MARCAR);
 
 }
 
+bool Validador::verificarSiNo(char accion){
+	return (accion=='s')||(accion=='n');
+}
+
+bool Validador::verificarDeshacerRehacerOSalir(char accion){
+	return (accion='s')||(accion==DESHACER)||(accion==REHACER);
+}
 

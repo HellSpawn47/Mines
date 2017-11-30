@@ -6,8 +6,10 @@ const int BOMBA='B';
 const int CERO=0;
 
 //Acciones a tomar en la Partida
-const char DESCUBRIR='d';
+const char ABRIR='a';
 const char MARCAR='m';
+const char DESHACER='d';
+const char REHACER='r';
 
 //Niveles de Dificultad
 const char FACIL='f';
