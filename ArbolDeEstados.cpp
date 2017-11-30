@@ -30,7 +30,7 @@ int ArbolDeEstados::modificarSenialador(char opcion,Partida* partida){
 	int puntajeARestar;
 	if (opcion == DESHACER && senialador!=raiz){
 		senialador=senialador->obtenerPadre();
-		puntajeARestar=partida->actualizarTableroDeshaciendoJugada(senialador->obtenerEstado());
+		puntajeARestar=partida->volverAlFuturo(senialador->obtenerEstado(),opcion);
 	}
 	else if (opcion == DESHACER && senialador==raiz){
 		cout << "No se puede deshacer \n";
@@ -53,7 +53,7 @@ int ArbolDeEstados::modificarSenialador(char opcion,Partida* partida){
 		}
 		senialador = listaDeNodos->obtenerCursor();
 		listaDeNodos->iniciarCursor();
-		puntajeARestar=partida->actualizarTableroRehaciendoJugada(senialador->obtenerEstado());
+		puntajeARestar=partida->volverAlFuturo(senialador->obtenerEstado(),opcion);
 	}
 	else{
 		cout << "No se puede rehacer \n";
