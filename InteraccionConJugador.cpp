@@ -73,7 +73,7 @@ string InteraccionConJugador::pedirNombreJugador(uint numero){
 }
 
 
-//a: Abrir, m: Marcar, r: Deshacer la jugada anterior, r: Rehacer jugada.
+
 void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,NodoDeEstados* nodoDeEstado){
 	uint fila, columna, puntajeJugadorEnTurno,cantidadDeshacer,cantidadRehacer;
 	Validador validador;
@@ -81,6 +81,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,NodoDeEs
 	cantidadRehacer = nodoDeEstado->obtenerCantidadDeNodosInferiores();
 	char accion, coma;
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
+	//s: Si, n: No.
 	if (puntajeJugadorEnTurno >= 3){
 		do{
 			cout << "Quiere deshacer/rehacer turnos? s/n: ";
@@ -90,6 +91,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,NodoDeEs
 			}
 		}while (!validador.verificarSiNo(accion));
 	}
+	//a: Abrir, m: Marcar.
 	if (accion=='n' || puntajeJugadorEnTurno < 3){
 		do{
 			cout << "\nIngrese accion(a/m),fila,columna: ";
@@ -107,12 +109,14 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,NodoDeEs
 		jugada->modificarFila(fila);
 		jugada->modificarColumna(columna);
 	}
+	//d: Deshacer la jugada anterior, r: Rehacer jugada, s: Dejar de deshacer o rehacer.
 	else {
 		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
 			    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
-		cin >> accion
+		do{
+			cin >> accion;
 
-
+		}while();
 
 	}
 
