@@ -42,7 +42,7 @@ class InteraccionConJugador{
 		/*
 		 * Post: Le asigna a la jugada recibida los valores de accion, fila y columna que ingrese el jugador por teclado.
 		 */
-		void pedirJugada(Jugada* jugada,Partida* partida,ArbolDeEstados* arbol);
+		void pedirJugada(Jugada* jugada,Partida* partida);
 
 		/*
 		 * Post: Muestra los mensajes de bienvenida por pantalla.

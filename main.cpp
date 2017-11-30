@@ -53,7 +53,7 @@ int main(){
 
 			}else{
 
-				interactuar->pedirJugada(jugada,partida,arbol);
+				interactuar->pedirJugada(jugada,partida);
 
 				arbol->agregar();
 				estado=arbol->obtenerSenialador()->obtenerEstado();

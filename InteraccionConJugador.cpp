@@ -86,7 +86,7 @@ bool InteraccionConJugador::preguntarViajeTemporal(){
 	return (accion=='s');
 }
 
-void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeEstados* arbol){
+void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 	uint fila, columna;
 	Validador validador;
 	char accion, coma;
@@ -100,7 +100,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 			}
 		}while (!validador.verificarSiNo(accion));
 	}*/
-	//a: Abrir, m: Marcar.
+	//a: Abrir, m: Marcar
 	do{
 			cout << "\nIngrese accion(a/m/s),fila,columna: ";
 			cin >> accion;

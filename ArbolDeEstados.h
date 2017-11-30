@@ -33,6 +33,7 @@ class ArbolDeEstados{
 
 		NodoDeEstados* obtenerSenialador();
 
+		//se encarga de viajar en el tiempo en el turno
 		void viajarEnElTiempo(Partida* partida, InteraccionConJugador* interactuar);
 
 		~ArbolDeEstados();
