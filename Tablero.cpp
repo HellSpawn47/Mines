@@ -49,6 +49,9 @@ void Tablero::cambiarEstadoCasillero(uint fila, uint columna, uint nuevoEstado){
 	if ((nuevoEstado==DESCUBIERTO)&&(this->obtenerValorCasillero(fila,columna)!=BOMBA)){
 		casillerosPorDescubrir--;
 	}
+	else if ((nuevoEstado==OCULTO)&&(this->obtenerValorCasillero(fila,columna)!=BOMBA)){
+		casillerosPorDescubrir++;
+	}
 
 }
 
@@ -144,14 +147,6 @@ void Tablero::imprimir(uint turno){
 	tableroBMP.imprimirTablero(turno);
 
 }
-
-
-void Tablero::cubrirCasillero(uint fila, uint columna){
-
-	this->cambiarEstadoCasillero(fila,columna,OCULTO);
-
-}
-
 
 void Tablero::ponerBombasAleatoriamente(uint cantidadBombas){
 
