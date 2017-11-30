@@ -86,6 +86,7 @@ bool InteraccionConJugador::preguntarViajeTemporal(){
 	return (accion=='s');
 }
 
+
 void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeEstados* arbol){
 	uint fila, columna,cantidadDeshacer,cantidadRehacer;
 	int puntajeJugadorEnTurno, puntajeARestar;

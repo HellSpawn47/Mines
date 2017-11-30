@@ -31,34 +31,53 @@ int main(){
 	partida->agregarJugadores(cantJugadores);
 
 	partida->imprimirTablero(1);
-
+	partida->avanzarTurno();
 	//Inicio de cada jugada
+	bool viajeTemporal;
 
 	do{
-
-		partida->avanzarTurno();
-
 
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
 			cout << "\nEs el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
 
-			interactuar->pedirJugada(jugada,partida,arbol);
-			if (jugada->obtenerAccion() == ABRIR || jugada->obtenerAccion() == MARCAR){
+			if (partida->obtenerJugadorEnTurno()->getPuntaje()>=3){
+				viajeTemporal = interactuar->preguntarViajeTemporal();
+			}else{
+				viajeTemporal = false;
+			}
+
+			if (viajeTemporal){
+
+				arbol->viajarEnElTiempo();
+
+			}else{
+
+				interactuar->pedirJugada(jugada,partida,arbol);
+
+				arbol->agregar();
+				estado=arbol->obtenerSenialador()->obtenerEstado();
+				puntaje = partida->actualizarTablero(jugada,estado);
+
+				partida->actualizarPuntaje(puntaje);
+				partida->imprimirTablero(partida->obtenerTurnoActual());
+
+				cout << "\npuntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
+				cout << "\n------------------------------------------------------------------" << endl;
+				puntajes->imprimirPuntajes(partida->obtenerListaDeJugadores(), partida->obtenerTurnoActual());
+
+			}
+			/*if (jugada->obtenerAccion() == ABRIR || jugada->obtenerAccion() == MARCAR){
 				arbol->agregar();
 				estado=arbol->obtenerSenialador()->obtenerEstado();
 				puntaje = partida->actualizarTablero(jugada,estado);
 			}
 			else{
 				//arbol->modificarSenialador(jugada->obtenerAccion(),partida);
-			}
+			}*/
 
-			partida->actualizarPuntaje(puntaje);
-			partida->imprimirTablero(partida->obtenerTurnoActual());
-
-			cout << "\npuntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
-			cout << "\n------------------------------------------------------------------" << endl;
-			puntajes->imprimirPuntajes(partida->obtenerListaDeJugadores(), partida->obtenerTurnoActual());
 		}
+
+	partida->avanzarTurno();
 
 
 	}while( partida->continuarPartida() );

@@ -33,6 +33,7 @@ class InteraccionConJugador{
 
 		bool preguntarViajeTemporal();
 
+
 		/*
 		 * Pre : Recibe el numero que representa a uno de los jugadores que van participar en la partida.
 		 * Post: Devuelve el nombre que el usuario le asigno al jugador recibido.
