@@ -39,7 +39,7 @@ class NodoDeEstados {
 
             this->estado = new EstadoDePartida;
             this->padre = NULL;
-            this->listaDeHijos = NULL;
+            this->listaDeHijos = new Lista<NodoDeEstados*>;
             this->cantidadDeNodosSuperiores=0;
             this->cantidadDeNodosInferiores=0;
         }
@@ -80,7 +80,9 @@ class NodoDeEstados {
 
         	listaDeHijos->agregar(nuevoEstado);
         	cantidadDeNodosInferiores++;
-        	obtenerPadre()->aumentarNodosInferioresAPadre();
+        	if (obtenerPadre() != NULL){
+        		obtenerPadre()->aumentarNodosInferioresAPadre();
+        	}
 
         }
 
@@ -102,6 +104,7 @@ class NodoDeEstados {
 
         ~NodoDeEstados(){
         	delete estado;
+        	delete[] listaDeHijos;
         }
 };
 
