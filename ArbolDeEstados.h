@@ -33,7 +33,10 @@ class ArbolDeEstados{
 
 		NodoDeEstados* obtenerSenialador();
 
+
 		void viajarEnElTiempo();
+
+		~ArbolDeEstados();
 
 };
 

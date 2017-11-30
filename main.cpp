@@ -50,6 +50,7 @@ int main(){
 
 				arbol->viajarEnElTiempo();
 
+
 			}else{
 
 				interactuar->pedirJugada(jugada,partida,arbol);

@@ -1,4 +1,4 @@
-/*Buscaminas V2.0
+/*Buscaminas V3.0
 
 -Grupo: GodSaveThePandas
 
