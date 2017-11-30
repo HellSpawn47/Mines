@@ -29,9 +29,8 @@ void ArbolDeEstados::agregar(){
 int ArbolDeEstados::modificarSenialador(char opcion,Partida* partida){
 	int puntajeARestar;
 	if (opcion == DESHACER && senialador!=raiz){
-		NodoDeEstados* senialadorANodoAuxiliar = senialador;
-		senialador=senialadorANodoAuxiliar->obtenerPadre();
-		puntajeARestar=partida->actualizarTableroDeshaciendoJugada(senialadorANodoAuxiliar->obtenerEstado());
+		senialador=senialador->obtenerPadre();
+		puntajeARestar=partida->actualizarTableroDeshaciendoJugada(senialador->obtenerEstado());
 	}
 	else if (opcion == DESHACER && senialador==raiz){
 		cout << "No se puede deshacer \n";
