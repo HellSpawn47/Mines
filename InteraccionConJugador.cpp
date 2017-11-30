@@ -72,7 +72,19 @@ string InteraccionConJugador::pedirNombreJugador(uint numero){
 	return nombre;
 }
 
+bool InteraccionConJugador::preguntarViajeTemporal(){
+	Validador validador;
+	char accion;
+	do{
+		cout << "Quiere deshacer/rehacer turnos? s/n: ";
+		cin >> accion;
+		if (!validador.verificarSiNo(accion)){
+			cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
+		}
+	}while (!validador.verificarSiNo(accion));
 
+	return (accion=='s');
+}
 
 void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeEstados* arbol){
 	uint fila, columna,cantidadDeshacer,cantidadRehacer;
@@ -83,7 +95,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 	char accion, coma;
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 	//s: Si, n: No.
-	if (puntajeJugadorEnTurno >= 3){
+	/*if (puntajeJugadorEnTurno >= 3){
 		do{
 			cout << "Quiere deshacer/rehacer turnos? s/n: ";
 			cin >> accion;
@@ -91,7 +103,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
 			}
 		}while (!validador.verificarSiNo(accion));
-	}
+	}*/
 	//a: Abrir, m: Marcar.
 	if (accion=='n' || puntajeJugadorEnTurno < 3){
 		do{
@@ -111,7 +123,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 		jugada->modificarColumna(columna);
 	}
 	//d: Deshacer la jugada anterior, r: Rehacer jugada, s: Dejar de deshacer o rehacer.
-	else {
+	/*else {
 		do{
 			cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
 				    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
@@ -130,6 +142,6 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 		}while(accion!='s' && puntajeJugadorEnTurno > 3);
 
 	}
-
+	*/
 	jugada->modificarAccion(accion);
 }
