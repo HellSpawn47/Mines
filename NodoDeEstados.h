@@ -104,6 +104,13 @@ class NodoDeEstados {
 
         ~NodoDeEstados(){
         	delete estado;
+
+        	listaDeHijos->iniciarCursor();
+        	while(listaDeHijos->avanzarCursor()){
+        		NodoDeEstados * nodoABorrar = listaDeHijos->obtenerCursor();
+        		delete nodoABorrar;
+        	}
+
         	delete[] listaDeHijos;
         }
 };

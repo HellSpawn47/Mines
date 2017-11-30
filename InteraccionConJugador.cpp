@@ -90,53 +90,29 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 	Validador validador;
 	char accion, coma;
 	//s: Si, n: No.
-	/*if (puntajeJugadorEnTurno >= 3){
-		do{
-			cout << "Quiere deshacer/rehacer turnos? s/n: ";
-			cin >> accion;
-			if (!validador.verificarSiNo(accion)){
-				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
-			}
-		}while (!validador.verificarSiNo(accion));
-	}*/
+
 	//a: Abrir, m: Marcar
 	do{
 			cout << "\nIngrese accion(a/m/s),fila,columna: ";
 			cin >> accion;
-			cin >> coma;
-			cin >> fila;
-			cin >> coma;
-			cin >> columna;
-			fila--;
-			columna--;
-			if ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))){
+
+			if(accion != SALIR){
+				cin >> coma;
+				cin >> fila;
+				cin >> coma;
+				cin >> columna;
+				fila--;
+				columna--;
+				if ((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))){
 					cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
+				}
 			}
+
 		}while (((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))) && (accion!=SALIR));
 		if (accion!=SALIR){
 			jugada->modificarFila(fila);
 			jugada->modificarColumna(columna);
 	}
-	//d: Deshacer la jugada anterior, r: Rehacer jugada, s: Dejar de deshacer o rehacer.
-	/*else {
-		do{
-			cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
-				    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
-			cin >> accion;
-			if ((accion==REHACER && cantidadRehacer > 0) || (accion==DESHACER && cantidadDeshacer > 0)) {
-				puntajeARestar = arbol->modificarSenialador(accion, partida);
-				partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);
-				puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
-				cantidadDeshacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
-				cantidadRehacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
-				partida->imprimirTablero(partida->obtenerTurnoActual());
-			}
-			else if(!validador.verificarDeshacerRehacerOSalir(accion)){
-				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
-			}
-		}while(accion!='s' && puntajeJugadorEnTurno > 3);
 
-	}
-	*/
 	jugada->modificarAccion(accion);
 }

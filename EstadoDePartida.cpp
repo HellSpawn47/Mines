@@ -31,13 +31,7 @@ void EstadoDePartida::agregarPosicionInteractuada(uint fila, uint columna, char 
 	delete[] posicionesDescubiertas;
 	posicionesDescubiertas = arrayAuxiliar;
 
-	/*
-	for (uint i = 0 ; i < tope ; i++){
 
-		std::cout << "fila, columna: " << posicionesDescubiertas[i].fila << posicionesDescubiertas[i].columna << std::endl;
-
-	}
-	*/
 }
 
 void EstadoDePartida::agregarJugadorEliminado(Jugador* jugador){
