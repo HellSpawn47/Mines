@@ -3,6 +3,7 @@
 #include "Partida.h"
 #include "constantes.h"
 #include "NodoDeEstados.h"
+#include "ArbolDeEstados.h"
 #include <iostream>
 
 
@@ -74,11 +75,12 @@ string InteraccionConJugador::pedirNombreJugador(uint numero){
 
 
 
-void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,NodoDeEstados* nodoDeEstado){
-	uint fila, columna, puntajeJugadorEnTurno,cantidadDeshacer,cantidadRehacer;
+void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeEstados* arbol){
+	uint fila, columna,cantidadDeshacer,cantidadRehacer;
+	int puntajeJugadorEnTurno, puntajeARestar;
 	Validador validador;
-	cantidadDeshacer = nodoDeEstado->obtenerCantidadDeNodosSuperiores();
-	cantidadRehacer = nodoDeEstado->obtenerCantidadDeNodosInferiores();
+	cantidadDeshacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
+	cantidadRehacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
 	char accion, coma;
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 	//s: Si, n: No.
@@ -115,8 +117,20 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,NodoDeEs
 			    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
 		do{
 			cin >> accion;
-
-		}while();
+			if (accion==REHACER && cantidadRehacer > 0) {
+				puntajeARestar = arbol->modificarSenialador(accion, partida);
+				partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);
+				puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
+			}
+			else if(accion==DESHACER && cantidadDeshacer > 0){
+				puntajeARestar = arbol->modificarSenialador(accion, partida);
+				partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);
+				puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
+			}
+			else if(!validador.verificarDeshacerRehacerOSalir(accion)){
+				cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
+			}
+		}while(!accion=='s' && puntajeJugadorEnTurno > 3);
 
 	}
 
