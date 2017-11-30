@@ -7,7 +7,11 @@
 #include "NodoDeEstados.h"
 #include "constantes.h"
 #include "Partida.h"
-
+	
+	/* 
+	 * Un Arbol de Estados es una estructura de datos que permite almacenar el estado de cada turno. Tiene una raiz 
+	 * que corresponde al primer elemento del arbol. Y un señalador para navegar entre los elementos.
+	 */
 class ArbolDeEstados{
 
 	private:
@@ -17,7 +21,10 @@ class ArbolDeEstados{
 		NodoDeEstados* senialador;
 
 	public:
-
+		/*
+		 * Constructor
+		 *
+		 */
 		ArbolDeEstados();
 
 		void agregar();
