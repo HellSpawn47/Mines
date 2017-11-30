@@ -14,7 +14,7 @@ int main(){
 	//Se definio el tipo de dato unsigned int como uint
 
 	InteraccionConJugador* interactuar = new InteraccionConJugador();
-	ArbolDeEstados* arbol;
+	ArbolDeEstados* arbol = new ArbolDeEstados;
 	interactuar->bienvenida();
 	uint filas = interactuar->pedirCantidad("filas");
 	uint columnas = interactuar->pedirCantidad("columnas");
@@ -36,7 +36,7 @@ int main(){
 
 	do{
 
-		partida->avanzarTurno();
+		partida->avanzarTurno(arbol);
 
 
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){

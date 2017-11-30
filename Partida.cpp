@@ -5,6 +5,7 @@
 #include "PuntajesBMP.h"
 #include "EstadoDePartida.h"
 #include "Posicion.h"
+#include "ArbolDeEstados.h"
 using namespace std;
 Partida::Partida(uint cantidadFilas, uint cantidadColumnas, char nivelDificultad){
 
@@ -41,8 +42,9 @@ void Partida::agregarJugadores(uint cantJugadores){
 
 }
 
-void Partida::avanzarTurno(){
+void Partida::avanzarTurno(ArbolDeEstados* arbol){
 
+	arbol->agregar();
 	listaDeJugadores->avanzarCursor();
 	jugadorEnTurno = listaDeJugadores->obtenerCursor();
 	if (jugadorEnTurno->getSigueJugando()){
