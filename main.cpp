@@ -22,7 +22,6 @@ int main(){
 	char dificultad = interactuar->pedirDificultad();
 	int puntaje = 0;
 	Jugada* jugada = new Jugada;
-	EstadoDePartida* estado;
 
 	Partida* partida = new Partida(filas, columnas, dificultad);
 

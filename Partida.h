@@ -9,7 +9,6 @@
 #include "Jugada.h"
 #include "PuntajesBMP.h"
 #include "Posicion.h"
-#include "ArbolDeEstados.h"
 #include "EstadoDePartida.h"
 
 class Partida{
