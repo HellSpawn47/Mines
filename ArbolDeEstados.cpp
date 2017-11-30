@@ -66,3 +66,9 @@ NodoDeEstados* ArbolDeEstados::obtenerSenialador(){
 	return this->senialador;
 }
 
+ArbolDeEstados::~ArbolDeEstados(){
+	delete raiz;
+}
+
+
+

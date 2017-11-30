@@ -33,6 +33,8 @@ class ArbolDeEstados{
 
 		NodoDeEstados* obtenerSenialador();
 
+		~ArbolDeEstados();
+
 };
 
 #endif
