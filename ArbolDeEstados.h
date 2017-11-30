@@ -33,7 +33,7 @@ class ArbolDeEstados{
 
 		NodoDeEstados* obtenerSenialador();
 
-		void viajarEnElTiempo();
+		void viajarEnElTiempo(Partida* partida, InteraccionConJugador* interactuar);
 
 		~ArbolDeEstados();
 

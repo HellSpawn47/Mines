@@ -66,6 +66,36 @@ NodoDeEstados* ArbolDeEstados::obtenerSenialador(){
 	return this->senialador;
 }
 
+void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* interactuar){
+	
+	uint fila, columna,cantidadDeshacer,cantidadRehacer;
+	int puntajeJugadorEnTurno, puntajeARestar;
+	Validador validador;
+	cantidadDeshacer = this->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
+	cantidadRehacer = this->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
+	char accion, coma;
+	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
+
+	do{
+		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
+			    "turnos y \n" << "rehacer hasta " << cantidadRehacer << "turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
+		cin >> accion;
+		if ((accion==REHACER && cantidadRehacer > 0) || (accion==DESHACER && cantidadDeshacer > 0)) {
+			puntajeARestar = this->modificarSenialador(accion, partida);
+			partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);
+			puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
+			cantidadDeshacer = this->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
+			cantidadRehacer = this->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
+			partida->imprimirTablero(partida->obtenerTurnoActual());
+		}
+		else if(!validador.verificarDeshacerRehacerOSalir(accion)){
+			cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
+		}
+	}while(accion!='s' && puntajeJugadorEnTurno > 3);
+
+}
+
+
 ArbolDeEstados::~ArbolDeEstados(){
 	delete raiz;
 }

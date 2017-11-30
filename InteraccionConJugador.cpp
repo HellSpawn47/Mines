@@ -87,13 +87,9 @@ bool InteraccionConJugador::preguntarViajeTemporal(){
 }
 
 void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeEstados* arbol){
-	uint fila, columna,cantidadDeshacer,cantidadRehacer;
-	int puntajeJugadorEnTurno, puntajeARestar;
+	uint fila, columna;
 	Validador validador;
-	cantidadDeshacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
-	cantidadRehacer = arbol->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
 	char accion, coma;
-	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 	//s: Si, n: No.
 	/*if (puntajeJugadorEnTurno >= 3){
 		do{
@@ -105,8 +101,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 		}while (!validador.verificarSiNo(accion));
 	}*/
 	//a: Abrir, m: Marcar.
-	if (accion=='n' || puntajeJugadorEnTurno < 3){
-		do{
+	do{
 			cout << "\nIngrese accion(a/m/s),fila,columna: ";
 			cin >> accion;
 			cin >> coma;
@@ -122,7 +117,6 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida,ArbolDeE
 		if (accion!=SALIR){
 			jugada->modificarFila(fila);
 			jugada->modificarColumna(columna);
-		}
 	}
 	//d: Deshacer la jugada anterior, r: Rehacer jugada, s: Dejar de deshacer o rehacer.
 	/*else {

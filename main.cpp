@@ -48,7 +48,7 @@ int main(){
 
 			if (viajeTemporal){
 
-				arbol->viajarEnElTiempo();
+				arbol->viajarEnElTiempo(partida,interactuar);
 
 
 			}else{
