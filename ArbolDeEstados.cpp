@@ -88,7 +88,6 @@ void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* i
 			puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 			cantidadDeshacer = this->obtenerSenialador()->obtenerCantidadDeNodosSuperiores();
 			cantidadRehacer = this->obtenerSenialador()->obtenerCantidadDeNodosInferiores();
-			partida->imprimirTablero(partida->obtenerTurnoActual());
 		}
 		else if(!validador.verificarDeshacerRehacerOSalir(accion)){
 			cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
