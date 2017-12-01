@@ -80,7 +80,9 @@ void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* i
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 
 	do{
+
 		accion = interactuar->pedirDeshacerORehacer(puntajeJugadorEnTurno,cantidadRehacer,cantidadDeshacer);
+
 		if ((accion==REHACER && cantidadRehacer > 0) || (accion==DESHACER && cantidadDeshacer > 0)) {
 			puntajeARestar = this->modificarSenialador(accion, partida);
 			partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);

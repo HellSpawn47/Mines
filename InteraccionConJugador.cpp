@@ -3,7 +3,7 @@
 #include "constantes.h"
 #include "NodoDeEstados.h"
 #include <iostream>
-
+#include <sstream>
 
 using namespace std;
 
@@ -123,12 +123,14 @@ char InteraccionConJugador::pedirDeshacerORehacer(int puntaje,int cantidadRehace
 	string cantidadPosible;
 	if (COSTE>0){
 		int division = puntaje/COSTE;
-		cantidadPosible = string(division);
+		stringstream ss;
+		ss << division;
+		cantidadPosible = ss.str();
 	}else{
 		cantidadPosible = "infinitas";
 	}
 	cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << cantidadPosible << " jugadas, es posible deshacer " << cantidadDeshacer <<
 		    " turnos y \n" << "rehacer hasta " << cantidadRehacer << " turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
 	cin >> accion;
-
+	return accion;
 }
