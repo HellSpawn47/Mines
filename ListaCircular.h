@@ -117,13 +117,11 @@ template<class T> class Lista {
          */
         ~Lista();
 
-    private:
-
         /*
          * Pre : Posicion pertenece al intervalo: [1, contarElementos()]
          * Post: Devuelve el nodo en la posicion indicada.
          */
-        Nodo<T>* obtenerNodo(unsigned int posicion); // NOTA: primitiva PRIVADA
+        Nodo<T>* obtenerNodo(unsigned int posicion);
 };
 
 template<class T> Lista<T>::Lista() {

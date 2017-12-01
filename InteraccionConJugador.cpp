@@ -86,7 +86,8 @@ bool InteraccionConJugador::preguntarViajeTemporal(){
 }
 
 void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
-	uint fila, columna;
+	uint fila = 0;
+	uint columna = 0;
 	Validador validador;
 	char accion, coma;
 	//s: Si, n: No.
