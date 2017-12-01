@@ -1,6 +1,7 @@
 #include "ArbolDeEstados.h"
 #include "constantes.h"
 #include <iostream>
+#include <string>
 #include "validadorDeIngresos.h"
 #include "InteraccionConJugador.h"
 
@@ -79,9 +80,7 @@ void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* i
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 
 	do{
-		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/COSTE << " jugadas, es posible deshacer " << cantidadDeshacer <<
-			    " turnos y \n" << "rehacer hasta " << cantidadRehacer << " turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
-		cin >> accion;
+		accion = interactuar->pedirDeshacerORehacer(puntajeJugadorEnTurno,cantidadRehacer,cantidadDeshacer);
 		if ((accion==REHACER && cantidadRehacer > 0) || (accion==DESHACER && cantidadDeshacer > 0)) {
 			puntajeARestar = this->modificarSenialador(accion, partida);
 			partida->obtenerJugadorEnTurno()->modificarPuntaje(puntajeARestar);

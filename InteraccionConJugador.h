@@ -62,6 +62,12 @@ class InteraccionConJugador{
 		 * Post: Imprime por pantalla una frase en una linea.
 		 */
 		void imprimirMensaje(std::string frase);
+
+		/*
+		 * Pre: Recibe el puntaje del jugador y la cantidad de veces que se puede deshacer o rehacer actualmente
+		 * Post: Le indica al usuario cuantas veces puede hacer o deshacer en las condiciones mencionadas y devuelve la accion (d/r/s) que ingrese el jugador.
+		 */
+		char pedirDeshacerORehacer(int puntaje,int cantidadRehacer,int cantidadDeshacer);
 };
 
 #endif

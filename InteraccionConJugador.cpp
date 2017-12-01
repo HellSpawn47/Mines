@@ -117,3 +117,18 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 
 	jugada->modificarAccion(accion);
 }
+
+char InteraccionConJugador::pedirDeshacerORehacer(int puntaje,int cantidadRehacer,int cantidadDeshacer){
+	char accion;
+	string cantidadPosible;
+	if (COSTE>0){
+		int division = puntaje/COSTE;
+		cantidadPosible = string(division);
+	}else{
+		cantidadPosible = "infinitas";
+	}
+	cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << cantidadPosible << " jugadas, es posible deshacer " << cantidadDeshacer <<
+		    " turnos y \n" << "rehacer hasta " << cantidadRehacer << " turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
+	cin >> accion;
+
+}
