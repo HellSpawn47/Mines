@@ -38,7 +38,7 @@ int ArbolDeEstados::modificarSenialador(char opcion,Partida* partida){
 		cout << "No se puede deshacer \n";
 		puntajeARestar=0;
 	}
-	else if (opcion == REHACER && (senialador->obtenerEstadosHijos() != NULL)){
+	else if (opcion == REHACER && (senialador->obtenerEstadosHijos()->contarElementos() != 0)){
 		Lista<NodoDeEstados*>* listaDeNodos = senialador->obtenerEstadosHijos();
 		listaDeNodos->iniciarCursor();
 		listaDeNodos->avanzarCursor();

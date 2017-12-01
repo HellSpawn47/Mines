@@ -109,7 +109,7 @@ void InteraccionConJugador::pedirJugada(Jugada* jugada,Partida* partida){
 				}
 			}
 
-		}while (((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))) && (accion!=SALIR));
+	}while (((!partida->getTablero()->esPosicionValida(fila,columna))||(!validador.esAccionValida(accion))) && (accion!=SALIR));
 		if (accion!=SALIR){
 			jugada->modificarFila(fila);
 			jugada->modificarColumna(columna);
@@ -129,8 +129,17 @@ char InteraccionConJugador::pedirDeshacerORehacer(int puntaje,int cantidadRehace
 	}else{
 		cantidadPosible = "infinitas";
 	}
-	cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << cantidadPosible << " jugadas, es posible deshacer " << cantidadDeshacer <<
+
+	do{
+
+		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << cantidadPosible << " jugadas, es posible deshacer " << cantidadDeshacer <<
 		    " turnos y \n" << "rehacer hasta " << cantidadRehacer << " turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
-	cin >> accion;
+		cin >> accion;
+
+		if (accion!=REHACER && accion!=DESHACER && accion!=SALIR){
+			cout << "\nLa accion ingresada no es valida, ingrese nuevamente \n" << endl;
+		}
+
+	}while (accion!=REHACER && accion!=DESHACER && accion!=SALIR);
 	return accion;
 }
