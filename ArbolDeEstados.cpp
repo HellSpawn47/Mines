@@ -79,7 +79,7 @@ void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* i
 	puntajeJugadorEnTurno=partida->obtenerJugadorEnTurno()->getPuntaje();
 
 	do{
-		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/3 << " jugadas, es posible deshacer " << cantidadDeshacer <<
+		cout << "Con tu puntaje actual podes deshacer/rehacer hasta " << puntajeJugadorEnTurno/COSTE << " jugadas, es posible deshacer " << cantidadDeshacer <<
 			    " turnos y \n" << "rehacer hasta " << cantidadRehacer << " turnos (considerando realidades alternativas), que desea hacer (d/r/s)?" << endl;
 		cin >> accion;
 		if ((accion==REHACER && cantidadRehacer > 0) || (accion==DESHACER && cantidadDeshacer > 0)) {
@@ -94,7 +94,7 @@ void ArbolDeEstados::viajarEnElTiempo(Partida* partida, InteraccionConJugador* i
 			cout << "La accion ingresada no es valida, ingrese nuevamente" << endl;
 		}
 
-	}while(accion!='s' && puntajeJugadorEnTurno >= 3);
+	}while(accion!='s' && puntajeJugadorEnTurno >= COSTE);
 
 }
 

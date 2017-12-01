@@ -40,7 +40,7 @@ int main(){
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
 			cout << "\nEs el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
 
-			if (partida->obtenerJugadorEnTurno()->getPuntaje()>=3){
+			if (partida->obtenerJugadorEnTurno()->getPuntaje()>=COSTE){
 				viajeTemporal = interactuar->preguntarViajeTemporal();
 			}else{
 				viajeTemporal = false;

@@ -4,6 +4,7 @@
 //Cantidades y Constantes
 const int BOMBA='B';
 const int CERO=0;
+const int COSTE=3;
 
 //Acciones a tomar en la Partida
 const char ABRIR='a';

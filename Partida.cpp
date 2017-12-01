@@ -113,7 +113,7 @@ int Partida::actualizarTablero(Jugada* jugada,EstadoDeTurno* estado){
 }
 
 int Partida::volverAlFuturo(EstadoDeTurno* estado,char accion){
-	int costeDeshacer = -3;
+	int costeDeshacer = -COSTE;
 	Posicion* posicionesADeshacer=estado->obtenerPosicionesDescubiertas();
 	uint tope=estado->obtenerTope();
 	for (uint i=0; i<tope; i++){
