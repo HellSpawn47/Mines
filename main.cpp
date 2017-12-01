@@ -31,11 +31,12 @@ int main(){
 	partida->agregarJugadores(cantJugadores);
 
 	partida->imprimirTablero(1);
-	partida->avanzarTurno();
 	//Inicio de cada jugada
 	bool viajeTemporal;
 
 	do{
+
+		partida->avanzarTurno();
 
 		if(partida->obtenerJugadorEnTurno()->getSigueJugando()){
 			cout << "\nEs el turno de: " << partida->obtenerJugadorEnTurno()->getNombre() << endl;
@@ -68,8 +69,6 @@ int main(){
 
 			}
 		}
-
-		partida->avanzarTurno();
 
 
 	}while( partida->continuarPartida() );
