@@ -61,13 +61,13 @@ int main(){
 				puntaje = partida->actualizarTablero(jugada,estado);
 
 				partida->actualizarPuntaje(puntaje);
-				partida->imprimirTablero(partida->obtenerTurnoActual());
 
-				cout << "\npuntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
-				cout << "\n------------------------------------------------------------------" << endl;
-				puntajes->imprimirPuntajes(partida->obtenerListaDeJugadores(), partida->obtenerTurnoActual());
 
 			}
+			cout << "\npuntaje: " << partida->obtenerJugadorEnTurno()->getPuntaje() << endl;
+			cout << "\n------------------------------------------------------------------" << endl;
+			puntajes->imprimirPuntajes(partida->obtenerListaDeJugadores(), partida->obtenerTurnoActual());
+			partida->imprimirTablero(partida->obtenerTurnoActual());
 		}
 
 
