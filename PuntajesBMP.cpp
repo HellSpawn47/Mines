@@ -40,19 +40,7 @@ void PuntajesBMP::imprimirPuntajes(Lista<Jugador*>* jugador, unsigned int turno)
 
     rutaBMP = (char *)nombreBMP.c_str();
 
-    while (this->puntaje.ReadFromFile(rutaBMP))
-    {
-    	j = 0;
-    	j++;
-        nombreBMP = "puntajes-turno";
-        nombreBMP += rtn;
-        nombreBMP += "_";
-        for(rtn="";j>0;rtn.insert(rtn.begin(),j%10+'0'),j/=10);
-        nombreBMP += rtn;
-        nombreBMP += ".bmp";
 
-        rutaBMP = (char *)nombreBMP.c_str();
-    }
 
     this->puntaje.SetSize(800,600);
 
