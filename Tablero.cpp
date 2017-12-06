@@ -80,7 +80,9 @@ int Tablero::descubrirCasillerosAledaniosVacio(int fila,int columna, EstadoDeTur
 
 	if(!esPosicionValida(fila,columna))
 		return 0;
-	if(tablero[fila][columna].getValor() == CERO && tablero[fila][columna].getEstado() == OCULTO){
+	if(tablero[fila][columna].getValor() == CERO && (tablero[fila][columna].getEstado() == OCULTO ||
+			tablero[fila][columna].getEstado() == MARCADO)){
+
 
 		this->cambiarEstadoCasillero(fila, columna, DESCUBIERTO);
 		estado->agregarPosicionInteractuada(fila, columna,DESCUBIERTO);
